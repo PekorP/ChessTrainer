@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:ChessTrainer"
         mc:Ignorable="d"
         Title="MainWindow"
-        Height="450" Width="800"
+        Height="700" Width="1200"
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+    
     <Window.Resources>
         <Style x:Key="MinimizeAndCloseButtonStyle" TargetType="Button">
             <Setter Property="FontSize" Value="30"/>
@@ -32,12 +33,13 @@
             </Setter>
         </Style>
     </Window.Resources>
+    
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition MinHeight="70" MaxHeight="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Background="#ff8c69">
+        <Grid Grid.Row="0" Background="SandyBrown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="100"/>
@@ -54,6 +56,19 @@
                         Margin="10">
                 <Button Style="{StaticResource MinimizeAndCloseButtonStyle}">一</Button>
                 <Button Style="{StaticResource MinimizeAndCloseButtonStyle}">X</Button>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <Button Height="100">Координаты</Button>
+                <Button Height="100">Белое и черное</Button>
+                <Button Height="100">Озвучка партии</Button>
+                <Button Height="100">Сможет ли побить?</Button>
+                <Button Height="100">Материальное преимущество</Button>
             </StackPanel>
         </Grid>
     </Grid>
