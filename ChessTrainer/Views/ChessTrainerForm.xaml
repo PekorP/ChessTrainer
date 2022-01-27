@@ -5,8 +5,56 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChessTrainer"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="450" Width="800"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True">
+    <Window.Resources>
+        <Style x:Key="MinimizeAndCloseButtonStyle" TargetType="Button">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Margin" Value="5,0"/>
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <TextBlock Text="{TemplateBinding Content}"></TextBlock>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="Gold"/>
+                                <Setter Property="Cursor" Value="Hand"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Foreground" Value="Yellow"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition MinHeight="70" MaxHeight="70"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Background="#ff8c69">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="100"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" Grid.ColumnSpan="2"
+                       VerticalAlignment="Center" 
+                       HorizontalAlignment="Center" FontSize="25" Foreground="White">
+                Шахматный тренажер by Pekor
+            </TextBlock>
+            <StackPanel Grid.Column="1"
+                        Orientation="Horizontal"                        
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Margin="10">
+                <Button Style="{StaticResource MinimizeAndCloseButtonStyle}">一</Button>
+                <Button Style="{StaticResource MinimizeAndCloseButtonStyle}">X</Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>
