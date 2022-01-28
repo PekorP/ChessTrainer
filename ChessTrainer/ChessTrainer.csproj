@@ -98,5 +98,18 @@
     <Folder Include="Models\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\IconsForSideMenu\BlackAndWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\IconsForSideMenu\Сoordinates.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\IconsForSideMenu\GameVoiceActing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\IconsForSideMenu\IsCanBeat.png" />
+    <Resource Include="Pics\IconsForSideMenu\MaterialAdvantage.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
