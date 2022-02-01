@@ -141,7 +141,7 @@
 
             <!--======================================Content========================================-->
 
-            <Frame Source="CoordinatesPage.xaml" Grid.Row="1" Grid.Column="1">
+            <Frame Source="Pages/CoordinatesPage.xaml" Grid.Row="1" Grid.Column="1">
 
 
             </Frame>

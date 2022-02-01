@@ -55,7 +55,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Views\CoordinatesPage.xaml.cs">
+    <Compile Include="Enums\CellColor.cs" />
+    <Compile Include="Models\Board.cs" />
+    <Compile Include="Models\Cell.cs" />
+    <Compile Include="Views\Pages\CoordinatesPage.xaml.cs">
       <DependentUpon>CoordinatesPage.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\ChessTrainerForm.xaml">
@@ -70,7 +73,7 @@
       <DependentUpon>ChessTrainerForm.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\CoordinatesPage.xaml">
+    <Page Include="Views\Pages\CoordinatesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -102,7 +105,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
+    <Folder Include="Commands\" />
+    <Folder Include="Dictionaries\" />
     <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
