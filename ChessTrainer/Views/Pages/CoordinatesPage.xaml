@@ -15,7 +15,6 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="..\..\Dictionaries\CoordinatesDictionary.xaml"/> 
-
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
@@ -33,15 +32,24 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
-            <!--Шахматная доска-->
-
-            <ListBox Grid.Row="0" Grid.Column="1"
-                     x:Name="ListBoxChessBoard"
+            <ListBox x:Name="ListBoxChessBoard" 
+                     Grid.Row="0" Grid.Column="1"
                      ItemsSource="{Binding Board.Cells}"
                      Style="{StaticResource ListBoxChessBoardStyle}">
             </ListBox>
-            
-            <!--Шахматная доска-->
+
+            <ListBox x:Name="ListBoxRanks"
+                     Grid.Row="0" Grid.Column="0"
+                     Style="{StaticResource ListBoxCoordinatesRanks}"
+                     ItemsSource="{Binding Ranks}"
+                     HorizontalContentAlignment="Center">
+            </ListBox>
+
+            <ListBox x:Name="ListBoxFiles"
+                     Grid.Row="1" Grid.Column="1"
+                     ItemsSource="{Binding Files}"
+                     Style="{StaticResource ListBoxCoordinatesFiles}">
+            </ListBox>
             
         </Grid>
         <!--Шахматная доска и координаты-->
