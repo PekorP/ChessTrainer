@@ -6,11 +6,11 @@ namespace ChessTrainer.Models
     {
         const int COUNT_CELLS_ON_BOARD = 64;
         const int COUNT_VERTICAL_AND_HORIZONTAL = 8;
-        public Cell[] cells { get; set; } //Массив клеток, из которых состоит шахматная доска
+        public Cell[] Cells { get; set; } //Массив клеток, из которых состоит шахматная доска
 
         public Board()
         {
-            cells = new Cell[COUNT_CELLS_ON_BOARD];
+            Cells = new Cell[COUNT_CELLS_ON_BOARD];
             SetupBoard();
         }
 
@@ -24,7 +24,7 @@ namespace ChessTrainer.Models
                 for (int j = 0; j < COUNT_VERTICAL_AND_HORIZONTAL; j++)
                 {
                     int index = j + COUNT_VERTICAL_AND_HORIZONTAL * i; //индекс для заполнения массива от 1 до 64
-                    cells[index] = new Cell() //Создаем клетку с нужными данными (цвет, вертикальное и горизонтальное значение)
+                    Cells[index] = new Cell() //Создаем клетку с нужными данными (цвет, вертикальное и горизонтальное значение)
                     {
                         File = files[j],
                         Rank = (COUNT_VERTICAL_AND_HORIZONTAL - i),

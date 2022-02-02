@@ -4,10 +4,59 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ChessTrainer.Views"
+      xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="620" d:DesignWidth="900"
       Title="CoordinatesPage">
+    <Page.DataContext>
+        <vm:CoordinatesViewModel/>
+    </Page.DataContext>
 
-    <Grid Background="White">
+    <Grid Background="OrangeRed">
+        
+        <!--Шахматная доска и координаты-->
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="60"/>
+                <ColumnDefinition Width="405"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="405"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <!--Шахматная доска-->
+
+            <ListBox Grid.Row="0" Grid.Column="1"
+                     x:Name="ListBoxChessBoard"
+                     ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                     ItemsSource="{Binding Board.Cells}">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Rectangle Margin="-5 -2" x:Name="RectCell" Width="50" Height="50"/>
+                        <DataTemplate.Triggers>
+                            <DataTrigger Binding="{Binding Color}" Value="White">
+                                <Setter TargetName="RectCell" Property="Fill" Value="White"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Color}" Value="Black">
+                                <Setter TargetName="RectCell" Property="Fill" Value="Black"/>
+                            </DataTrigger>
+                        </DataTemplate.Triggers>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+            </ListBox>
+            
+            <!--Шахматная доска-->
+            
+        </Grid>
+        <!--Шахматная доска и координаты-->
+        
     </Grid>
 </Page>
