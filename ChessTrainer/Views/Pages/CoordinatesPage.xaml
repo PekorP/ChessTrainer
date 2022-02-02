@@ -19,8 +19,8 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Background="OrangeRed" MinHeight="620" MinWidth="900">
-        
+    <Grid Background="#ff7440" MinHeight="620" MinWidth="900">
+
         <!--Шахматная доска и координаты-->
         <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
@@ -50,7 +50,18 @@
                      ItemsSource="{Binding Files}"
                      Style="{StaticResource ListBoxCoordinatesFiles}">
             </ListBox>
-            
+
+            <Grid Grid.Row="1" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="ButtonChangeColor"
+                    Grid.Row="0"
+                    Style="{StaticResource ButtonChangeColorStyle}"
+                    Command="{Binding ChangeColorCommand}"/>
+                <TextBlock Foreground="White" Grid.Row="1" Text="Тек. цвет"/>
+            </Grid>
         </Grid>
         <!--Шахматная доска и координаты-->
         

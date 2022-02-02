@@ -80,4 +80,30 @@
         </Setter>
     </Style>
 
+    <Style x:Key="ButtonChangeColorStyle" TargetType="Button">
+        <Setter Property="Height" Value="25"/>
+        <Setter Property="Width" Value="25"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border BorderBrush="Gray" BorderThickness="2">
+                        <Rectangle Fill="{TemplateBinding Background}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand"/>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding CurrentColorBoard}" Value="White">
+                            <Setter Property="Background" Value="White"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding CurrentColorBoard}" Value="Black">
+                            <Setter Property="Background" Value="Black"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

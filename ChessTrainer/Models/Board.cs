@@ -1,16 +1,24 @@
 ﻿using ChessTrainer.Enums;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace ChessTrainer.Models
 {
-    public class Board
+    public class Board : INotifyPropertyChanged
     {
-        const int COUNT_CELLS_ON_BOARD = 64;
         const int COUNT_VERTICAL_AND_HORIZONTAL = 8;
-        public Cell[] Cells { get; set; } //Массив клеток, из которых состоит шахматная доска
+
+        private ObservableCollection<Cell> cells;
+        public ObservableCollection<Cell> Cells //Массив клеток, из которых состоит шахматная доска
+        {
+            get { return cells; }
+            set { cells = value; OnPropertyChanged(); }
+        }
 
         public Board()
         {
-            Cells = new Cell[COUNT_CELLS_ON_BOARD];
+            Cells = new ObservableCollection<Cell>();
             SetupBoard();
         }
 
@@ -23,19 +31,24 @@ namespace ChessTrainer.Models
             {
                 for (int j = 0; j < COUNT_VERTICAL_AND_HORIZONTAL; j++)
                 {
-                    int index = j + COUNT_VERTICAL_AND_HORIZONTAL * i; //индекс для заполнения массива от 1 до 64
-                    Cells[index] = new Cell() //Создаем клетку с нужными данными (цвет, вертикальное и горизонтальное значение)
+                    Cells.Add(new Cell() //Создаем клетку с нужными данными (цвет, вертикальное и горизонтальное значение)
                     {
                         File = files[j],
                         Rank = (COUNT_VERTICAL_AND_HORIZONTAL - i),
                         Color = currentColor
-                    };
+                    });
                     currentColor = currentColor == CellColor.White ? CellColor.Black : CellColor.White; //меняем цвет
                 }
                 //в начале горизонтали меняем цвет,
                 //так как горизонталь начинается с того же цвета, с которого заканчивается предыдущая
                 currentColor = currentColor == CellColor.White ? CellColor.Black : CellColor.White; 
             }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+        public void OnPropertyChanged([CallerMemberName] string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
