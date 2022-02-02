@@ -58,6 +58,7 @@
     <Compile Include="Enums\CellColor.cs" />
     <Compile Include="Models\Board.cs" />
     <Compile Include="Models\Cell.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="Views\Pages\CoordinatesPage.xaml.cs">
       <DependentUpon>CoordinatesPage.xaml</DependentUpon>
     </Compile>
@@ -107,7 +108,6 @@
   <ItemGroup>
     <Folder Include="Commands\" />
     <Folder Include="Dictionaries\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pics\IconsForSideMenu\BlackAndWhite.png" />

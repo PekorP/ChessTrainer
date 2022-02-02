@@ -23,7 +23,7 @@ namespace ChessTrainer.Models
             {
                 for (int j = 0; j < COUNT_VERTICAL_AND_HORIZONTAL; j++)
                 {
-                    int index = j + 8 * i; //индекс для заполнения массива от 1 до 64
+                    int index = j + COUNT_VERTICAL_AND_HORIZONTAL * i; //индекс для заполнения массива от 1 до 64
                     cells[index] = new Cell() //Создаем клетку с нужными данными (цвет, вертикальное и горизонтальное значение)
                     {
                         File = files[j],
@@ -32,8 +32,8 @@ namespace ChessTrainer.Models
                     };
                     currentColor = currentColor == CellColor.White ? CellColor.Black : CellColor.White; //меняем цвет
                 }
-                //в конце горизонтали меняем цвет,
-                //так как след. горизонталь начинается с того же цвета, с которого заканчивается предыдущая
+                //в начале горизонтали меняем цвет,
+                //так как горизонталь начинается с того же цвета, с которого заканчивается предыдущая
                 currentColor = currentColor == CellColor.White ? CellColor.Black : CellColor.White; 
             }
         }
