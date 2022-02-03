@@ -5,10 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ChessTrainer"
         mc:Ignorable="d"
+        xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
+        
         Title="MainWindow"
         Height="700" Width="1200"
         WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" WindowStyle="None" AllowsTransparency="True">
 
+    <Window.DataContext>
+        <vm:ChessTrainerViewModel/>
+    </Window.DataContext>
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -18,12 +23,10 @@
     </Window.Resources>
 
     <Grid>
-
         <Grid.RowDefinitions>
             <RowDefinition MinHeight="80" MaxHeight="80" Height="4*"/>
             <RowDefinition Height="31*"/>
         </Grid.RowDefinitions>
-
         <!--======================================Header========================================-->
         <Grid Grid.Row="0" Background="SandyBrown">
             <Grid.ColumnDefinitions>
@@ -40,7 +43,7 @@
                         VerticalAlignment="Center"
                         Margin="10">
                 <Button Style="{StaticResource MinimizeAndCloseButtonStyle}">一</Button>
-                <Button Style="{StaticResource MinimizeAndCloseButtonStyle}">X</Button>
+                <Button Style="{StaticResource MinimizeAndCloseButtonStyle}" Command="{Binding CloseApplication}">X</Button>
             </StackPanel>
         </Grid>
         <!--======================================Header========================================-->
