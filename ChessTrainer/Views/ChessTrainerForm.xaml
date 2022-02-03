@@ -9,7 +9,10 @@
         
         Title="MainWindow"
         Height="700" Width="1200"
-        WindowStartupLocation="CenterScreen" ResizeMode="CanResizeWithGrip" WindowStyle="None" AllowsTransparency="True">
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip" WindowStyle="None"
+        AllowsTransparency="True" Icon="/Pics/chessIcon.png">
+
 
     <Window.DataContext>
         <vm:ChessTrainerViewModel/>

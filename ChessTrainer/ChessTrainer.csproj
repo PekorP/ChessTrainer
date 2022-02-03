@@ -116,7 +116,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Pics\chessIcon.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Pics\IconsForSideMenu\BlackAndWhite.png" />
   </ItemGroup>
