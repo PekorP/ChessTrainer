@@ -47,6 +47,11 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding ElementName=CheckBoxShowCoordinates, Path=IsChecked}" Value="False">
+                <Setter Property="Visibility" Value="Hidden"/>
+            </DataTrigger>
+        </Style.Triggers>
     </Style>
 
     <Style TargetType="ListBox" x:Key="ListBoxCoordinatesRanks" BasedOn="{StaticResource ListBoxCoordinatesBase}">
@@ -103,6 +108,18 @@
                         </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CheckBoxShowCoordinatesStyle" TargetType="CheckBox">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="IsChecked" Value="True"/>
+        <Setter Property="LayoutTransform">
+            <Setter.Value>
+                <ScaleTransform ScaleX="1.5" ScaleY="1.5" />
             </Setter.Value>
         </Setter>
     </Style>

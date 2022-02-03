@@ -20,38 +20,40 @@
     </Page.Resources>
 
     <Grid Background="#ff7440" MinHeight="620" MinWidth="900">
-
-        <!--Шахматная доска и координаты-->
         <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50"/>
                 <ColumnDefinition Width="405"/>
+                <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
                 <RowDefinition Height="405"/>
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
             <ListBox x:Name="ListBoxChessBoard" 
-                     Grid.Row="0" Grid.Column="1"
+                     Grid.Row="1" Grid.Column="1"
                      ItemsSource="{Binding Board.Cells}"
                      Style="{StaticResource ListBoxChessBoardStyle}">
             </ListBox>
 
             <ListBox x:Name="ListBoxRanks"
-                     Grid.Row="0" Grid.Column="0"
+                     Grid.Row="1" Grid.Column="0"
                      Style="{StaticResource ListBoxCoordinatesRanks}"
                      ItemsSource="{Binding Ranks}"
                      HorizontalContentAlignment="Center">
+
             </ListBox>
 
+
             <ListBox x:Name="ListBoxFiles"
-                     Grid.Row="1" Grid.Column="1"
+                     Grid.Row="2" Grid.Column="1"
                      ItemsSource="{Binding Files}"
                      Style="{StaticResource ListBoxCoordinatesFiles}">
             </ListBox>
 
-            <Grid Grid.Row="1" Grid.Column="0">
+            <Grid Grid.Row="2" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -62,8 +64,11 @@
                     Command="{Binding ChangeColorCommand}"/>
                 <TextBlock Foreground="White" Grid.Row="1" Text="Тек. цвет"/>
             </Grid>
+
+            <CheckBox x:Name="CheckBoxShowCoordinates"
+                      Grid.Row="0" Grid.Column="1"
+                      Content="Показать координаты"
+                      Style="{StaticResource CheckBoxShowCoordinatesStyle}"/>
         </Grid>
-        <!--Шахматная доска и координаты-->
-        
     </Grid>
 </Page>
