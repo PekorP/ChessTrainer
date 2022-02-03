@@ -42,7 +42,7 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Margin="10">
-                <Button Style="{StaticResource MinimizeAndCloseButtonStyle}">一</Button>
+                <Button Style="{StaticResource MinimizeAndCloseButtonStyle}" Command="{Binding MinimizeAppllicatiom}">一</Button>
                 <Button Style="{StaticResource MinimizeAndCloseButtonStyle}" Command="{Binding CloseApplication}">X</Button>
             </StackPanel>
         </Grid>
