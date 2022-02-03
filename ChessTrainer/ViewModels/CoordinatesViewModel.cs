@@ -1,9 +1,10 @@
 ﻿using ChessTrainer.Commands;
 using ChessTrainer.Enums;
 using ChessTrainer.Models;
-using System.Collections.Generic;
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 
 namespace ChessTrainer.ViewModels
 {
@@ -15,7 +16,6 @@ namespace ChessTrainer.ViewModels
         #region Команда изменения цвета доски
 
         private RelayCommand changeColorCommand;
-
         public RelayCommand ChangeColorCommand
         {
             get {
@@ -29,7 +29,6 @@ namespace ChessTrainer.ViewModels
                   }));
                     }
         }
-
 
         #endregion
 
@@ -56,12 +55,40 @@ namespace ChessTrainer.ViewModels
         }
         public Board Board{ get; set; }
 
+        private Cell randomCell;
+
+        public Cell RandomCell
+        {
+            get { return randomCell; }
+            set { randomCell = value; OnPropertyChanged(); }
+        }
+
+        private Cell selectedCell;
+
+        public Cell SelectedCell
+        {
+            get { return selectedCell; }
+            set {
+                selectedCell = value;
+                OnPropertyChanged();
+                if (selectedCell.Equals(RandomCell))
+                    MessageBox.Show("YES!");
+                else
+                    MessageBox.Show(selectedCell.File + " " + selectedCell.Rank);
+                selectedCell = null;
+                RandomCell = Board.Cells[new Random().Next(64)];
+
+            }
+        }
+
+
         public CoordinatesViewModel()
         {
             Board = new Board();
-            ranks = new ObservableCollection<int> { 8, 7, 6, 5, 4, 3, 2, 1 };
+            Ranks = new ObservableCollection<int> { 8, 7, 6, 5, 4, 3, 2, 1 };
             Files = new ObservableCollection<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
             CurrentColorBoard = CellColor.White; //Изначально мы "смотрим" на доску со стороны белых
+            RandomCell = Board.Cells[new Random().Next(Board.Cells.Count())];
         }
     }
 }

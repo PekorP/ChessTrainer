@@ -14,7 +14,7 @@
     <Page.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="..\..\Dictionaries\CoordinatesDictionary.xaml"/> 
+                <ResourceDictionary Source="..\..\Dictionaries\CoordinatesDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
@@ -35,21 +35,23 @@
             <ListBox x:Name="ListBoxChessBoard" 
                      Grid.Row="1" Grid.Column="1"
                      ItemsSource="{Binding Board.Cells}"
-                     Style="{StaticResource ListBoxChessBoardStyle}">
-            </ListBox>
+                     SelectedItem="{Binding SelectedCell}"
+                     Style="{StaticResource ListBoxChessBoardStyle}"
+                     SelectionMode="Extended"/>
+
 
             <ListBox x:Name="ListBoxRanks"
                      Grid.Row="1" Grid.Column="0"
                      Style="{StaticResource ListBoxCoordinatesRanks}"
                      ItemsSource="{Binding Ranks}"
-                     HorizontalContentAlignment="Center">
-            </ListBox>
+                     HorizontalContentAlignment="Center"/>
+
 
             <ListBox x:Name="ListBoxFiles"
                      Grid.Row="2" Grid.Column="1"
                      ItemsSource="{Binding Files}"
-                     Style="{StaticResource ListBoxCoordinatesFiles}">
-            </ListBox>
+                     Style="{StaticResource ListBoxCoordinatesFiles}"/>
+
 
             <Grid x:Name="GridChangeColor"
                   Grid.Row="2" Grid.Column="0">
@@ -79,9 +81,11 @@
                 <StackPanel x:Name="StackPanelRandomCellCoordinate"
                             Orientation="Horizontal" HorizontalAlignment="Center"
                             VerticalAlignment="Bottom">
-                    <TextBlock x:Name="FileOfRandomCell" Text="A"
+                    <TextBlock x:Name="FileOfRandomCell"
+                               Text="{Binding RandomCell.File, UpdateSourceTrigger=PropertyChanged}"
                                Style="{StaticResource TextBlockRandomCellStyle}"/>
-                    <TextBlock x:Name="RankOfRandomCell" Text="1"
+                    <TextBlock x:Name="RankOfRandomCell"
+                               Text="{Binding RandomCell.Rank, UpdateSourceTrigger=PropertyChanged}"
                                Style="{StaticResource TextBlockRandomCellStyle}"/>
                 </StackPanel>
             </Grid>

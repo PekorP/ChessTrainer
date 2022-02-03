@@ -14,5 +14,13 @@ namespace ChessTrainer.Models
         public int Rank { get; set; } //1-8 (Горизонтали)
 
         public char File{ get; set; } //a-h (Вертикали)
+
+        public override bool Equals(object obj)
+        {
+            return obj is Cell cell &&
+                   Color == cell.Color &&
+                   Rank == cell.Rank &&
+                   File == cell.File;
+        }
     }
 }
