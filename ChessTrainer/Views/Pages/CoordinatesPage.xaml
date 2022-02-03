@@ -24,7 +24,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="50"/>
                 <ColumnDefinition Width="405"/>
-                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="150"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -43,9 +43,7 @@
                      Style="{StaticResource ListBoxCoordinatesRanks}"
                      ItemsSource="{Binding Ranks}"
                      HorizontalContentAlignment="Center">
-
             </ListBox>
-
 
             <ListBox x:Name="ListBoxFiles"
                      Grid.Row="2" Grid.Column="1"
@@ -53,7 +51,8 @@
                      Style="{StaticResource ListBoxCoordinatesFiles}">
             </ListBox>
 
-            <Grid Grid.Row="2" Grid.Column="0">
+            <Grid x:Name="GridChangeColor"
+                  Grid.Row="2" Grid.Column="0">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -69,6 +68,23 @@
                       Grid.Row="0" Grid.Column="1"
                       Content="Показать координаты"
                       Style="{StaticResource CheckBoxShowCoordinatesStyle}"/>
+
+            <Grid x:Name="GridRandomCellCoordinate"
+                  Grid.Row="1" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel x:Name="StackPanelRandomCellCoordinate"
+                            Orientation="Horizontal" HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom">
+                    <TextBlock x:Name="FileOfRandomCell" Text="A"
+                               Style="{StaticResource TextBlockRandomCellStyle}"/>
+                    <TextBlock x:Name="RankOfRandomCell" Text="1"
+                               Style="{StaticResource TextBlockRandomCellStyle}"/>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Page>

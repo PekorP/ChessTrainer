@@ -123,4 +123,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="TextBlockRandomCellStyle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="60"/>
+        <Setter Property="Foreground" Value="{Binding ElementName=ButtonChangeColor, Path=Background}"/>
+    </Style>
 </ResourceDictionary>
