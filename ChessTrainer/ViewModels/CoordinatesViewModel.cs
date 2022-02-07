@@ -24,7 +24,9 @@ namespace ChessTrainer.ViewModels
                   {
                       Ranks = new ObservableCollection<int>(Ranks.Reverse<int>());
                       Files = new ObservableCollection<char>(Files.Reverse<char>());
-                      Board.Cells = new ObservableCollection<Cell>(Board.Cells.Reverse<Cell>());
+                      SelectedCell = null;
+                      OnPropertyChanged();
+                      Board.Cells = new ObservableCollection<Cell>(Board.Cells.Reverse<Cell>());                 
                       CurrentColorBoard = CurrentColorBoard == CellColor.White ? CellColor.Black : CellColor.White;
                   }));
                     }
@@ -71,24 +73,32 @@ namespace ChessTrainer.ViewModels
             set {
                 selectedCell = value;
                 OnPropertyChanged();
-                if (selectedCell.Equals(RandomCell))
-                    MessageBox.Show("YES!");
-                else
-                    MessageBox.Show(selectedCell.File + " " + selectedCell.Rank);
+                if(selectedCell != null) {
+                    if (selectedCell.Equals(RandomCell))
+                        IsRightSelection = true;
+                    else
+                        IsRightSelection = false;
+                }          
                 selectedCell = null;
                 RandomCell = Board.Cells[new Random().Next(64)];
-
             }
         }
 
+        private bool isRightSelection;
+        public bool IsRightSelection
+        {
+            get { return isRightSelection; }
+            set { isRightSelection = value; OnPropertyChanged(); }
+        }
 
-        public CoordinatesViewModel()
+    public CoordinatesViewModel()
         {
             Board = new Board();
             Ranks = new ObservableCollection<int> { 8, 7, 6, 5, 4, 3, 2, 1 };
             Files = new ObservableCollection<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
             CurrentColorBoard = CellColor.White; //Изначально мы "смотрим" на доску со стороны белых
             RandomCell = Board.Cells[new Random().Next(Board.Cells.Count())];
+            IsRightSelection = false;
         }
     }
 }

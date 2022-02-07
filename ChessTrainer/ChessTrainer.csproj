@@ -132,5 +132,10 @@
     <Resource Include="Pics\IconsForSideMenu\IsCanBeat.png" />
     <Resource Include="Pics\IconsForSideMenu\MaterialAdvantage.png" />
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Pics\PicsForCoordinates\RightSelection.png" />
+    <Resource Include="Pics\PicsForCoordinates\WrongSelection.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
