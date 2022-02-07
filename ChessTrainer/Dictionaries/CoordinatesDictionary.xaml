@@ -128,4 +128,19 @@
         <Setter Property="FontSize" Value="60"/>
         <Setter Property="Foreground" Value="{Binding ElementName=ButtonChangeColor, Path=Background}"/>
     </Style>
+
+    <Style x:Key="ImageResultSelectionStyle" TargetType="Image">
+        <Setter Property="Width" Value="70"/>
+        <Setter Property="Height" Value="70"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsRightSelection}" Value="true">
+                <Setter Property="Source" Value="/Pics/PicsForCoordinates/RightSelection.png"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsRightSelection}" Value="false">
+                <Setter Property="Source" Value="/Pics/PicsForCoordinates/WrongSelection.png"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>

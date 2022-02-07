@@ -56,8 +56,8 @@ namespace ChessTrainer.ViewModels
         }
         public Board Board{ get; set; }
 
-        private Cell randomCell;
 
+        private Cell randomCell;
         public Cell RandomCell
         {
             get { return randomCell; }
@@ -65,24 +65,26 @@ namespace ChessTrainer.ViewModels
         }
 
         private Cell selectedCell;
-
         public Cell SelectedCell
         {
             get { return selectedCell; }
             set {
                 selectedCell = value;
+                TotalCountAnswers++;
                 OnPropertyChanged();
-                if (selectedCell.Equals(RandomCell))
-                {
+                Cell newRandCell;
+                if (selectedCell.Equals(RandomCell)) { 
                     IsRightSelection = true;
-                    MessageBox.Show("YES");
+                    CountRightAnswers++; OnPropertyChanged();
                 }
                 else
+                  IsRightSelection = false;
+                do
                 {
-                    IsRightSelection = false;
-                    MessageBox.Show("NO");
-                }
+                    newRandCell = RandomCell;
                     RandomCell = Board.Cells[new Random().Next(64)];
+                } while (newRandCell.Equals(randomCell));
+
             }
         }
 
@@ -92,8 +94,21 @@ namespace ChessTrainer.ViewModels
             get { return isRightSelection; }
             set { isRightSelection = value; OnPropertyChanged(); }
         }
+        private int countRightAnswers;
+        public int CountRightAnswers
+        {
+            get { return countRightAnswers; }
+            set { countRightAnswers = value; OnPropertyChanged(); }
+        }
 
-    public CoordinatesViewModel()
+        private int totalCountAnswers;
+        public int TotalCountAnswers
+        {
+            get { return totalCountAnswers; }
+            set { totalCountAnswers = value; OnPropertyChanged(); }
+        }
+
+        public CoordinatesViewModel()
         {
             Board = new Board();
             Ranks = new ObservableCollection<int> { 8, 7, 6, 5, 4, 3, 2, 1 };
@@ -101,6 +116,8 @@ namespace ChessTrainer.ViewModels
             CurrentColorBoard = CellColor.White; //Изначально мы "смотрим" на доску со стороны белых
             RandomCell = Board.Cells[new Random().Next(Board.Cells.Count())];
             IsRightSelection = null;
+            CountRightAnswers = 0;
+            TotalCountAnswers = 0;
         }
     }
 }

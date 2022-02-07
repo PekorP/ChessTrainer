@@ -9,31 +9,13 @@ using System.Threading.Tasks;
 
 namespace ChessTrainer.Models
 {
-    public class Cell : INotifyPropertyChanged
+    public class Cell
     {
-        private CellColor color;
+        public CellColor Color { get; set; }
 
-        public CellColor Color
-        {
-            get { return color; }
-            set { color = value; OnPropertyChanged(); }
-        }
+        public int Rank { get; set; } //1-8 (Горизонтали)
 
-        private int rank;
-
-        public int Rank //1-8 (Горизонтали)
-        {
-            get { return rank; }
-            set { rank = value; OnPropertyChanged(); }
-        }
-
-        private char file;
-
-        public char File //a-h (Вертикали)
-        {
-            get { return file; }
-            set { file = value; OnPropertyChanged(); }
-        }
+        public char File { get; set; } //a-h (Вертикали)
 
         public override bool Equals(object obj)
         {
@@ -41,12 +23,6 @@ namespace ChessTrainer.Models
                    Color == cell.Color &&
                    Rank == cell.Rank &&
                    File == cell.File;
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
