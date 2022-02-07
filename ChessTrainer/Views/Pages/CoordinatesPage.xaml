@@ -36,8 +36,7 @@
                      Grid.Row="1" Grid.Column="1"
                      ItemsSource="{Binding Board.Cells}"
                      SelectedItem="{Binding SelectedCell}"
-                     Style="{StaticResource ListBoxChessBoardStyle}"
-                     SelectionMode="Extended"/>
+                     Style="{StaticResource ListBoxChessBoardStyle}"/>
 
 
             <ListBox x:Name="ListBoxRanks"
@@ -106,16 +105,7 @@
                         </Style>
                     </Image.Style>
                 </Image>
-
-
             </Grid>
-
-            <StackPanel Grid.Row="0" Grid.Column="0"
-                            Orientation="Horizontal" HorizontalAlignment="Center"
-                            VerticalAlignment="Bottom">
-                <TextBlock Text="{Binding SelectedCell.File, UpdateSourceTrigger=PropertyChanged}"/>
-                <TextBlock Text="{Binding SelectedCell.Rank, UpdateSourceTrigger=PropertyChanged}"/>
-            </StackPanel>
         </Grid>
     </Grid>
 </Page>

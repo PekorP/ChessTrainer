@@ -24,9 +24,8 @@ namespace ChessTrainer.ViewModels
                   {
                       Ranks = new ObservableCollection<int>(Ranks.Reverse<int>());
                       Files = new ObservableCollection<char>(Files.Reverse<char>());
-                      SelectedCell = null;
-                      OnPropertyChanged();
-                      Board.Cells = new ObservableCollection<Cell>(Board.Cells.Reverse<Cell>());                 
+                      IsRightSelection = null;
+                      Board.Cells = new ObservableCollection<Cell>(Board.Cells.Reverse<Cell>());
                       CurrentColorBoard = CurrentColorBoard == CellColor.White ? CellColor.Black : CellColor.White;
                   }));
                     }
@@ -73,19 +72,22 @@ namespace ChessTrainer.ViewModels
             set {
                 selectedCell = value;
                 OnPropertyChanged();
-                if(selectedCell != null) {
-                    if (selectedCell.Equals(RandomCell))
-                        IsRightSelection = true;
-                    else
-                        IsRightSelection = false;
-                }          
-                selectedCell = null;
-                RandomCell = Board.Cells[new Random().Next(64)];
+                if (selectedCell.Equals(RandomCell))
+                {
+                    IsRightSelection = true;
+                    MessageBox.Show("YES");
+                }
+                else
+                {
+                    IsRightSelection = false;
+                    MessageBox.Show("NO");
+                }
+                    RandomCell = Board.Cells[new Random().Next(64)];
             }
         }
 
-        private bool isRightSelection;
-        public bool IsRightSelection
+        private bool? isRightSelection;
+        public bool? IsRightSelection
         {
             get { return isRightSelection; }
             set { isRightSelection = value; OnPropertyChanged(); }
@@ -98,7 +100,7 @@ namespace ChessTrainer.ViewModels
             Files = new ObservableCollection<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
             CurrentColorBoard = CellColor.White; //Изначально мы "смотрим" на доску со стороны белых
             RandomCell = Board.Cells[new Random().Next(Board.Cells.Count())];
-            IsRightSelection = false;
+            IsRightSelection = null;
         }
     }
 }
