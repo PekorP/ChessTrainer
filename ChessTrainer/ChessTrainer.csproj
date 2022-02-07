@@ -55,6 +55,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Enums\CellColor.cs" />
+    <Compile Include="Models\Board.cs" />
+    <Compile Include="Models\Cell.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\ChessTrainerViewModel.cs" />
+    <Compile Include="ViewModels\CoordinatesViewModel.cs" />
+    <Compile Include="Views\Pages\CoordinatesPage.xaml.cs">
+      <DependentUpon>CoordinatesPage.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Dictionaries\ChessTrainerDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionaries\CoordinatesDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\ChessTrainerForm.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -67,6 +85,10 @@
       <DependentUpon>ChessTrainerForm.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Pages\CoordinatesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -95,8 +117,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
+    <Resource Include="Pics\chessIcon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pics\IconsForSideMenu\BlackAndWhite.png" />
@@ -110,6 +131,11 @@
   <ItemGroup>
     <Resource Include="Pics\IconsForSideMenu\IsCanBeat.png" />
     <Resource Include="Pics\IconsForSideMenu\MaterialAdvantage.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Pics\PicsForCoordinates\RightSelection.png" />
+    <Resource Include="Pics\PicsForCoordinates\WrongSelection.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
