@@ -1,0 +1,105 @@
+﻿ <Page x:Class="ChessTrainer.Views.CoordinatesPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChessTrainer.Views"
+      xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
+      mc:Ignorable="d" 
+      MinHeight="620" MinWidth="900"
+      Title="CoordinatesPage">
+    <Page.DataContext>
+        <vm:CoordinatesViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\Dictionaries\CoordinatesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="#ff7440" MinHeight="620" MinWidth="900">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition Width="405"/>
+                <ColumnDefinition Width="150"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="405"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+
+            <ListBox x:Name="ListBoxChessBoard" 
+                     Grid.Row="1" Grid.Column="1"
+                     ItemsSource="{Binding Board.Cells}"
+                     SelectedItem="{Binding SelectedCell}"
+                     Style="{StaticResource ListBoxChessBoardStyle}"/>
+
+
+            <ListBox x:Name="ListBoxRanks"
+                     Grid.Row="1" Grid.Column="0"
+                     Style="{StaticResource ListBoxCoordinatesRanks}"
+                     ItemsSource="{Binding Ranks}"
+                     HorizontalContentAlignment="Center"/>
+
+
+            <ListBox x:Name="ListBoxFiles"
+                     Grid.Row="2" Grid.Column="1"
+                     ItemsSource="{Binding Files}"
+                     Style="{StaticResource ListBoxCoordinatesFiles}"/>
+
+
+            <Grid x:Name="GridChangeColor"
+                  Grid.Row="2" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button x:Name="ButtonChangeColor"
+                    Grid.Row="0"
+                    Style="{StaticResource ButtonChangeColorStyle}"
+                    Command="{Binding ChangeColorCommand}"/>
+                <TextBlock Foreground="White" Grid.Row="1" Text="Тек. цвет"/>
+            </Grid>
+
+            <CheckBox x:Name="CheckBoxShowCoordinates"
+                      Grid.Row="0" Grid.Column="1"
+                      Content="Показать координаты"
+                      Style="{StaticResource CheckBoxShowCoordinatesStyle}"/>
+
+            <Grid x:Name="GridRandomCellCoordinate"
+                  Grid.Row="1" Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="4*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel x:Name="StackPanelRandomCellCoordinate"
+                            Orientation="Horizontal" HorizontalAlignment="Center"
+                            VerticalAlignment="Bottom">
+                    <TextBlock x:Name="FileOfRandomCell"
+                               Text="{Binding RandomCell.File, UpdateSourceTrigger=PropertyChanged}"
+                               Style="{StaticResource TextBlockRandomCellStyle}"/>
+                    <TextBlock x:Name="RankOfRandomCell"
+                               Text="{Binding RandomCell.Rank, UpdateSourceTrigger=PropertyChanged}"
+                               Style="{StaticResource TextBlockRandomCellStyle}"/>
+                </StackPanel>
+                <Image x:Name="ImageResultSelection"
+                       Grid.Row="1" Style="{StaticResource ImageResultSelectionStyle}">
+                </Image>
+            </Grid>
+
+            <TextBlock x:Name="TextBlockCountAnswers"
+                       Grid.Row="0" Grid.Column="2"
+                       Foreground="White" FontSize="35"
+                       HorizontalAlignment="Center" VerticalAlignment="Center">
+              <Run Text="{Binding CountRightAnswers}"/>
+              <Run Text="/"/>
+              <Run Text="{Binding TotalCountAnswers}"/>      
+            </TextBlock>
+        </Grid>
+    </Grid>
+</Page>
