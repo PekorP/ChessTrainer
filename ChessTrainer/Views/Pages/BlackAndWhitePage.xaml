@@ -9,51 +9,52 @@
       Title="BlackAndWhitePage">
 
     <Grid Background="#ff7440" MinHeight="620" MinWidth="900">
-        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+        <!--VerticalAlignment="Center" HorizontalAlignment="Center"-->
+        <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="150"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="8*"/>
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="TextBlockRandomCellCoordinate"
-                       Grid.Row="0"
-                       Foreground="White" FontSize="100"
-                       HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Run Text="A"/>
-                <Run Text="1"/>
-            </TextBlock>
-            
-            <Image x:Name="ImageResultAnswer"
-                   Grid.Row="1"
-                   Width="50" Height="50"
-                   HorizontalAlignment="Center" VerticalAlignment="Top"
-                   Source="/Pics/PicsForBlackAndWhite/RightAnswer.PNG"/>
-
-            <Grid Grid.Row="2"
-                  VerticalAlignment="Top">
+            <Grid x:Name="GridBlackAndWhiteCoordinate" VerticalAlignment="Bottom">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="200"/>
-                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
+
                 <Button x:Name="ButtonBlackAnswer"
                         Grid.Column="0"
                         Background="Black"
-                        VerticalAlignment="Center" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" HorizontalAlignment="Right"
                         Width="100" Height="100"/>
 
+                <TextBlock x:Name="TextBlockRandomCellCoordinate"
+                       Grid.Column="1"
+                       Foreground="White" FontSize="110"
+                       HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Run Text="A"/>
+                <Run Text="1"/>
+                </TextBlock>
+
                 <Button x:Name="ButtonWhiteAnswer"
-                        Grid.Column="1"
+                        Grid.Column="2"
                         Background="White"
-                        VerticalAlignment="Center" HorizontalAlignment="Center"
+                        VerticalAlignment="Center" HorizontalAlignment="Left"
                         Width="100" Height="100"/>
             </Grid>
 
+            <Image x:Name="ImageResultAnswer"
+                   Grid.Row="1"
+                   Width="70" Height="70"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"
+                   Source="/Pics/PicsForBlackAndWhite/RightAnswer.PNG"/>
+
             <TextBlock x:Name="TextBlockCountAnswers"
-                       Grid.Row="3"
+                       Grid.Row="2"
                        FontSize="100" Foreground="White"
-                       VerticalAlignment="Center" HorizontalAlignment="Center">
+                       VerticalAlignment="Top" HorizontalAlignment="Center">
                 <Run Text="0"/>
                 <Run Text="/"/>
                 <Run Text="0"/>
