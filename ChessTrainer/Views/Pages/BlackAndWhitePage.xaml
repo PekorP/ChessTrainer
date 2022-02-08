@@ -28,28 +28,66 @@
                         Grid.Column="0"
                         Background="Black"
                         VerticalAlignment="Center" HorizontalAlignment="Right"
-                        Width="100" Height="100"/>
+                        Width="100" Height="100">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Border>
+                                            <Rectangle Fill="{TemplateBinding Background}"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
 
                 <TextBlock x:Name="TextBlockRandomCellCoordinate"
                        Grid.Column="1"
                        Foreground="White" FontSize="110"
                        HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Run Text="A"/>
-                <Run Text="1"/>
+                <Run Text="A"/><Run Text="1"/>
                 </TextBlock>
 
                 <Button x:Name="ButtonWhiteAnswer"
                         Grid.Column="2"
                         Background="White"
                         VerticalAlignment="Center" HorizontalAlignment="Left"
-                        Width="100" Height="100"/>
+                        Width="100" Height="100">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <Border>
+                                            <Rectangle Fill="{TemplateBinding Background}"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Cursor" Value="Hand"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </Grid>
 
             <Image x:Name="ImageResultAnswer"
-                   Grid.Row="1"
-                   Width="70" Height="70"
+                   Grid.Row="1" Stretch="Fill"
+                   Width="100" Height="70"
                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Source="/Pics/PicsForBlackAndWhite/RightAnswer.PNG"/>
+                   Source="/Pics/PicsForBlackAndWhite/WrongAnswer.png"/>
+
 
             <TextBlock x:Name="TextBlockCountAnswers"
                        Grid.Row="2"

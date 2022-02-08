@@ -147,7 +147,7 @@
     <Resource Include="Pics\PicsForCoordinates\WrongSelection.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pics\PicsForBlackAndWhite\WrongAnswser.png" />
+    <Resource Include="Pics\PicsForBlackAndWhite\WrongAnswer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
