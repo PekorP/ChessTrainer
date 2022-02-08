@@ -39,7 +39,8 @@
                         Grid.Column="0"
                         Background="Black"
                         VerticalAlignment="Center" HorizontalAlignment="Right"
-                        Width="100" Height="100">
+                        Width="100" Height="100"
+                        Command="{Binding CheckIsRightAnswer}" CommandParameter="Black">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Template">
@@ -71,7 +72,8 @@
                         Grid.Column="2"
                         Background="White"
                         VerticalAlignment="Center" HorizontalAlignment="Left"
-                        Width="100" Height="100">
+                        Width="100" Height="100"
+                        Command="{Binding CheckIsRightAnswer}" CommandParameter="White">
                     <Button.Style>
                         <Style TargetType="Button">
                             <Setter Property="Template">
@@ -96,17 +98,31 @@
             <Image x:Name="ImageResultAnswer"
                    Grid.Row="1" Stretch="Fill"
                    Width="100" Height="70"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"
-                   Source="/Pics/PicsForBlackAndWhite/WrongAnswer.png"/>
+                   HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsRightAnswer}" Value="true">
+                                <Setter Property="Source" Value="/Pics/PicsForBlackAndWhite/RightAnswer.png"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsRightAnswer}" Value="false">
+                                <Setter Property="Source" Value="/Pics/PicsForBlackAndWhite/WrongAnswer.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
 
 
             <TextBlock x:Name="TextBlockCountAnswers"
                        Grid.Row="2"
                        FontSize="100" Foreground="White"
                        VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Run Text="Правильных ответов" FontSize="20" BaselineAlignment="Center"/>
                 <Run Text="{Binding CountRightAnswers}"/>
                 <Run Text="/"/>
                 <Run Text="{Binding TotalCountAnswers}"/>
+                <Run Text="Всего ответов" FontSize="20" BaselineAlignment="Center"/>
             </TextBlock>
 
         </Grid>
