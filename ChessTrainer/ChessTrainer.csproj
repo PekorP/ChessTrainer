@@ -62,6 +62,9 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\ChessTrainerViewModel.cs" />
     <Compile Include="ViewModels\CoordinatesViewModel.cs" />
+    <Compile Include="Views\Pages\BlackAndWhitePage.xaml.cs">
+      <DependentUpon>BlackAndWhitePage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\CoordinatesPage.xaml.cs">
       <DependentUpon>CoordinatesPage.xaml</DependentUpon>
     </Compile>
@@ -85,6 +88,10 @@
       <DependentUpon>ChessTrainerForm.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\Pages\BlackAndWhitePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\CoordinatesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

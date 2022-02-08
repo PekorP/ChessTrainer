@@ -69,7 +69,7 @@
                             <Image x:Key="IconForSideMenuButton" Source="/Pics/IconsForSideMenu/Сoordinates.png"/>
                         </Button.Resources>
                     </Button>
-                    <Button Style="{StaticResource SideMenuButtonStyle}" Content="Белое и черное">
+                    <Button Style="{StaticResource SideMenuButtonStyle}" Content="Черное и белое">
                         <Button.Resources>
                             <Image x:Key="IconForSideMenuButton" Source="/Pics/IconsForSideMenu/BlackAndWhite.png"/>
                         </Button.Resources>
@@ -95,7 +95,7 @@
 
             <!--======================================Content========================================-->
 
-            <Frame Source="Pages/CoordinatesPage.xaml" Grid.Row="1" Grid.Column="1">
+            <Frame Source="Pages/BlackAndWhitePage.xaml" Grid.Row="1" Grid.Column="1">
 
 
             </Frame>
