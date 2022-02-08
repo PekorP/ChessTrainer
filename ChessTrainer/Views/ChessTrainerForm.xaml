@@ -96,8 +96,6 @@
             <!--======================================Content========================================-->
 
             <Frame Source="Pages/BlackAndWhitePage.xaml" Grid.Row="1" Grid.Column="1">
-
-
             </Frame>
 
 
