@@ -4,9 +4,20 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ChessTrainer.Views.Pages"
+      xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
       mc:Ignorable="d" 
       MinHeight="620" MinWidth="900"
       Title="BlackAndWhitePage">
+    <Page.DataContext>
+        <vm:BlackAndWhiteViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\Dictionaries\CoordinatesDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
     <Grid Background="#ff7440" MinHeight="620" MinWidth="900">
         <!--VerticalAlignment="Center" HorizontalAlignment="Center"-->
@@ -53,7 +64,7 @@
                        Grid.Column="1"
                        Foreground="White" FontSize="110"
                        HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Run Text="A"/><Run Text="1"/>
+                <Run Text="{Binding RandomCell.File}"/><Run Text="{Binding RandomCell.Rank}"/>
                 </TextBlock>
 
                 <Button x:Name="ButtonWhiteAnswer"
@@ -93,9 +104,9 @@
                        Grid.Row="2"
                        FontSize="100" Foreground="White"
                        VerticalAlignment="Top" HorizontalAlignment="Center">
-                <Run Text="0"/>
+                <Run Text="{Binding CountRightAnswers}"/>
                 <Run Text="/"/>
-                <Run Text="0"/>
+                <Run Text="{Binding TotalCountAnswers}"/>
             </TextBlock>
 
         </Grid>

@@ -60,6 +60,7 @@
     <Compile Include="Models\Board.cs" />
     <Compile Include="Models\Cell.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\BlackAndWhiteViewModel.cs" />
     <Compile Include="ViewModels\ChessTrainerViewModel.cs" />
     <Compile Include="ViewModels\CoordinatesViewModel.cs" />
     <Compile Include="Views\Pages\BlackAndWhitePage.xaml.cs">
@@ -68,6 +69,10 @@
     <Compile Include="Views\Pages\CoordinatesPage.xaml.cs">
       <DependentUpon>CoordinatesPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Dictionaries\BlackAndWhiteDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dictionaries\ChessTrainerDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

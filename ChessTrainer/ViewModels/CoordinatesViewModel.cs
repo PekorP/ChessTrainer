@@ -56,7 +56,6 @@ namespace ChessTrainer.ViewModels
         }
         public Board Board{ get; set; }
 
-
         private Cell randomCell;
         public Cell RandomCell
         {
