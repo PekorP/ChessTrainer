@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:ChessTrainer.Views.Pages"
       xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
       mc:Ignorable="d" 
-      MinHeight="620" MinWidth="900"
+     
       Title="BlackAndWhitePage">
     <Page.DataContext>
         <vm:BlackAndWhiteViewModel/>
