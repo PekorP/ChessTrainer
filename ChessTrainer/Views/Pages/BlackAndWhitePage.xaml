@@ -43,10 +43,10 @@
 
                 <TextBlock x:Name="TextBlockRandomCellCoordinate"
                        Grid.Column="1"
-                       Foreground="White" FontSize="110"
+                       FontSize="110"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center">
-                <Run Text="{Binding RandomCell.File}"/><Run Text="{Binding RandomCell.Rank}"/>
+                <Run Text="{Binding RandomCell.File}" Foreground="Black"/><Run Text="{Binding RandomCell.Rank}" Foreground="White"/>
                 </TextBlock>
 
                 <Button x:Name="ButtonWhiteAnswer"
