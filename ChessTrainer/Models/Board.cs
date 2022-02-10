@@ -1,11 +1,12 @@
 ﻿using ChessTrainer.Enums;
+using ChessTrainer.ViewModels;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
 namespace ChessTrainer.Models
 {
-    public class Board : INotifyPropertyChanged
+    internal class Board : BaseViewModel
     {
         const int COUNT_VERTICAL_AND_HORIZONTAL = 8;
 
@@ -43,12 +44,6 @@ namespace ChessTrainer.Models
                 //так как горизонталь начинается с того же цвета, с которого заканчивается предыдущая
                 currentColor = currentColor == CellColor.White ? CellColor.Black : CellColor.White; 
             }
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-        public void OnPropertyChanged([CallerMemberName] string prop = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
