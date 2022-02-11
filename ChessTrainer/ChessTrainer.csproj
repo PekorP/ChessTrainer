@@ -59,6 +59,7 @@
     <Compile Include="Enums\CellColor.cs" />
     <Compile Include="Models\Board.cs" />
     <Compile Include="Models\Cell.cs" />
+    <Compile Include="Models\ChessMove.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BlackAndWhiteViewModel.cs" />
     <Compile Include="ViewModels\ChessTrainerViewModel.cs" />
