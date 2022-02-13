@@ -10,6 +10,38 @@
       MinHeight="620" MinWidth="900">
 
     <Grid Background="#ff7440" MinHeight="620" MinWidth="900">
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ListBox x:Name="ListBoxChessMoves"
+                 Grid.Row="0">
+            
+        </ListBox>
+
+        <StackPanel x:Name="StackPanelAddMove"
+                    Grid.Row="1">
+            
+        </StackPanel>
+
+        <StackPanel x:Name="StackPanelForButtons"
+                    Grid.Row="2">
+            
+        </StackPanel>
+
+        <Grid x:Name="GridRules"
+              Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+        </Grid>
     </Grid>
 </Page>
