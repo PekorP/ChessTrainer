@@ -18,8 +18,20 @@
         </Grid.RowDefinitions>
 
         <ListBox x:Name="ListBoxChessMoves"
-                 Grid.Row="0">
-            
+                 Grid.Row="0"
+                 >
+            <ListBoxItem>
+                
+            </ListBoxItem>
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding .}" />
+                        <TextBlock Text="{Binding .}" />
+                        <TextBlock Text="{Binding .}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
         </ListBox>
 
         <Grid x:Name="GridAddMove"
@@ -86,7 +98,6 @@
                     Height="50" Width="400" Cursor="Hand"
                     Margin="10" Content="Добавить ход"/>
 
-
             <Button x:Name="ButtonGameVoiceActing" Background="White" FontSize="25"
                     Height="50" Width="400" Cursor="Hand"
                     Margin="10" Content="Озвучить партию"/>
@@ -94,14 +105,85 @@
 
         <Grid x:Name="GridRules"
               Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Правила записи ходов"
+                       Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="10"
+                       HorizontalAlignment="Center" VerticalAlignment="Center"
+                       Foreground="White" FontSize="20"/>
+            <TextBlock Foreground="White" Grid.Row="1" Grid.Column="0"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Run Text="Фигура:"/>
+                <LineBreak/>
+                <Run Text="P - Пешка"/>
+                <LineBreak/>
+                <Run Text="R - Ладья"/>
+                <LineBreak/>
+                <Run Text="N - Конь"/>
+                <LineBreak/>
+                <Run Text="B - Слон"/>
+                <LineBreak/>
+                <Run Text="Q - Ферзь"/>
+                <LineBreak/>
+                <Run Text="K - Король"/>
+            </TextBlock>
+
+            <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Center"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Foreground="White"> 
+                <Run Text="Поле, "/>
+                <LineBreak/>
+                <Run Text="с которого сделан ход"/>
+                <LineBreak/>
+                <Run Text="Например (a2)"/>
+            </TextBlock>
+
+            <TextBlock  Grid.Row="1" Grid.Column="2" Text="一"
+                        VerticalAlignment="Center" HorizontalAlignment="Center"
+                         Foreground="White"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="3" TextAlignment="Center"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Foreground="White"> 
+                <Run Text="Поле, "/>
+                <LineBreak/>
+                <Run Text="на которое сделан ход"/>
+                <LineBreak/>
+                <Run Text="Например (a5)"/>
+            </TextBlock>
+
+            <TextBlock Grid.Row="1" Grid.Column="4" TextAlignment="Center"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                        Foreground="White"> 
+                <Run Text="Превращение пешки: "/>
+                <LineBreak/>
+                <Run Text="В конце записи хода фигура,"/>
+                <LineBreak/>
+                <Run Text="в которую превратилась"/>
+                <LineBreak/>
+                <Run Text="Например (Pa7-a8Q)"/>
+            </TextBlock>
+
+            <TextBlock Grid.Row="1" Grid.Column="5" TextAlignment="Center"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"
+                       Foreground="White"> 
+                <Run Text="Рокировка: "/>
+                <LineBreak/>
+                <Run Text="Короткая: 0-0"/>
+                <LineBreak/>
+                <Run Text="Длинная: 0-0-0"/>
+            </TextBlock>
         </Grid>
     </Grid>
 </Page>

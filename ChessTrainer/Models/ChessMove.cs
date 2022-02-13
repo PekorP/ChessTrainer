@@ -37,9 +37,9 @@ namespace ChessTrainer.Models
 
             var startCell = move[1].ToString() + move[2].ToString();
             var endCell = move[4].ToString() + move[5].ToString();
-            var parsedMove = $"{figures[move[0]]} {startCell} на {endCell}";
+            var parsedMove = $"{figures[Char.ToUpper(move[0])]} {startCell} на {endCell}";
 
-            if ((move.Length == 7) && (figures[move[0]] == figures['P']))
+            if ((move.Length == 7) && (figures[Char.ToUpper(move[0])] == figures['P']))
                 parsedMove += $" и превращается в {figures[move[6]]}";
 
             return parsedMove;
