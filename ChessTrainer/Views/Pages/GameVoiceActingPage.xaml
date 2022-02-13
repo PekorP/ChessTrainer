@@ -22,10 +22,63 @@
             
         </ListBox>
 
-        <StackPanel x:Name="StackPanelAddMove"
+        <Grid x:Name="GridAddMove"
                     Grid.Row="1">
-            
-        </StackPanel>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" HorizontalAlignment="Right">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="TextBlockWhiteMove" Grid.Row="0"
+                           Text="Ход белых"
+                           FontSize="30" Foreground="White"
+                           TextAlignment="Center" VerticalAlignment="Bottom"/>
+                <TextBox x:Name="TextBoxWhiteMove" Grid.Row="1"
+                         Margin="20 10"
+                         Width="250"
+                         FontSize="30"
+                         MaxLength="7"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="BorderBrush" Value="{x:Null}"/>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </Grid>
+
+            <Grid Grid.Column="1" HorizontalAlignment="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="TextBlockBlackMove" Grid.Row="0"
+                           Text="Ход черных"
+                           FontSize="30" Foreground="Black"
+                           TextAlignment="Center" VerticalAlignment="Bottom"/>
+                <TextBox x:Name="TextBoxBlackMove" Grid.Row="1"
+                         Margin="20 10"
+                         Width="250"
+                         FontSize="30"
+                         MaxLength="7"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center"
+                         Background="Black" Foreground="White">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="BorderBrush" Value="{x:Null}"/>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+
+            </Grid>
+        </Grid>
 
         <StackPanel x:Name="StackPanelForButtons"
                     Grid.Row="2">
