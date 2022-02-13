@@ -76,13 +76,20 @@
                         </Style>
                     </TextBox.Style>
                 </TextBox>
-
             </Grid>
         </Grid>
 
         <StackPanel x:Name="StackPanelForButtons"
-                    Grid.Row="2">
-            
+                    Grid.Row="2"
+                    VerticalAlignment="Center">
+            <Button x:Name="ButtonAddMove" Background="White" FontSize="25"
+                    Height="50" Width="400" Cursor="Hand"
+                    Margin="10" Content="Добавить ход"/>
+
+
+            <Button x:Name="ButtonGameVoiceActing" Background="White" FontSize="25"
+                    Height="50" Width="400" Cursor="Hand"
+                    Margin="10" Content="Озвучить партию"/>
         </StackPanel>
 
         <Grid x:Name="GridRules"
