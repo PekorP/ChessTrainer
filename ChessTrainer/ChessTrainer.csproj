@@ -64,6 +64,7 @@
     <Compile Include="ViewModels\BlackAndWhiteViewModel.cs" />
     <Compile Include="ViewModels\ChessTrainerViewModel.cs" />
     <Compile Include="ViewModels\CoordinatesViewModel.cs" />
+    <Compile Include="ViewModels\GameVoiceActingViewModel.cs" />
     <Compile Include="Views\Pages\BlackAndWhitePage.xaml.cs">
       <DependentUpon>BlackAndWhitePage.xaml</DependentUpon>
     </Compile>
@@ -82,6 +83,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dictionaries\CoordinatesDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Dictionaries\GameVoiceActingDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
