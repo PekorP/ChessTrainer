@@ -9,10 +9,19 @@ namespace ChessTrainer.Models
     class ChessMove
     {
 
-        //Для примера: { 1, "Pa2-a4", "Ng1-f3" };
         public int NumberOfMove { get; set; }
         public string WhiteMove { get; set; }
         public string BlackMove { get; set; }
+
+        private static readonly Dictionary<char, string> figures = new Dictionary<char, string>()
+        {
+            { 'P', "Пешка"},
+            { 'R', "Ладья"},
+            { 'N', "Конь"},
+            { 'B', "Слон"},
+            { 'Q', "Ферзь"},
+            { 'K', "Король"}
+        };
 
         public ChessMove(int numberOfMove, string whiteMove, string blackMove)
         {
@@ -21,9 +30,20 @@ namespace ChessTrainer.Models
             BlackMove = blackMove;
         }
 
-        public string MoveParser(string move)
+        //Для примера: { 1, "Pa2-a4", "Ng8-f6" }; => "Пешка a2 на a4", "Конь g8 на f6"
+        public static string MoveParser(string move)
         {
-            return "";
+            if (move == "0-0") return "Короткая рокировка";
+            if (move == "0-0-0") return "Длинная рокировка";
+
+            var startCell = move[1].ToString() + move[2].ToString();
+            var endCell = move[4].ToString() + move[5].ToString();
+
+            var parsedMove = $"{figures[move[0]]} {startCell} на {endCell}";
+            if ((move.Length == 7) && (figures[move[0]] == figures['P']))
+                parsedMove += $" и превращается в {figures[move[6]]}";
+
+            return parsedMove;
         }
     }
 }
