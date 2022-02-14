@@ -22,6 +22,8 @@ namespace ChessTrainer.Models
             { 'K', "Король"}
         };
 
+        public ChessMove() { }
+
         public ChessMove(int numberOfMove, string whiteMove, string blackMove)
         {
             NumberOfMove = numberOfMove;
@@ -29,7 +31,7 @@ namespace ChessTrainer.Models
             BlackMove = blackMove;
         }
 
-        //Для примера: { 1, "Pa2-a4", "Ng8-f6" } => "Пешка a2 на a4", "Конь g8 на f6"
+        //Для примера: { 1, "Pe2-e4", "Ng8-f6" } => "Пешка e2 на e4", "Конь g8 на f6"
         public static string MoveParser(string move)
         {
             if (move == "0-0") return "Короткая рокировка";

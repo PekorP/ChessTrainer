@@ -4,10 +4,21 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ChessTrainer.Views.Pages"
+      xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="GameVoiceActingPage"
       MinHeight="620" MinWidth="900">
+    <Page.DataContext>
+        <vm:GameVoiceActingViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\Dictionaries\GameVoiceActingDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
     <Grid Background="#ff7440" MinHeight="620" MinWidth="900">
         <Grid.RowDefinitions>
@@ -17,22 +28,23 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <ListBox x:Name="ListBoxChessMoves"
-                 Grid.Row="0"
-                 >
-            <ListBoxItem>
-                
-            </ListBoxItem>
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock Text="{Binding .}" />
-                        <TextBlock Text="{Binding .}" />
-                        <TextBlock Text="{Binding .}" />
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ScrollViewer HorizontalAlignment="Center" Grid.Row="0" Margin="0 10 0 0">
+            <ItemsControl x:Name="ListBoxChessMoves"    
+                     ItemsSource="{Binding Moves}"
+                     Background="LightSlateGray"
+                     HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock FontSize="25" HorizontalAlignment="Left"
+                               Margin="100 0">
+                            <Run Foreground="Blue" Text="{Binding NumberOfMove}"/>
+                            <Run Text="{Binding WhiteMove}"/>
+                            <Run Foreground="White" Text="{Binding BlackMove}"/>
+                        </TextBlock>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
 
         <Grid x:Name="GridAddMove"
                     Grid.Row="1">
@@ -56,7 +68,8 @@
                          FontSize="30"
                          MaxLength="7"
                          VerticalContentAlignment="Center"
-                         HorizontalContentAlignment="Center">
+                         HorizontalContentAlignment="Center"
+                         Text="{Binding AddedChessMove.WhiteMove, UpdateSourceTrigger=PropertyChanged}">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Setter Property="BorderBrush" Value="{x:Null}"/>
@@ -81,7 +94,8 @@
                          MaxLength="7"
                          VerticalContentAlignment="Center"
                          HorizontalContentAlignment="Center"
-                         Background="Black" Foreground="White">
+                         Background="Black" Foreground="White"
+                         Text="{Binding AddedChessMove.BlackMove, UpdateSourceTrigger=PropertyChanged}">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Setter Property="BorderBrush" Value="{x:Null}"/>
@@ -103,81 +117,72 @@
                     Margin="10" Content="Озвучить партию"/>
         </StackPanel>
 
-        <Grid x:Name="GridRules"
-              Grid.Row="3">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="0.3*"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="0.2*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="*"/>
-            </Grid.ColumnDefinitions>
-
-            <TextBlock Text="Правила записи ходов"
-                       Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="10"
-                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                       Foreground="White" FontSize="20"/>
-            <TextBlock Foreground="White" Grid.Row="1" Grid.Column="0"
+        <Expander Header="Правила записи ходов"
+                       Grid.Row="3"
+                       Foreground="White" FontSize="13">
+            <Grid x:Name="GridRules">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0"
                         HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Run Text="Фигура:"/>
-                <LineBreak/>
-                <Run Text="P - Пешка"/>
-                <LineBreak/>
-                <Run Text="R - Ладья"/>
-                <LineBreak/>
-                <Run Text="N - Конь"/>
-                <LineBreak/>
-                <Run Text="B - Слон"/>
-                <LineBreak/>
-                <Run Text="Q - Ферзь"/>
-                <LineBreak/>
-                <Run Text="K - Король"/>
-            </TextBlock>
+                    <Run Text="Фигура:"/>
+                    <LineBreak/>
+                    <Run Text="P - Пешка"/>
+                    <LineBreak/>
+                    <Run Text="R - Ладья"/>
+                    <LineBreak/>
+                    <Run Text="N - Конь"/>
+                    <LineBreak/>
+                    <Run Text="B - Слон"/>
+                    <LineBreak/>
+                    <Run Text="Q - Ферзь"/>
+                    <LineBreak/>
+                    <Run Text="K - Король"/>
+                </TextBlock>
 
-            <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Center"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"
-                        Foreground="White"> 
-                <Run Text="Поле, "/>
+            <TextBlock Grid.Column="1" TextAlignment="Center"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"> 
+                <Run Text="Поле"/>
                 <LineBreak/>
                 <Run Text="с которого сделан ход"/>
                 <LineBreak/>
                 <Run Text="Например (a2)"/>
             </TextBlock>
 
-            <TextBlock  Grid.Row="1" Grid.Column="2" Text="一"
-                        VerticalAlignment="Center" HorizontalAlignment="Center"
-                         Foreground="White"/>
+            <TextBlock Grid.Column="2" Text="一"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-            <TextBlock Grid.Row="1" Grid.Column="3" TextAlignment="Center"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"
-                        Foreground="White"> 
-                <Run Text="Поле, "/>
+            <TextBlock Grid.Column="3" TextAlignment="Center"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"> 
+                <Run Text="Поле"/>
                 <LineBreak/>
                 <Run Text="на которое сделан ход"/>
                 <LineBreak/>
                 <Run Text="Например (a5)"/>
             </TextBlock>
 
-            <TextBlock Grid.Row="1" Grid.Column="4" TextAlignment="Center"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"
-                        Foreground="White"> 
+            <TextBlock Grid.Column="4" TextAlignment="Center"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"> 
                 <Run Text="Превращение пешки: "/>
                 <LineBreak/>
-                <Run Text="В конце записи хода фигура,"/>
+                <Run Text="В конце записи хода"/>
                 <LineBreak/>
-                <Run Text="в которую превратилась"/>
+                <Run Text="указание в какую фигуру"/>
+                <LineBreak/>
+                <Run Text="превратилась пешка"/>
                 <LineBreak/>
                 <Run Text="Например (Pa7-a8Q)"/>
             </TextBlock>
 
-            <TextBlock Grid.Row="1" Grid.Column="5" TextAlignment="Center"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"
-                       Foreground="White"> 
+            <TextBlock Grid.Column="5" TextAlignment="Center"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"> 
                 <Run Text="Рокировка: "/>
                 <LineBreak/>
                 <Run Text="Короткая: 0-0"/>
@@ -185,5 +190,6 @@
                 <Run Text="Длинная: 0-0-0"/>
             </TextBlock>
         </Grid>
+        </Expander>
     </Grid>
 </Page>
