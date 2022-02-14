@@ -28,23 +28,33 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <ScrollViewer HorizontalAlignment="Center" Grid.Row="0" Margin="0 10 0 0">
-            <ItemsControl x:Name="ListBoxChessMoves"    
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            
+            <ListBox x:Name="ListBoxChessMoves"   
+                     Grid.Column="1" Margin="0 10 0 0"
                      ItemsSource="{Binding Moves}"
-                     Background="LightSlateGray"
-                     HorizontalAlignment="Center" VerticalAlignment="Center">
-                <ItemsControl.ItemTemplate>
+                     Background="LightSlateGray" HorizontalContentAlignment="Center">
+                <ListBox.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock FontSize="25" HorizontalAlignment="Left"
-                               Margin="100 0">
-                            <Run Foreground="Blue" Text="{Binding NumberOfMove}"/>
-                            <Run Text="{Binding WhiteMove}"/>
-                            <Run Foreground="White" Text="{Binding BlackMove}"/>
+                        <TextBlock FontSize="25">
+                        <Run Foreground="Blue" Text="{Binding NumberOfMove}"/>
+                        <Run Foreground="Black" Text="{Binding WhiteMove}"/>
+                        <Run Foreground="White" Text="{Binding BlackMove}"/>
                         </TextBlock>
                     </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </ScrollViewer>
+                </ListBox.ItemTemplate>
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="{x:Type ListBoxItem}">
+                        <Setter Property="IsEnabled" Value="False"/>
+                    </Style>
+                </ListBox.ItemContainerStyle>
+            </ListBox>
+        </Grid>
 
         <Grid x:Name="GridAddMove"
                     Grid.Row="1">
@@ -119,7 +129,8 @@
 
         <Expander Header="Правила записи ходов"
                        Grid.Row="3"
-                       Foreground="White" FontSize="13">
+                       Foreground="White" FontSize="13"
+                       Margin="10 0 0 0" IsExpanded="True">
             <Grid x:Name="GridRules">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
