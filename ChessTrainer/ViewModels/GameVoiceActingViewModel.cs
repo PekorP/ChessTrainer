@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Speech.Synthesis;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -33,9 +34,28 @@ namespace ChessTrainer.ViewModels
             }
         }
 
+        private RelayCommand gameVoiceActing;
+        public RelayCommand GameVoiceActing
+        {
+            get
+            {
+                return gameVoiceActing ??
+                  (gameVoiceActing = new RelayCommand(obj =>
+                  {
+                      foreach(var move in Moves)
+                      {
+                          speechSynthesizer.Speak(ChessMove.MoveParser(move.WhiteMove));
+                          speechSynthesizer.Speak(ChessMove.MoveParser(move.BlackMove));
+                      }
+                  }));
+            }
+        }
+
         #endregion
 
         #endregion
+
+        SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer() { Rate = 1 };
 
         public ObservableCollection<ChessMove> Moves { get; set; }
 

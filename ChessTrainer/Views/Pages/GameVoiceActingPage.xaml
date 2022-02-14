@@ -43,8 +43,8 @@
                     <DataTemplate>
                         <TextBlock FontSize="25">
                         <Run Foreground="Blue" Text="{Binding NumberOfMove}"/>
-                        <Run Foreground="Black" Text="{Binding WhiteMove}"/>
-                        <Run Foreground="White" Text="{Binding BlackMove}"/>
+                        <Run Foreground="White" Text="{Binding WhiteMove}"/>
+                        <Run Foreground="Black" Text="{Binding BlackMove}"/>
                         </TextBlock>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
@@ -121,11 +121,13 @@
             <Button x:Name="ButtonAddMove" Background="White" FontSize="25"
                     Height="50" Width="400" Cursor="Hand"
                     Margin="10" Content="Добавить ход"
-                    Command="{Binding AddChessMove}"/>
+                    Command="{Binding AddChessMove}"
+                    IsDefault="True"/>
 
             <Button x:Name="ButtonGameVoiceActing" Background="White" FontSize="25"
                     Height="50" Width="400" Cursor="Hand"
-                    Margin="10" Content="Озвучить партию"/>
+                    Margin="10" Content="Озвучить партию"
+                    Command="{Binding GameVoiceActing}"/>
         </StackPanel>
 
         <Expander Header="Правила записи ходов"
