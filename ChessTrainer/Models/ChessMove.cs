@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChessTrainer.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,11 +7,28 @@ using System.Threading.Tasks;
 
 namespace ChessTrainer.Models
 {
-    class ChessMove
+    class ChessMove : BaseViewModel
     {
-        public int NumberOfMove { get; set; }
-        public string WhiteMove { get; set; }
-        public string BlackMove { get; set; }
+        private int numberOfMove;
+        public int NumberOfMove
+        {
+            get { return numberOfMove; }
+            set { numberOfMove = value; OnPropertyChanged(); }
+        }
+
+        private string whiteMove;
+        public string WhiteMove
+        {
+            get { return whiteMove; }
+            set { whiteMove = value; OnPropertyChanged(); }
+        }
+
+        private string blackMove;
+        public string BlackMove
+        {
+            get { return blackMove; }
+            set { blackMove = value; OnPropertyChanged(); }
+        }
 
         private static readonly Dictionary<char, string> figures = new Dictionary<char, string>()
         {
@@ -22,7 +40,10 @@ namespace ChessTrainer.Models
             { 'K', "Король"}
         };
 
-        public ChessMove() { }
+        public ChessMove()
+        {
+            NumberOfMove = 1;
+        }
 
         public ChessMove(int numberOfMove, string whiteMove, string blackMove)
         {

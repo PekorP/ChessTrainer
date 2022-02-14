@@ -79,7 +79,7 @@
                          MaxLength="7"
                          VerticalContentAlignment="Center"
                          HorizontalContentAlignment="Center"
-                         Text="{Binding AddedChessMove.WhiteMove, UpdateSourceTrigger=PropertyChanged}">
+                         Text="{Binding AddedChessMove.WhiteMove, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Setter Property="BorderBrush" Value="{x:Null}"/>
@@ -105,7 +105,7 @@
                          VerticalContentAlignment="Center"
                          HorizontalContentAlignment="Center"
                          Background="Black" Foreground="White"
-                         Text="{Binding AddedChessMove.BlackMove, UpdateSourceTrigger=PropertyChanged}">
+                         Text="{Binding AddedChessMove.BlackMove, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
                     <TextBox.Style>
                         <Style TargetType="TextBox">
                             <Setter Property="BorderBrush" Value="{x:Null}"/>
@@ -120,7 +120,8 @@
                     VerticalAlignment="Center">
             <Button x:Name="ButtonAddMove" Background="White" FontSize="25"
                     Height="50" Width="400" Cursor="Hand"
-                    Margin="10" Content="Добавить ход"/>
+                    Margin="10" Content="Добавить ход"
+                    Command="{Binding AddChessMove}"/>
 
             <Button x:Name="ButtonGameVoiceActing" Background="White" FontSize="25"
                     Height="50" Width="400" Cursor="Hand"
