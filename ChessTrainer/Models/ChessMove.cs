@@ -43,6 +43,7 @@ namespace ChessTrainer.Models
         public ChessMove()
         {
             NumberOfMove = 1;
+            WhiteMove = BlackMove = "";
         }
 
         public ChessMove(int numberOfMove, string whiteMove, string blackMove)
