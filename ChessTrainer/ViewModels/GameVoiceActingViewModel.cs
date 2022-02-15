@@ -51,6 +51,35 @@ namespace ChessTrainer.ViewModels
             }
         }
 
+        private RelayCommand deleteMove;
+        public RelayCommand DeleteMove
+        {
+            get
+            {
+                return deleteMove ??
+                  (deleteMove = new RelayCommand(obj =>
+                  {
+                      Moves.Remove(Moves[Moves.Count - 1]);
+                      AddedChessMove.NumberOfMove--;
+                  }
+                  ));
+            }
+        }
+
+        private RelayCommand clearMoves;
+        public RelayCommand ClearMoves
+        {
+            get
+            {
+                return clearMoves ??
+                  (clearMoves = new RelayCommand(obj =>
+                  {
+                      Moves.Clear();
+                      AddedChessMove.NumberOfMove = 1;
+                  }));
+            }
+        }
+
         #endregion
 
         #endregion

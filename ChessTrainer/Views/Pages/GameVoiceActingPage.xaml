@@ -115,20 +115,50 @@
             </Grid>
         </Grid>
 
-        <StackPanel x:Name="StackPanelForButtons"
+        <Grid x:Name="GridForButtons"
                     Grid.Row="2"
                     VerticalAlignment="Center">
-            <Button x:Name="ButtonAddMove" Background="White" FontSize="25"
-                    Height="50" Width="400" Cursor="Hand"
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="ButtonAddMove"
+                    Grid.Row="0" Grid.Column="0"
+                    Background="White" FontSize="25"
+                    Height="50" Width="300" Cursor="Hand"
                     Margin="10" Content="Добавить ход"
                     Command="{Binding AddChessMove}"
-                    IsDefault="True"/>
-
-            <Button x:Name="ButtonGameVoiceActing" Background="White" FontSize="25"
-                    Height="50" Width="400" Cursor="Hand"
+                    IsDefault="True"
+                    HorizontalAlignment="Right"/>
+            
+            <Button x:Name="ButtonDeleteLastMove"
+                    Grid.Row="0" Grid.Column="1"
+                    Background="White" FontSize="25"
+                    Height="50" Width="300" Cursor="Hand"
+                    Margin="10" Content="Удалить последний ход"
+                    Command="{Binding DeleteMove}"
+                    IsDefault="True" HorizontalAlignment="Left"/>
+            
+            <Button x:Name="ButtonClearMoves"
+                    Grid.Row="1" Grid.Column="0"
+                    Background="White" FontSize="25"
+                    Height="50" Width="300" Cursor="Hand"
+                    Margin="10" Content="Очистить все ходы"
+                    Command="{Binding ClearMoves}" HorizontalAlignment="Right"/>
+            
+            <Button x:Name="ButtonGameVoiceActing"
+                    Grid.Row="1" Grid.Column="1"
+                    Background="White" FontSize="25"
+                    Height="50" Width="300" Cursor="Hand"
                     Margin="10" Content="Озвучить партию"
-                    Command="{Binding GameVoiceActing}"/>
-        </StackPanel>
+                    Command="{Binding GameVoiceActing}" HorizontalAlignment="Left"/>
+
+        </Grid>
 
         <Expander Header="Правила записи ходов"
                        Grid.Row="3"
