@@ -34,30 +34,16 @@
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            
+
             <ListBox x:Name="ListBoxChessMoves"   
-                     Grid.Column="1" Margin="0 10 0 0"
+                     Grid.Column="1"
                      ItemsSource="{Binding Moves}"
-                     Background="LightSlateGray" HorizontalContentAlignment="Center">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <TextBlock FontSize="25">
-                        <Run Foreground="Blue" Text="{Binding NumberOfMove}"/>
-                        <Run Foreground="White" Text="{Binding WhiteMove}"/>
-                        <Run Foreground="Black" Text="{Binding BlackMove}"/>
-                        </TextBlock>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="{x:Type ListBoxItem}">
-                        <Setter Property="IsEnabled" Value="False"/>
-                    </Style>
-                </ListBox.ItemContainerStyle>
+                     Style="{StaticResource ListBoxChessMovesStyle}">
             </ListBox>
         </Grid>
 
         <Grid x:Name="GridAddMove"
-                    Grid.Row="1">
+              Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -68,23 +54,16 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="TextBlockWhiteMove" Grid.Row="0"
-                           Text="Ход белых"
-                           FontSize="30" Foreground="White"
-                           TextAlignment="Center" VerticalAlignment="Bottom"/>
-                <TextBox x:Name="TextBoxWhiteMove" Grid.Row="1"
-                         Margin="20 10"
-                         Width="250"
-                         FontSize="30"
-                         MaxLength="7"
-                         VerticalContentAlignment="Center"
-                         HorizontalContentAlignment="Center"
-                         Text="{Binding AddedChessMove.WhiteMove, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}">
-                    <TextBox.Style>
-                        <Style TargetType="TextBox">
-                            <Setter Property="BorderBrush" Value="{x:Null}"/>
-                        </Style>
-                    </TextBox.Style>
+                
+                <TextBlock x:Name="TextBlockWhiteMove"
+                           Grid.Row="0" Text="Ход белых"
+                           Style="{StaticResource TextBlockWhiteMoveStyle}"/>
+                <TextBox x:Name="TextBoxWhiteMove"
+                         Grid.Row="1"
+                         Text="{Binding AddedChessMove.WhiteMove,
+                                UpdateSourceTrigger=PropertyChanged,
+                                Mode=TwoWay}"
+                         Style="{StaticResource BaseTextBoxAddMoveStyle}">
                 </TextBox>
             </Grid>
 
@@ -93,31 +72,21 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <TextBlock x:Name="TextBlockBlackMove" Grid.Row="0"
-                           Text="Ход черных"
-                           FontSize="30" Foreground="Black"
-                           TextAlignment="Center" VerticalAlignment="Bottom"/>
-                <TextBox x:Name="TextBoxBlackMove" Grid.Row="1"
-                         Margin="20 10"
-                         Width="250"
-                         FontSize="30"
-                         MaxLength="7"
-                         VerticalContentAlignment="Center"
-                         HorizontalContentAlignment="Center"
-                         Background="Black" Foreground="White"
-                         Text="{Binding AddedChessMove.BlackMove, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
-                    <TextBox.Style>
-                        <Style TargetType="TextBox">
-                            <Setter Property="BorderBrush" Value="{x:Null}"/>
-                        </Style>
-                    </TextBox.Style>
+                <TextBlock x:Name="TextBlockBlackMove"
+                           Grid.Row="0" Text="Ход черных"
+                           Style="{StaticResource TextBlockBlackMoveStyle}"/>
+                <TextBox x:Name="TextBoxBlackMove"
+                         Grid.Row="1"
+                         Text="{Binding AddedChessMove.BlackMove,
+                                UpdateSourceTrigger=PropertyChanged,
+                                Mode=TwoWay}"
+                         Style="{StaticResource TextBoxBlackMoveStyle}">
                 </TextBox>
             </Grid>
         </Grid>
 
         <Grid x:Name="GridForButtons"
-                    Grid.Row="2"
-                    VerticalAlignment="Center">
+                    Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -129,34 +98,28 @@
 
             <Button x:Name="ButtonAddMove"
                     Grid.Row="0" Grid.Column="0"
-                    Background="White" FontSize="25"
-                    Height="50" Width="300" Cursor="Hand"
-                    Margin="10" Content="Добавить ход"
+                    Content="Добавить ход"
                     Command="{Binding AddChessMove}"
                     IsDefault="True"
-                    HorizontalAlignment="Right"/>
+                    Style="{StaticResource RightButtonStyle}"/>
             
             <Button x:Name="ButtonDeleteLastMove"
                     Grid.Row="0" Grid.Column="1"
-                    Background="White" FontSize="25"
-                    Height="50" Width="300" Cursor="Hand"
-                    Margin="10" Content="Удалить последний ход"
+                    Content="Удалить последний ход"
                     Command="{Binding DeleteMove}"
-                    IsDefault="True" HorizontalAlignment="Left"/>
+                    Style="{StaticResource LeftButtonStyle}"/>
             
             <Button x:Name="ButtonClearMoves"
                     Grid.Row="1" Grid.Column="0"
-                    Background="White" FontSize="25"
-                    Height="50" Width="300" Cursor="Hand"
-                    Margin="10" Content="Очистить все ходы"
-                    Command="{Binding ClearMoves}" HorizontalAlignment="Right"/>
+                    Content="Очистить все ходы"
+                    Command="{Binding ClearMoves}"
+                    Style="{StaticResource RightButtonStyle}"/>
             
             <Button x:Name="ButtonGameVoiceActing"
                     Grid.Row="1" Grid.Column="1"
-                    Background="White" FontSize="25"
-                    Height="50" Width="300" Cursor="Hand"
-                    Margin="10" Content="Озвучить партию"
-                    Command="{Binding GameVoiceActing}" HorizontalAlignment="Left"/>
+                    Content="Озвучить партию"
+                    Command="{Binding GameVoiceActing}"
+                    Style="{StaticResource LeftButtonStyle}"/>
 
         </Grid>
 
