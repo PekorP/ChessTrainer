@@ -16,7 +16,7 @@ namespace ChessTrainer.ViewModels
 
         #region Команды
 
-        #region Команда изменения цвета доски
+        
 
         private RelayCommand addChessMove;
         public RelayCommand AddChessMove
@@ -26,6 +26,18 @@ namespace ChessTrainer.ViewModels
                 return addChessMove ??
                   (addChessMove = new RelayCommand(obj =>
                   {
+                      try
+                      {
+                          ChessParsedMoves.Add(ChessMove.MoveParser(AddedChessMove.WhiteMove));
+                          ChessParsedMoves.Add(ChessMove.MoveParser(AddedChessMove.BlackMove));
+                      }
+                      catch (Exception ex)
+                      {
+                          MessageBox.Show($"Пожалуйста, запишите ход в соответствии с правилами записи ходов",
+                              "Ошибка записи хода",MessageBoxButton.OK, MessageBoxImage.Error );
+                          return;
+                      }
+
                       Moves.Add(new ChessMove(AddedChessMove.NumberOfMove, AddedChessMove.WhiteMove, AddedChessMove.BlackMove));
                       AddedChessMove.WhiteMove = "";
                       AddedChessMove.BlackMove = "";
@@ -49,11 +61,8 @@ namespace ChessTrainer.ViewModels
                   (gameVoiceActing = new RelayCommand(obj =>
                   {
                       IsGameVoiceActing = true;
-                      foreach(var move in Moves)
-                      {
-                          speechSynthesizer.Speak(ChessMove.MoveParser(move.WhiteMove));
-                          speechSynthesizer.Speak(ChessMove.MoveParser(move.BlackMove));
-                      }
+                      foreach(var move in ChessParsedMoves)
+                          speechSynthesizer.Speak(move);
                       IsGameVoiceActing = false;
                   },
                   obj =>
@@ -105,9 +114,9 @@ namespace ChessTrainer.ViewModels
 
         #endregion
 
-        #endregion
-
         SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer() { Rate = 1 };
+
+        List<string> ChessParsedMoves;
 
         public ObservableCollection<ChessMove> Moves { get; set; }
 
@@ -124,6 +133,7 @@ namespace ChessTrainer.ViewModels
         {
             AddedChessMove = new ChessMove();
             Moves = new ObservableCollection<ChessMove>();
+            ChessParsedMoves = new List<string>();
         }
     }
 }

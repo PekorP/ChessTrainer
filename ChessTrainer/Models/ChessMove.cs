@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ChessTrainer.Models
@@ -59,12 +60,17 @@ namespace ChessTrainer.Models
             if (move == "0-0") return "Короткая рокировка";
             if (move == "0-0-0") return "Длинная рокировка";
 
-            var startCell = move[1].ToString() + move[2].ToString();
-            var endCell = move[4].ToString() + move[5].ToString();
+
+            Regex regex = new Regex(@"(?i)^[prnbqk][a-h][1-8]-[a-h][1-8][prnbqk]?$");
+            if (regex.Matches(move).Count == 0)
+                throw new Exception();
+
+            var startCell = move[1].ToString() + move[2];
+            var endCell = move[4].ToString() + move[5];
             var parsedMove = $"{figures[Char.ToUpper(move[0])]} {startCell} на {endCell}";
 
             if ((move.Length == 7) && (figures[Char.ToUpper(move[0])] == figures['P']))
-                parsedMove += $" и превращается в {figures[move[6]]}";
+                parsedMove += $" и превращается в {figures[Char.ToUpper(move[6])]}";
 
             return parsedMove;
         }
