@@ -60,7 +60,6 @@ namespace ChessTrainer.Models
             if (move == "0-0") return "Короткая рокировка";
             if (move == "0-0-0") return "Длинная рокировка";
 
-
             Regex regex = new Regex(@"(?i)^[prnbqk][a-h][1-8]-[a-h][1-8][prnbqk]?$");
             if (regex.Matches(move).Count == 0)
                 throw new Exception();
