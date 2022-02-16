@@ -1,0 +1,202 @@
+﻿<Page x:Class="ChessTrainer.Views.Pages.GameVoiceActingPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChessTrainer.Views.Pages"
+      xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="GameVoiceActingPage"
+      MinHeight="620" MinWidth="900">
+    <Page.DataContext>
+        <vm:GameVoiceActingViewModel/>
+    </Page.DataContext>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\Dictionaries\GameVoiceActingDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+
+    <Grid Background="#ff7440" MinHeight="620" MinWidth="900">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <ListBox x:Name="ListBoxChessMoves"   
+                     Grid.Column="1"
+                     ItemsSource="{Binding Moves}"
+                     Style="{StaticResource ListBoxChessMovesStyle}">
+            </ListBox>
+        </Grid>
+
+        <Grid x:Name="GridAddMove"
+              Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" HorizontalAlignment="Right">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+                <TextBlock x:Name="TextBlockWhiteMove"
+                           Grid.Row="0" Text="Ход белых"
+                           Style="{StaticResource TextBlockWhiteMoveStyle}"/>
+                <TextBox x:Name="TextBoxWhiteMove"
+                         Grid.Row="1"
+                         Text="{Binding AddedChessMove.WhiteMove,
+                                UpdateSourceTrigger=PropertyChanged,
+                                Mode=TwoWay}"
+                         Style="{StaticResource BaseTextBoxAddMoveStyle}">
+                </TextBox>
+            </Grid>
+
+            <Grid Grid.Column="1" HorizontalAlignment="Left">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="TextBlockBlackMove"
+                           Grid.Row="0" Text="Ход черных"
+                           Style="{StaticResource TextBlockBlackMoveStyle}"/>
+                <TextBox x:Name="TextBoxBlackMove"
+                         Grid.Row="1"
+                         Text="{Binding AddedChessMove.BlackMove,
+                                UpdateSourceTrigger=PropertyChanged,
+                                Mode=TwoWay}"
+                         Style="{StaticResource TextBoxBlackMoveStyle}">
+                </TextBox>
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="GridForButtons"
+                    Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="ButtonAddMove"
+                    Grid.Row="0" Grid.Column="0"
+                    Content="Добавить ход"
+                    Command="{Binding AddChessMove}"
+                    IsDefault="True"
+                    Style="{StaticResource RightButtonStyle}"/>
+            
+            <Button x:Name="ButtonDeleteLastMove"
+                    Grid.Row="0" Grid.Column="1"
+                    Content="Удалить последний ход"
+                    Command="{Binding DeleteMove}"
+                    Style="{StaticResource LeftButtonStyle}"/>
+            
+            <Button x:Name="ButtonClearMoves"
+                    Grid.Row="1" Grid.Column="0"
+                    Content="Очистить все ходы"
+                    Command="{Binding ClearMoves}"
+                    Style="{StaticResource RightButtonStyle}"/>
+            
+            <Button x:Name="ButtonGameVoiceActing"
+                    Grid.Row="1" Grid.Column="1"
+                    Content="Озвучить партию"
+                    Command="{Binding GameVoiceActing}"
+                    Style="{StaticResource LeftButtonStyle}"/>
+
+        </Grid>
+
+        <Expander Header="Правила записи ходов"
+                       Grid.Row="3"
+                       Foreground="White" FontSize="13"
+                       Margin="10 0 0 0" IsExpanded="True">
+            <Grid x:Name="GridRules">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                
+                <TextBlock Grid.Column="0"
+                        HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Run Text="Фигура:"/>
+                    <LineBreak/>
+                    <Run Text="P - Пешка"/>
+                    <LineBreak/>
+                    <Run Text="R - Ладья"/>
+                    <LineBreak/>
+                    <Run Text="N - Конь"/>
+                    <LineBreak/>
+                    <Run Text="B - Слон"/>
+                    <LineBreak/>
+                    <Run Text="Q - Ферзь"/>
+                    <LineBreak/>
+                    <Run Text="K - Король"/>
+                </TextBlock>
+
+            <TextBlock Grid.Column="1" TextAlignment="Center"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"> 
+                <Run Text="Поле"/>
+                <LineBreak/>
+                <Run Text="с которого сделан ход"/>
+                <LineBreak/>
+                <Run Text="Например (a2)"/>
+            </TextBlock>
+
+            <TextBlock Grid.Column="2" Text="一"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <TextBlock Grid.Column="3" TextAlignment="Center"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"> 
+                <Run Text="Поле"/>
+                <LineBreak/>
+                <Run Text="на которое сделан ход"/>
+                <LineBreak/>
+                <Run Text="Например (a5)"/>
+            </TextBlock>
+
+            <TextBlock Grid.Column="4" TextAlignment="Center"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"> 
+                <Run Text="Превращение пешки: "/>
+                <LineBreak/>
+                <Run Text="В конце записи хода"/>
+                <LineBreak/>
+                <Run Text="указание в какую фигуру"/>
+                <LineBreak/>
+                <Run Text="превратилась пешка"/>
+                <LineBreak/>
+                <Run Text="Например (Pa7-a8Q)"/>
+            </TextBlock>
+
+            <TextBlock Grid.Column="5" TextAlignment="Center"
+                       VerticalAlignment="Center" HorizontalAlignment="Center"> 
+                <Run Text="Рокировка: "/>
+                <LineBreak/>
+                <Run Text="Короткая: 0-0"/>
+                <LineBreak/>
+                <Run Text="Длинная: 0-0-0"/>
+            </TextBlock>
+        </Grid>
+        </Expander>
+    </Grid>
+</Page>

@@ -13,8 +13,6 @@ namespace ChessTrainer.ViewModels
 
         #region Команды
 
-        #region Команда изменения цвета доски
-
         private RelayCommand checkIsRightAnswer;
         public RelayCommand CheckIsRightAnswer
         {
@@ -48,7 +46,6 @@ namespace ChessTrainer.ViewModels
 
         #endregion
 
-        #endregion
 
         public Board Board { get; set; }
 

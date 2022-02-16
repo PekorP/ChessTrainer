@@ -95,12 +95,9 @@
 
             <!--======================================Content========================================-->
 
-            <Frame Source="Pages/BlackAndWhitePage.xaml" Grid.Row="1" Grid.Column="1">
+            <Frame Source="Pages/GameVoiceActingPage.xaml" Grid.Row="1" Grid.Column="1">
             </Frame>
-
-
             <!--======================================Content========================================-->
-
         </Grid>
     </Grid>
 </Window>
