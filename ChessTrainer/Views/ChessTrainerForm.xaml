@@ -30,7 +30,7 @@
             <RowDefinition MinHeight="80" MaxHeight="80" Height="4*"/>
             <RowDefinition Height="31*"/>
         </Grid.RowDefinitions>
-        <!--======================================Header========================================-->
+
         <Grid Grid.Row="0" Background="SandyBrown">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -49,18 +49,12 @@
                 <Button Style="{StaticResource MinimizeAndCloseButtonStyle}" Command="{Binding CloseApplication}">X</Button>
             </StackPanel>
         </Grid>
-        <!--======================================Header========================================-->
-
-
-        <!--======================================MainContentGrid========================================-->
 
         <Grid Background="#ed9121" Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="300"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-
-            <!--======================================SideMenu========================================-->
 
             <Grid Background="#FF6347" Grid.Column="0">
                 <StackPanel VerticalAlignment="Center" >
@@ -91,14 +85,9 @@
                     </Button>
                 </StackPanel>
             </Grid>
-            <!--======================================SideMenu========================================-->
 
-            <!--======================================Content========================================-->
-
-            <Frame Source="Pages/GameVoiceActingPage.xaml" Grid.Row="1" Grid.Column="1">
-            </Frame>
-            <!--======================================Content========================================-->
+            <Frame Source="Pages/MaterialAdvantagePage.xaml" Grid.Row="1" Grid.Column="1"/>
         </Grid>
     </Grid>
 </Window>
-<!--=========================================Разметка==========================================-->
+

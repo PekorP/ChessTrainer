@@ -1,0 +1,101 @@
+﻿<Page x:Class="ChessTrainer.Views.Pages.MaterialAdvantagePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChessTrainer.Views.Pages"
+      mc:Ignorable="d" 
+      MinHeight="620" MinWidth="900"
+      Title="MaterialAdvantagePage">
+
+    <Grid Background="#ff7440">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="3.5*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        
+        <Image x:Name="ImageBoardPic"
+               Grid.Row="0" Grid.Column="1"
+               Source="/Pics/PicsForMaterialAdvantage/BoardsPics/BoardPic_1_0.png"
+               Width="400"/>
+        <!--Source="{Binding MaterialAdvantage.Image}"-->
+
+        <Grid x:Name="GridWriteAndCheckAnswer"
+              Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="1.5*"/>
+            </Grid.RowDefinitions>
+
+            <Grid x:Name="GridWriteAnswer"
+                 Grid.Row="0" Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Grid.Column="0"
+                       Text="Преимущество белых равно +"
+                       HorizontalAlignment="Right" VerticalAlignment="Center"
+                       FontSize="20" Foreground="White" Margin="0 0 5 0"/>
+                <TextBox x:Name="TextBoxWriteAnswer"
+                         Grid.Column="1"
+                         HorizontalAlignment="Stretch" VerticalAlignment="Center"
+                         FontSize="25" TextAlignment="Center"
+                         MaxLength="2" BorderBrush="{x:Null}"/>
+            </Grid>
+
+            <Button x:Name="ButtonCheckAnswer"
+                    Grid.Row="0" Grid.Column="1"
+                    HorizontalAlignment="Center" VerticalAlignment="Center"
+                    Content="➙" Background="White"
+                    FontSize="30"
+                    Height="{Binding Path=ActualHeight, ElementName=TextBoxWriteAnswer}"
+                    Cursor="Hand">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid Background="White">
+                                        <TextBlock Padding="40 0"
+                                                   Text="{TemplateBinding Content}"
+                                                   TextAlignment="Center" VerticalAlignment="Center"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Foreground" Value="DarkBlue"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+
+            <TextBlock x:Name="TextBlockCountAnswers"
+                       Grid.Row="2"
+                       FontSize="50" Foreground="White"
+                       VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Run Text="0"/>
+                <Run Text="/"/>
+                <Run Text="0"/>
+            </TextBlock>
+
+            <Image x:Name="ImageResultOfAnswer"
+                   Grid.Row="1" Grid.Column="1"
+                   Width="70" Height="70"
+                   VerticalAlignment="Top" HorizontalAlignment="Center"
+                   Source="/Pics/PicsForMaterialAdvantage/RightSelection.png" />
+        </Grid>
+    </Grid>
+</Page>

@@ -92,6 +92,9 @@
     <Compile Include="Views\Pages\GameVoiceActingPage.xaml.cs">
       <DependentUpon>GameVoiceActingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\MaterialAdvantagePage.xaml.cs">
+      <DependentUpon>MaterialAdvantagePage.xaml</DependentUpon>
+    </Compile>
     <Page Include="Dictionaries\BlackAndWhiteDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -129,6 +132,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\GameVoiceActingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\MaterialAdvantagePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
