@@ -68,6 +68,11 @@
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Enums\CellColor.cs" />
+    <Compile Include="Migrations\202202181321393_Initialize.cs" />
+    <Compile Include="Migrations\202202181321393_Initialize.designer.cs">
+      <DependentUpon>202202181321393_Initialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Board.cs" />
     <Compile Include="Models\Cell.cs" />
     <Compile Include="Models\ChessMove.cs" />
@@ -142,6 +147,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\202202181321393_Initialize.resx">
+      <DependentUpon>202202181321393_Initialize.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
