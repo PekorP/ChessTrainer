@@ -94,8 +94,21 @@
             <Image x:Name="ImageResultOfAnswer"
                    Grid.Row="1" Grid.Column="1"
                    Width="70" Height="70"
-                   VerticalAlignment="Top" HorizontalAlignment="Center"
-                   Source="/Pics/PicsForMaterialAdvantage/RightSelection.png" />
+                   VerticalAlignment="Top" HorizontalAlignment="Center">
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsRightAnswer}" Value="true">
+                                <Setter Property="Source" Value="/Pics/PicsForMaterialAdvantage/RightAnswer.png"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsRightAnswer}" Value="false">
+                                <Setter Property="Source" Value="/Pics/PicsForMaterialAdvantage/WrongAnswer.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
+
         </Grid>
     </Grid>
 </Page>
