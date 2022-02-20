@@ -8,6 +8,14 @@
       mc:Ignorable="d" 
       MinHeight="620" MinWidth="900"
       Title="MaterialAdvantagePage">
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\Dictionaries\MaterialAdvantageDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
+    
     <Page.DataContext>
         <vm:MaterialAdvantageViewModel/>
     </Page.DataContext>
@@ -46,51 +54,20 @@
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="0"
                        Text="Преимущество белых равно +"
-                       HorizontalAlignment="Right" VerticalAlignment="Center"
-                       FontSize="20" Foreground="White" Margin="0 0 5 0"/>
+                       Style="{StaticResource TextBlockMaterialAdvantageStyle}"/>
                 <TextBox x:Name="TextBoxWriteAnswer"
                          Grid.Column="1" Text="{Binding UserAnswer,UpdateSourceTrigger=PropertyChanged}"
-                         HorizontalAlignment="Stretch" VerticalAlignment="Center"
-                         FontSize="25" TextAlignment="Center"
-                         MaxLength="2" BorderBrush="{x:Null}"/>
+                         Style="{StaticResource TextBoxWriteAnswerStyle}"/>
             </Grid>
 
             <Button x:Name="ButtonCheckAnswer"
                     Grid.Row="0" Grid.Column="1"
-                    HorizontalAlignment="Center" VerticalAlignment="Center"
-                    Content="➙" Background="White"
-                    FontSize="30" IsDefault="True"
-                    Height="{Binding Path=ActualHeight, ElementName=TextBoxWriteAnswer}"
-                    Cursor="Hand" Command="{Binding CheckIsRightAnswer}">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="Button">
-                                    <Grid Background="White">
-                                        <TextBlock Padding="40 0"
-                                                   Text="{TemplateBinding Content}"
-                                                   TextAlignment="Center" VerticalAlignment="Center"/>
-                                    </Grid>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                        <Style.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-                                <Setter Property="Foreground" Value="DarkBlue"/>
-                            </Trigger>
-                            <Trigger Property="IsEnabled" Value="False">
-                                <Setter Property="Foreground" Value="DarkGray"/>
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </Button.Style>
-            </Button>
+                    Content="➙" Command="{Binding CheckIsRightAnswer}"
+                    Style="{StaticResource ButtonCheckAnswerStyle}"/>
 
             <TextBlock x:Name="TextBlockCountAnswers"
                        Grid.Row="2"
-                       FontSize="50" Foreground="White"
-                       VerticalAlignment="Top" HorizontalAlignment="Center">
+                       Style="{StaticResource TextBlockCountAnswersStyle}">
                 <Run Text="{Binding CountRightAnswers}"/>
                 <Run Text="/"/>
                 <Run Text="{Binding TotalCountAnswers}"/>
@@ -98,22 +75,7 @@
 
             <Image x:Name="ImageResultOfAnswer"
                    Grid.Row="1" Grid.Column="1"
-                   Width="70" Height="70"
-                   VerticalAlignment="Top" HorizontalAlignment="Center">
-                <Image.Style>
-                    <Style TargetType="Image">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsRightAnswer}" Value="true">
-                                <Setter Property="Source" Value="/Pics/PicsForMaterialAdvantage/RightAnswer.png"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding IsRightAnswer}" Value="false">
-                                <Setter Property="Source" Value="/Pics/PicsForMaterialAdvantage/WrongAnswer.png"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Image.Style>
-            </Image>
-
+                   Style="{StaticResource ImageResultOfAnswerStyle}"/>
         </Grid>
     </Grid>
 </Page>
