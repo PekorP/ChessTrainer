@@ -4,9 +4,13 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ChessTrainer.Views.Pages"
+      xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
       mc:Ignorable="d" 
       MinHeight="620" MinWidth="900"
       Title="MaterialAdvantagePage">
+    <Page.DataContext>
+        <vm:MaterialAdvantageViewModel/>
+    </Page.DataContext>
 
     <Grid Background="#ff7440">
         <Grid.RowDefinitions>
@@ -18,12 +22,10 @@
             <ColumnDefinition Width="3.5*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
+
         <Image x:Name="ImageBoardPic"
                Grid.Row="0" Grid.Column="1"
-               Source="/Pics/PicsForMaterialAdvantage/BoardsPics/BoardPic_1_0.png"
-               Width="400"/>
-        <!--Source="{Binding MaterialAdvantage.Image}"-->
+               Width="400" Source="{Binding CurrentMaterialAdvantage.Image}"/>
 
         <Grid x:Name="GridWriteAndCheckAnswer"
               Grid.Row="1" Grid.Column="1">
@@ -47,7 +49,7 @@
                        HorizontalAlignment="Right" VerticalAlignment="Center"
                        FontSize="20" Foreground="White" Margin="0 0 5 0"/>
                 <TextBox x:Name="TextBoxWriteAnswer"
-                         Grid.Column="1"
+                         Grid.Column="1" Text="{Binding UserAnswer,UpdateSourceTrigger=PropertyChanged}"
                          HorizontalAlignment="Stretch" VerticalAlignment="Center"
                          FontSize="25" TextAlignment="Center"
                          MaxLength="2" BorderBrush="{x:Null}"/>
@@ -57,9 +59,9 @@
                     Grid.Row="0" Grid.Column="1"
                     HorizontalAlignment="Center" VerticalAlignment="Center"
                     Content="➙" Background="White"
-                    FontSize="30"
+                    FontSize="30" IsDefault="True"
                     Height="{Binding Path=ActualHeight, ElementName=TextBoxWriteAnswer}"
-                    Cursor="Hand">
+                    Cursor="Hand" Command="{Binding CheckIsRightAnswer}">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Template">
@@ -77,6 +79,9 @@
                             <Trigger Property="IsMouseOver" Value="True">
                                 <Setter Property="Foreground" Value="DarkBlue"/>
                             </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Foreground" Value="DarkGray"/>
+                            </Trigger>
                         </Style.Triggers>
                     </Style>
                 </Button.Style>
@@ -86,9 +91,9 @@
                        Grid.Row="2"
                        FontSize="50" Foreground="White"
                        VerticalAlignment="Top" HorizontalAlignment="Center">
-                <Run Text="0"/>
+                <Run Text="{Binding CountRightAnswers}"/>
                 <Run Text="/"/>
-                <Run Text="0"/>
+                <Run Text="{Binding TotalCountAnswers}"/>
             </TextBlock>
 
             <Image x:Name="ImageResultOfAnswer"
