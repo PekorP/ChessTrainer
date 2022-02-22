@@ -79,6 +79,7 @@
     <Compile Include="Models\EF\ChessTrainerContext.cs" />
     <Compile Include="Models\EF\MaterialAdvantage.cs" />
     <Compile Include="Models\Pieces\IPiece.cs" />
+    <Compile Include="Models\Pieces\Knight.cs" />
     <Compile Include="Models\Pieces\Rook.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BlackAndWhiteViewModel.cs" />
