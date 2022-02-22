@@ -23,7 +23,7 @@ namespace ChessTrainer.Models.Pieces
             for (int i = 1; i <= 8; i++) //Для движения вправо вниз
             {
                 if ((CellFrom.File + i == CellTo.File) && (CellFrom.Rank - i == CellTo.Rank)) return true;
-            };
+            }
 
             for (int i = 1; i <= 8; i++) //Для движения вправо вверх
             {

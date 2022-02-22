@@ -81,6 +81,7 @@
     <Compile Include="Models\Pieces\Bishop.cs" />
     <Compile Include="Models\Pieces\IPiece.cs" />
     <Compile Include="Models\Pieces\Knight.cs" />
+    <Compile Include="Models\Pieces\Queen.cs" />
     <Compile Include="Models\Pieces\Rook.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BlackAndWhiteViewModel.cs" />
