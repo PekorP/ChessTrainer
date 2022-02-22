@@ -50,16 +50,16 @@
                     <Image.Style>
                         <Style TargetType="Image">
                             <Style.Triggers>
-                                <DataTrigger Binding="{Binding CellFrom.Piece.PieceType}" Value="Rook">
+                                <DataTrigger Binding="{Binding PieceName}" Value="R">
                                     <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Rook.png"/>
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding CellFrom.Piece.PieceType}" Value="Knight">
+                                <DataTrigger Binding="{Binding PieceName}" Value="N">
                                     <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Knight.png"/>
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding CellFrom.Piece.PieceType}" Value="Queen">
+                                <DataTrigger Binding="{Binding PieceName}" Value="Q">
                                     <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Queen.png"/>
                                 </DataTrigger>
-                                <DataTrigger Binding="{Binding CellFrom.Piece.PieceType}" Value="Bishop">
+                                <DataTrigger Binding="{Binding PieceName}" Value="B">
                                     <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Bishop.png"/>
                                 </DataTrigger>
                             </Style.Triggers>
@@ -110,7 +110,8 @@
             <Button x:Name="ButtonYes" Grid.Column="0"
                     Content="Да"
                     Background="White" FontSize="25"
-                    Height="60" Cursor="Hand">
+                    Height="60" Cursor="Hand"
+                    Command="{Binding CheckIsRightAnswer}" CommandParameter="Yes"> 
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Template">
@@ -150,7 +151,8 @@
             <Button x:Name="ButtonNo" Grid.Column="2"
                     Content="Нет"
                     Background="White" FontSize="25"
-                    Height="60" Cursor="Hand">
+                    Height="60" Cursor="Hand"
+                    Command="{Binding CheckIsRightAnswer}" CommandParameter="No">
                 <Button.Style>
                     <Style TargetType="Button">
                         <Setter Property="Template">

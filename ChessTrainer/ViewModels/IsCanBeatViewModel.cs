@@ -6,11 +6,54 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChessTrainer.Commands;
 
 namespace ChessTrainer.ViewModels
 {
     class IsCanBeatViewModel : BaseViewModel
     {
+
+        #region Команды
+
+        private RelayCommand checkIsRightAnswer;
+        public RelayCommand CheckIsRightAnswer
+        {
+            get
+            {
+                return checkIsRightAnswer ??
+                  (checkIsRightAnswer = new RelayCommand(obj =>
+                  {
+                      switch (obj)
+                      {
+                          case "Yes":
+                              if (CellFrom.Piece.CanBeat(CellFrom, CellTo) == true)
+                              {
+                                  CountRightAnswers++;
+                                  IsRightAnswer = true;
+                              }
+                              else
+                                  IsRightAnswer = false;
+                              break;
+
+                          case "No":
+                              if (CellFrom.Piece.CanBeat(CellFrom, CellTo) == false)
+                              {
+                                  CountRightAnswers++;
+                                  IsRightAnswer = true;
+                              }
+                              else
+                                  IsRightAnswer = false;
+                              break;
+                      }
+                      TotalCountAnswers++;
+                      NewCells();
+                      
+                  }));
+            }
+        }
+
+        #endregion
+
         Board board = new Board();
         List<Piece> pieces = new List<Piece> { new Knight(), new Rook(), new Queen(), new Bishop() };
         Dictionary<Pieces, Char> piecesNames = new Dictionary<Pieces, char>()
@@ -65,6 +108,13 @@ namespace ChessTrainer.ViewModels
 
         public IsCanBeatViewModel()
         {
+            NewCells();
+            CountRightAnswers = 0;
+            TotalCountAnswers = 0;
+        }
+
+        void NewCells()
+        {
             do
             {
                 CellFrom = board.Cells[new Random().Next(board.Cells.Count())];
@@ -73,9 +123,6 @@ namespace ChessTrainer.ViewModels
 
             CellFrom.Piece = pieces[new Random().Next(pieces.Count())];
             PieceName = piecesNames[CellFrom.Piece.PieceType];
-            CountRightAnswers = 0;
-            TotalCountAnswers = 0;
         }
-
     }
 }
