@@ -36,9 +36,9 @@
                        HorizontalAlignment="Center" VerticalAlignment="Center"
                        FontSize="35" Foreground="Wheat">
                 <Run Text="Сможет ли "/>
-                <Run Text="Na2"/>
+                <Run Text="{Binding PieceName}"/><Run Text="{Binding CellFrom.File}"/><Run Text="{Binding CellFrom.Rank}"/>
                 <Run Text=" побить на"/>
-                <Run Text="b5"/>
+                <Run Text="{Binding CellTo.File}"/><Run Text="{Binding CellTo.Rank}"/>
                 <Run Text="?"/>
             </TextBlock>
 
@@ -72,7 +72,7 @@
                            FontSize="80" Foreground="White"
                            VerticalAlignment="Center"
                            Margin="20 0">
-                    <Run Text="A"/><Run Text="2"/>
+                    <Run Text="{Binding CellFrom.File}"/><Run Text="{Binding CellFrom.Rank}"/>
                 </TextBlock>
 
                 <TextBlock Text="X" Foreground="White" FontSize="50"
@@ -82,7 +82,7 @@
                            FontSize="80" Foreground="White"
                            VerticalAlignment="Center"
                            Margin="20 0">
-                    <Run Text="B"/><Run Text="5"/>
+                    <Run Text="{Binding CellTo.File}"/><Run Text="{Binding CellTo.Rank}"/>
                 </TextBlock>
                 <TextBlock Text="?" Foreground="White" FontSize="80"
                            VerticalAlignment="Center"/>
@@ -113,8 +113,20 @@
                     Height="60" Cursor="Hand"/>
 
             <Image x:Name="ImageResultAnswer" Grid.Column="1"
-                   Source="/Pics/PicsForIsCanBeat/RightAnswer.png"
-                   Width="100" Height="100"/>
+                   Width="100" Height="100">
+                <Image.Style>
+                    <Style TargetType="Image">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsRightAnswer}" Value="true">
+                                <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/RightAnswer.png"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsRightAnswer}" Value="false">
+                                <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/WrongAnswer.png"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Image.Style>
+            </Image>
 
             <Button x:Name="ButtonNo" Grid.Column="2"
                     Content="Нет"
