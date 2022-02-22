@@ -78,6 +78,7 @@
     <Compile Include="Models\ChessMove.cs" />
     <Compile Include="Models\EF\ChessTrainerContext.cs" />
     <Compile Include="Models\EF\MaterialAdvantage.cs" />
+    <Compile Include="Models\Pieces\Bishop.cs" />
     <Compile Include="Models\Pieces\IPiece.cs" />
     <Compile Include="Models\Pieces\Knight.cs" />
     <Compile Include="Models\Pieces\Rook.cs" />
