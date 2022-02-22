@@ -6,12 +6,14 @@
         xmlns:local="clr-namespace:ChessTrainer"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
-        
-        Title="MainWindow"
+         Title="MainWindow"
         Height="700" Width="1200"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanResizeWithGrip" WindowStyle="None"
         AllowsTransparency="True" Icon="/Pics/chessIcon.png">
+    <WindowChrome.WindowChrome>
+        <WindowChrome/>
+    </WindowChrome.WindowChrome>
 
 
     <Window.DataContext>
