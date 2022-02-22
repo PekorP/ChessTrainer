@@ -73,6 +73,8 @@ namespace ChessTrainer.ViewModels
 
             CellFrom.Piece = pieces[new Random().Next(pieces.Count())];
             PieceName = piecesNames[CellFrom.Piece.PieceType];
+            CountRightAnswers = 0;
+            TotalCountAnswers = 0;
         }
 
     }

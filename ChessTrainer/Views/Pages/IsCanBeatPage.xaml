@@ -14,7 +14,7 @@
     
     <Grid Background="#ff7440" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="2.5*"/>
+            <RowDefinition Height="2*"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -34,12 +34,12 @@
             <TextBlock x:Name="TextBlocIsCanBeat"
                        Grid.Row="0"
                        HorizontalAlignment="Center" VerticalAlignment="Center"
-                       FontSize="35" Foreground="Wheat">
-                <Run Text="Сможет ли "/>
+                       FontSize="35" Foreground="White">
+                <Run Text="Сможет ли " Foreground="Wheat"/>
                 <Run Text="{Binding PieceName}"/><Run Text="{Binding CellFrom.File}"/><Run Text="{Binding CellFrom.Rank}"/>
-                <Run Text=" побить на"/>
+                <Run Text=" побить на" Foreground="Wheat"/>
                 <Run Text="{Binding CellTo.File}"/><Run Text="{Binding CellTo.Rank}"/>
-                <Run Text="?"/>
+                <Run Text="?" Foreground="Wheat"/>
             </TextBlock>
 
             <StackPanel x:Name="StackPanelMoveToBeat"
@@ -69,7 +69,7 @@
 
 
                 <TextBlock x:Name="TextBlockBeatFrom"
-                           FontSize="80" Foreground="White"
+                           FontSize="80" Foreground="Wheat"
                            VerticalAlignment="Center"
                            Margin="20 0">
                     <Run Text="{Binding CellFrom.File}"/><Run Text="{Binding CellFrom.Rank}"/>
@@ -79,7 +79,7 @@
                            VerticalAlignment="Center"/>
 
                 <TextBlock x:Name="TextBlockBeatTo"
-                           FontSize="80" Foreground="White"
+                           FontSize="80" Foreground="Wheat"
                            VerticalAlignment="Center"
                            Margin="20 0">
                     <Run Text="{Binding CellTo.File}"/><Run Text="{Binding CellTo.Rank}"/>
@@ -92,9 +92,9 @@
                        Grid.Row="2"
                        VerticalAlignment="Center" HorizontalAlignment="Center"
                        Foreground="White" FontSize="50">
-                <Run Text="0"/>
+                <Run Text="{Binding CountRightAnswers}"/>
                 <Run Text="/"/>
-                <Run Text="0"/>
+                <Run Text="{Binding TotalCountAnswers}"/>
             </TextBlock>
         </Grid>
 
@@ -110,7 +110,26 @@
             <Button x:Name="ButtonYes" Grid.Column="0"
                     Content="Да"
                     Background="White" FontSize="25"
-                    Height="60" Cursor="Hand"/>
+                    Height="60" Cursor="Hand">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" Background="White">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" TargetName="border" Value="LightGray"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
 
             <Image x:Name="ImageResultAnswer" Grid.Column="1"
                    Width="100" Height="100">
@@ -131,7 +150,26 @@
             <Button x:Name="ButtonNo" Grid.Column="2"
                     Content="Нет"
                     Background="White" FontSize="25"
-                    Height="60" Cursor="Hand"/>
+                    Height="60" Cursor="Hand">
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="{x:Type Button}">
+                                    <Border x:Name="border" Background="White">
+                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" TargetName="border" Value="LightGray"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </Button.Style>
+            </Button>
         </Grid>
     </Grid>
 </Page>
