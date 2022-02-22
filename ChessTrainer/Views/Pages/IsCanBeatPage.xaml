@@ -4,10 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ChessTrainer.Views.Pages"
+      xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
       mc:Ignorable="d" 
       MinHeight="620" MinWidth="900"
       Title="IsCanBeatPage">
-
+    <Page.DataContext>
+        <vm:IsCanBeatViewModel/>
+    </Page.DataContext>
+    
     <Grid Background="#ff7440" >
         <Grid.RowDefinitions>
             <RowDefinition Height="2.5*"/>
@@ -42,7 +46,27 @@
                   Grid.Row="1" Orientation="Horizontal"
                         Margin="0 30" HorizontalAlignment="Center">
                 <Image x:Name="ImageFigure"
-                       Width="100" Source="/Pics/IconsForSideMenu/IsCanBeat.png"/>
+                       Width="100">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding CellFrom.Piece.PieceType}" Value="Rook">
+                                    <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Rook.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CellFrom.Piece.PieceType}" Value="Knight">
+                                    <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Knight.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CellFrom.Piece.PieceType}" Value="Queen">
+                                    <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Queen.png"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CellFrom.Piece.PieceType}" Value="Bishop">
+                                    <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Bishop.png"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+
 
                 <TextBlock x:Name="TextBlockBeatFrom"
                            FontSize="80" Foreground="White"

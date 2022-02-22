@@ -68,6 +68,7 @@
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Enums\CellColor.cs" />
+    <Compile Include="Enums\Pieces.cs" />
     <Compile Include="Migrations\202202181321393_Initialize.cs" />
     <Compile Include="Migrations\202202181321393_Initialize.designer.cs">
       <DependentUpon>202202181321393_Initialize.cs</DependentUpon>
@@ -81,6 +82,7 @@
     <Compile Include="Models\Pieces\Bishop.cs" />
     <Compile Include="Models\Pieces\IPiece.cs" />
     <Compile Include="Models\Pieces\Knight.cs" />
+    <Compile Include="Models\Pieces\Piece.cs" />
     <Compile Include="Models\Pieces\Queen.cs" />
     <Compile Include="Models\Pieces\Rook.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
@@ -88,6 +90,7 @@
     <Compile Include="ViewModels\ChessTrainerViewModel.cs" />
     <Compile Include="ViewModels\CoordinatesViewModel.cs" />
     <Compile Include="ViewModels\GameVoiceActingViewModel.cs" />
+    <Compile Include="ViewModels\IsCanBeatViewModel.cs" />
     <Compile Include="ViewModels\MaterialAdvantageViewModel.cs" />
     <Compile Include="Views\Pages\BlackAndWhitePage.xaml.cs">
       <DependentUpon>BlackAndWhitePage.xaml</DependentUpon>
@@ -236,6 +239,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pics\PicsForIsCanBeat\WrongAnswer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\PicsForIsCanBeat\Pieces\Bishop.png" />
+    <Resource Include="Pics\PicsForIsCanBeat\Pieces\Knight.png" />
+    <Resource Include="Pics\PicsForIsCanBeat\Pieces\Queen.png" />
+    <Resource Include="Pics\PicsForIsCanBeat\Pieces\Rook.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

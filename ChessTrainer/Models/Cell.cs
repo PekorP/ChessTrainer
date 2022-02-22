@@ -1,4 +1,5 @@
 ﻿using ChessTrainer.Enums;
+using ChessTrainer.Models.Pieces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,10 +13,9 @@ namespace ChessTrainer.Models
     public class Cell
     {
         public CellColor Color { get; set; }
-
         public int Rank { get; set; } //1-8 (Горизонтали)
-
         public char File { get; set; } //a-h (Вертикали)
+        public Piece Piece { get; set; }
 
         public override bool Equals(object obj)
         {
