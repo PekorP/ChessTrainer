@@ -93,6 +93,9 @@
     <Compile Include="Views\Pages\GameVoiceActingPage.xaml.cs">
       <DependentUpon>GameVoiceActingPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\IsCanBeatPage.xaml.cs">
+      <DependentUpon>IsCanBeatPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\MaterialAdvantagePage.xaml.cs">
       <DependentUpon>MaterialAdvantagePage.xaml</DependentUpon>
     </Compile>
@@ -137,6 +140,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\GameVoiceActingPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\IsCanBeatPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -218,6 +225,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Pics\PicsForMaterialAdvantage\WrongAnswer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\PicsForIsCanBeat\RightAnswer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Pics\PicsForIsCanBeat\WrongAnswer.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
