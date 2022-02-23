@@ -92,19 +92,19 @@
     <Compile Include="ViewModels\GameVoiceActingViewModel.cs" />
     <Compile Include="ViewModels\IsCanBeatViewModel.cs" />
     <Compile Include="ViewModels\MaterialAdvantageViewModel.cs" />
-    <Compile Include="Views\Pages\BlackAndWhitePage.xaml.cs">
+    <Compile Include="Views\UserControls\BlackAndWhitePage.xaml.cs">
       <DependentUpon>BlackAndWhitePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\CoordinatesPage.xaml.cs">
+    <Compile Include="Views\UserControls\CoordinatesPage.xaml.cs">
       <DependentUpon>CoordinatesPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\GameVoiceActingPage.xaml.cs">
+    <Compile Include="Views\UserControls\GameVoiceActingPage.xaml.cs">
       <DependentUpon>GameVoiceActingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\IsCanBeatPage.xaml.cs">
+    <Compile Include="Views\UserControls\IsCanBeatPage.xaml.cs">
       <DependentUpon>IsCanBeatPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\Pages\MaterialAdvantagePage.xaml.cs">
+    <Compile Include="Views\UserControls\MaterialAdvantagePage.xaml.cs">
       <DependentUpon>MaterialAdvantagePage.xaml</DependentUpon>
     </Compile>
     <Page Include="Dictionaries\BlackAndWhiteDictionary.xaml">
@@ -143,23 +143,23 @@
       <DependentUpon>ChessTrainerForm.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\Pages\BlackAndWhitePage.xaml">
+    <Page Include="Views\UserControls\BlackAndWhitePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\CoordinatesPage.xaml">
+    <Page Include="Views\UserControls\CoordinatesPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\GameVoiceActingPage.xaml">
+    <Page Include="Views\UserControls\GameVoiceActingPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\IsCanBeatPage.xaml">
+    <Page Include="Views\UserControls\IsCanBeatPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\Pages\MaterialAdvantagePage.xaml">
+    <Page Include="Views\UserControls\MaterialAdvantagePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

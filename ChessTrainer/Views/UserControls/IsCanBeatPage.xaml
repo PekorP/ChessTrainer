@@ -1,4 +1,4 @@
-﻿<Page x:Class="ChessTrainer.Views.Pages.IsCanBeatPage"
+﻿<UserControl x:Class="ChessTrainer.Views.Pages.IsCanBeatPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,20 +6,19 @@
       xmlns:local="clr-namespace:ChessTrainer.Views.Pages"
       xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
       mc:Ignorable="d" 
-      MinHeight="620" MinWidth="900"
-      Title="IsCanBeatPage">
-    
-    <Page.DataContext>
-        <vm:IsCanBeatViewModel/>
-    </Page.DataContext>
+      MinHeight="620" MinWidth="900">
 
-    <Page.Resources>
+    <UserControl.DataContext>
+        <vm:IsCanBeatViewModel/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="..\..\Dictionaries\IsCanBeatDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </Page.Resources>
+    </UserControl.Resources>
     
     <Grid Background="#ff7440" >
         <Grid.RowDefinitions>
@@ -109,4 +108,4 @@
                     Style="{StaticResource  ButtonStyle}"/>
         </Grid>
     </Grid>
-</Page>
+</UserControl>

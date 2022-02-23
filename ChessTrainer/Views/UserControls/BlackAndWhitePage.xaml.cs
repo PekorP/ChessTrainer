@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ChessTrainer.Views.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для GameVoiceActingPage.xaml
+    /// Логика взаимодействия для BlackAndWhitePage.xaml
     /// </summary>
-    public partial class GameVoiceActingPage : Page
+    public partial class BlackAndWhitePage : UserControl
     {
-        public GameVoiceActingPage()
+        public BlackAndWhitePage()
         {
             InitializeComponent();
         }

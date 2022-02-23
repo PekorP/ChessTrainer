@@ -87,7 +87,7 @@
                 </StackPanel>
             </Grid>
 
-            <Frame Source="Pages/IsCanBeatPage.xaml" Grid.Row="1" Grid.Column="1"/>
+            <Frame Source="Pages/BlackAndWhitePage.xaml" Grid.Row="1" Grid.Column="1"/>
         </Grid>
     </Grid>
 </Window>

@@ -1,23 +1,21 @@
-﻿<Page x:Class="ChessTrainer.Views.Pages.BlackAndWhitePage"
+﻿<UserControl x:Class="ChessTrainer.Views.Pages.BlackAndWhitePage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ChessTrainer.Views.Pages"
       xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
-      mc:Ignorable="d" 
-     
-      Title="BlackAndWhitePage">
-    <Page.DataContext>
+      mc:Ignorable="d">
+    <UserControl.DataContext>
         <vm:BlackAndWhiteViewModel/>
-    </Page.DataContext>
-    <Page.Resources>
+    </UserControl.DataContext>
+    <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="..\..\Dictionaries\BlackAndWhiteDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-    </Page.Resources>
+    </UserControl.Resources>
 
     <Grid Background="#ff7440" MinHeight="620" MinWidth="900">
         <Grid>
@@ -68,12 +66,10 @@
                        Grid.Row="2"
                        FontSize="100" Foreground="White"
                        VerticalAlignment="Top" HorizontalAlignment="Center">
-                <Run Text="Правильных ответов" FontSize="20" BaselineAlignment="Center"/>
                 <Run Text="{Binding CountRightAnswers}"/>
                 <Run Text="/"/>
                 <Run Text="{Binding TotalCountAnswers}"/>
-                <Run Text="Всего ответов" FontSize="20" BaselineAlignment="Center"/>
             </TextBlock>
         </Grid>
     </Grid>
-</Page>
+</UserControl>

@@ -18,7 +18,7 @@ namespace ChessTrainer.Views.Pages
     /// <summary>
     /// Логика взаимодействия для IsCanBeatPage.xaml
     /// </summary>
-    public partial class IsCanBeatPage : Page
+    public partial class IsCanBeatPage : UserControl
     {
         public IsCanBeatPage()
         {

@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ChessTrainer.Views.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для BlackAndWhitePage.xaml
+    /// Логика взаимодействия для MaterialAdvantagePage.xaml
     /// </summary>
-    public partial class BlackAndWhitePage : Page
+    public partial class MaterialAdvantagePage : UserControl
     {
-        public BlackAndWhitePage()
+        public MaterialAdvantagePage()
         {
             InitializeComponent();
         }
