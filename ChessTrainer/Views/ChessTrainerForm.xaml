@@ -6,19 +6,18 @@
         xmlns:local="clr-namespace:ChessTrainer"
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
-         Title="MainWindow"
+        Title="MainWindow"
         Height="700" Width="1200"
-        WindowStartupLocation="CenterScreen"
-        ResizeMode="CanResizeWithGrip" WindowStyle="None"
+        WindowStartupLocation="CenterScreen" WindowStyle="None"
         AllowsTransparency="True" Icon="/Pics/chessIcon.png">
     <WindowChrome.WindowChrome>
-        <WindowChrome/>
+        <WindowChrome ResizeBorderThickness="10"/>
     </WindowChrome.WindowChrome>
-
 
     <Window.DataContext>
         <vm:ChessTrainerViewModel/>
     </Window.DataContext>
+    
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -38,10 +37,10 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
-            <TextBlock Grid.Column="0" Grid.ColumnSpan="2"
-                       VerticalAlignment="Center" 
-                       HorizontalAlignment="Center" FontSize="25" Foreground="White"
-                       Text="Шахматный тренажер by Pekor"/>
+            <TextBlock x:Name="TextBlockHeader"
+                       Grid.Column="0" Grid.ColumnSpan="2"
+                       Text="Шахматный тренажер by Pekor"
+                       Style="{StaticResource TextBlockHeaderStyle}"/>
             <StackPanel Grid.Column="1"
                         Orientation="Horizontal"                        
                         HorizontalAlignment="Center"

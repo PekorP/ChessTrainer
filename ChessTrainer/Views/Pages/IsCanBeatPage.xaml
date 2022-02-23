@@ -8,9 +8,18 @@
       mc:Ignorable="d" 
       MinHeight="620" MinWidth="900"
       Title="IsCanBeatPage">
+    
     <Page.DataContext>
         <vm:IsCanBeatViewModel/>
     </Page.DataContext>
+
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\Dictionaries\IsCanBeatDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
     
     <Grid Background="#ff7440" >
         <Grid.RowDefinitions>
@@ -31,10 +40,9 @@
                 <RowDefinition Height="2*"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <TextBlock x:Name="TextBlocIsCanBeat"
+            <TextBlock x:Name="TextBlockIsCanBeat"
                        Grid.Row="0"
-                       HorizontalAlignment="Center" VerticalAlignment="Center"
-                       FontSize="35" Foreground="White">
+                       Style="{StaticResource TextBlockIsCanBeatStyle}">
                 <Run Text="Сможет ли " Foreground="Wheat"/>
                 <Run Text="{Binding PieceName}"/><Run Text="{Binding CellFrom.File}"/><Run Text="{Binding CellFrom.Rank}"/>
                 <Run Text=" побить на" Foreground="Wheat"/>
@@ -46,32 +54,10 @@
                   Grid.Row="1" Orientation="Horizontal"
                         Margin="0 30" HorizontalAlignment="Center">
                 <Image x:Name="ImageFigure"
-                       Width="100">
-                    <Image.Style>
-                        <Style TargetType="Image">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding PieceName}" Value="R">
-                                    <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Rook.png"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding PieceName}" Value="N">
-                                    <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Knight.png"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding PieceName}" Value="Q">
-                                    <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Queen.png"/>
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding PieceName}" Value="B">
-                                    <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Bishop.png"/>
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Image.Style>
-                </Image>
-
+                       Width="100" Style="{StaticResource ImageFigureStyle}"/>
 
                 <TextBlock x:Name="TextBlockBeatFrom"
-                           FontSize="80" Foreground="Wheat"
-                           VerticalAlignment="Center"
-                           Margin="20 0">
+                           Style="{StaticResource TextBlockBeatStyle}">
                     <Run Text="{Binding CellFrom.File}"/><Run Text="{Binding CellFrom.Rank}"/>
                 </TextBlock>
 
@@ -79,9 +65,7 @@
                            VerticalAlignment="Center"/>
 
                 <TextBlock x:Name="TextBlockBeatTo"
-                           FontSize="80" Foreground="Wheat"
-                           VerticalAlignment="Center"
-                           Margin="20 0">
+                          Style="{StaticResource TextBlockBeatStyle}">
                     <Run Text="{Binding CellTo.File}"/><Run Text="{Binding CellTo.Rank}"/>
                 </TextBlock>
                 <TextBlock Text="?" Foreground="White" FontSize="80"
@@ -90,8 +74,7 @@
 
             <TextBlock x:Name="TextBlockCountAnswers"
                        Grid.Row="2"
-                       VerticalAlignment="Center" HorizontalAlignment="Center"
-                       Foreground="White" FontSize="50">
+                       Style="{StaticResource TextBlockCountAnswersStyle}">
                 <Run Text="{Binding CountRightAnswers}"/>
                 <Run Text="/"/>
                 <Run Text="{Binding TotalCountAnswers}"/>
@@ -111,67 +94,19 @@
                     Content="Да"
                     Background="White" FontSize="25"
                     Height="60" Cursor="Hand"
-                    Command="{Binding CheckIsRightAnswer}" CommandParameter="Yes"> 
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border x:Name="border" Background="White">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" TargetName="border" Value="LightGray"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
-            </Button>
+                    Command="{Binding CheckIsRightAnswer}" CommandParameter="Yes"
+                    Style="{StaticResource  ButtonStyle}"/>
 
             <Image x:Name="ImageResultAnswer" Grid.Column="1"
-                   Width="100" Height="100">
-                <Image.Style>
-                    <Style TargetType="Image">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding IsRightAnswer}" Value="true">
-                                <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/RightAnswer.png"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding IsRightAnswer}" Value="false">
-                                <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/WrongAnswer.png"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Image.Style>
-            </Image>
+                   Width="100" Height="100"
+                   Style="{StaticResource ImageResultAnswer}"/>
 
             <Button x:Name="ButtonNo" Grid.Column="2"
                     Content="Нет"
                     Background="White" FontSize="25"
                     Height="60" Cursor="Hand"
-                    Command="{Binding CheckIsRightAnswer}" CommandParameter="No">
-                <Button.Style>
-                    <Style TargetType="Button">
-                        <Setter Property="Template">
-                            <Setter.Value>
-                                <ControlTemplate TargetType="{x:Type Button}">
-                                    <Border x:Name="border" Background="White">
-                                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                    </Border>
-                                    <ControlTemplate.Triggers>
-                                        <Trigger Property="IsMouseOver" Value="True">
-                                            <Setter Property="Background" TargetName="border" Value="LightGray"/>
-                                        </Trigger>
-                                    </ControlTemplate.Triggers>
-                                </ControlTemplate>
-                            </Setter.Value>
-                        </Setter>
-                    </Style>
-                </Button.Style>
-            </Button>
+                    Command="{Binding CheckIsRightAnswer}" CommandParameter="No"
+                    Style="{StaticResource  ButtonStyle}"/>
         </Grid>
     </Grid>
 </Page>
