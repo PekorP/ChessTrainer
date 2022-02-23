@@ -1,5 +1,5 @@
 ﻿using System.Windows.Controls;
-namespace ChessTrainer.Views
+namespace ChessTrainer.Views.Pages
 {
     /// <summary>
     /// Логика взаимодействия для CoordinatesPage.xaml
