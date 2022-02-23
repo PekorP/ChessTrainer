@@ -24,7 +24,11 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="..\Dictionaries\ChessTrainerDictionary.xaml"/>
             </ResourceDictionary.MergedDictionaries>
-            
+
+            <DataTemplate DataType="{x:Type vm:RulesViewModel}">
+                <view:RulesPage/>
+            </DataTemplate>
+
             <DataTemplate DataType="{x:Type vm:CoordinatesViewModel}">
                 <view:CoordinatesPage/>
             </DataTemplate>
@@ -56,8 +60,8 @@
 
         <Grid Grid.Row="0" Background="SandyBrown">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="100"/>
             </Grid.ColumnDefinitions>
             <TextBlock x:Name="TextBlockHeader"
                        Grid.Column="0" Grid.ColumnSpan="2"
@@ -68,8 +72,13 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Margin="10">
-                <Button Style="{StaticResource MinimizeAndCloseButtonStyle}" Command="{Binding MinimizeAppllicatiom}">一</Button>
-                <Button Style="{StaticResource MinimizeAndCloseButtonStyle}" Command="{Binding CloseApplication}">X</Button>
+                <Button Style="{StaticResource HeaderButtonStyle}"
+                        Command="{Binding ChangePage}" CommandParameter="{x:Type vm:RulesViewModel}"
+                        Content="Home"/>
+                <Button Style="{StaticResource HeaderButtonStyle}"
+                        Command="{Binding MinimizeAppllicatiom}" Content="一"/>
+                <Button Style="{StaticResource HeaderButtonStyle}"
+                        Command="{Binding CloseApplication}" Content="X"/>
             </StackPanel>
         </Grid>
 
@@ -84,35 +93,35 @@
                     <Button Style="{StaticResource SideMenuButtonStyle}" Content="Координаты"
                             Command="{Binding ChangePage}" CommandParameter="{x:Type vm:CoordinatesViewModel}">
                         <Button.Resources>
-                            <Image x:Key="IconForSideMenuButton" Source="/Pics/IconsForSideMenu/Сoordinates.png"/>
+                            <Image x:Key="IconForSideMenuButton" Source="/Pics/PicsForMainWindow/Сoordinates.png"/>
                         </Button.Resources>
                     </Button>
                     
                     <Button Style="{StaticResource SideMenuButtonStyle}" Content="Черное и белое"
                             Command="{Binding ChangePage}" CommandParameter="{x:Type vm:BlackAndWhiteViewModel}">
                         <Button.Resources>
-                            <Image x:Key="IconForSideMenuButton" Source="/Pics/IconsForSideMenu/BlackAndWhite.png"/>
+                            <Image x:Key="IconForSideMenuButton" Source="/Pics/PicsForMainWindow/BlackAndWhite.png"/>
                         </Button.Resources>
                     </Button>
                     
                     <Button Style="{StaticResource SideMenuButtonStyle}" Content="Озвучка партии"
                             Command="{Binding ChangePage}" CommandParameter="{x:Type vm:GameVoiceActingViewModel}">
                         <Button.Resources>
-                            <Image x:Key="IconForSideMenuButton" Source="/Pics/IconsForSideMenu/GameVoiceActing.png"/>
+                            <Image x:Key="IconForSideMenuButton" Source="/Pics/PicsForMainWindow/GameVoiceActing.png"/>
                         </Button.Resources>
                     </Button>
                     
                     <Button Style="{StaticResource SideMenuButtonStyle}" Content="Сможет ли побить?"
                             Command="{Binding ChangePage}" CommandParameter="{x:Type vm:IsCanBeatViewModel}">
                         <Button.Resources>
-                            <Image x:Key="IconForSideMenuButton" Source="/Pics/IconsForSideMenu/IsCanBeat.png"/>
+                            <Image x:Key="IconForSideMenuButton" Source="/Pics/PicsForMainWindow/IsCanBeat.png"/>
                         </Button.Resources>
                     </Button>
                     
                     <Button Style="{StaticResource SideMenuButtonStyle}" Content="Преимущество"
                             Command="{Binding ChangePage}" CommandParameter="{x:Type vm:MaterialAdvantageViewModel}">
                         <Button.Resources>
-                            <Image x:Key="IconForSideMenuButton" Source="/Pics/IconsForSideMenu/MaterialAdvantage.png"/>
+                            <Image x:Key="IconForSideMenuButton" Source="/Pics/PicsForMainWindow/MaterialAdvantage.png"/>
                         </Button.Resources>
                     </Button>
                 </StackPanel>

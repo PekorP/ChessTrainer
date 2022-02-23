@@ -64,6 +64,7 @@ namespace ChessTrainer.ViewModels
             {"GameVoiceActingViewModel", new GameVoiceActingViewModel()},
             {"IsCanBeatViewModel", new IsCanBeatViewModel()},
             {"MaterialAdvantageViewModel", new MaterialAdvantageViewModel()},
+            {"RulesViewModel", new RulesViewModel()}
         };
 
         object currentContentVM;
@@ -79,6 +80,7 @@ namespace ChessTrainer.ViewModels
 
         public ChessTrainerViewModel()
         {
+            CurrentContentVM = new RulesViewModel();
         }
     }
 }
