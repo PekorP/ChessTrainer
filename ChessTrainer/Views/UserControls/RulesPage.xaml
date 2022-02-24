@@ -6,13 +6,137 @@
              xmlns:local="clr-namespace:ChessTrainer.Views.Pages"
              mc:Ignorable="d" 
              xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
-             MinHeight="620" MinWidth="900">
+             MinHeight="620" MinWidth="900"
+             d:DesignHeight="620" d:DesignWidth="900">
     
     <UserControl.DataContext>
         <vm:RulesViewModel/>
     </UserControl.DataContext>
 
     <Grid Background="#ff7440">
-        <TextBlock Text="123" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3.2*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock x:Name="TextBlockHeader"
+                   Grid.Row="0" Text="Описание тренажеров"
+                   FontSize="40" Foreground="Yellow"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <TextBlock x:Name="TextBlockDescription"
+                   Grid.Row="1"
+                   FontSize="15" Foreground="White"
+                   TextWrapping="Wrap"
+                   Margin="20 0" Padding="10"
+                   Background="Gray" TextAlignment="Center"
+                   VerticalAlignment="Center">
+            <Run Text="Добро пожаловать!" Foreground="Wheat"/>
+            <LineBreak/>
+            <Run Text="Это приложение состоит из нескольких тренажеров,"/>
+            <Run Text="которые помогут тебе улучшить свои навыки игры в шахматы."/>
+            <LineBreak/>
+            <Run Text="Прочитай описание, выбери подходящий тебе тренажер, становись лучше!"/>
+            <LineBreak/>
+            <Run Text="Чтобы вернуться на эту страницу нажми на кнопку"/>
+            <Run Text="Home" Foreground="Wheat"/>
+            <Run Text="справа сверху."/>
+        </TextBlock>
+
+        <Grid x:Name="GridRules"
+              Grid.Row="2" Background="#FF5F5F5F"
+              Margin="20 0 20 5">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.1*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Image Grid.Column="0" Grid.Row="0"
+                   Margin="10 0" HorizontalAlignment="Left"
+                   Source="/Pics/PicsForMainWindow/Сoordinates.png" />
+
+            <TextBlock Grid.Column="1" Grid.Row="0"
+                       TextWrapping="Wrap" Foreground="White"
+                       Margin="10" VerticalAlignment="Center">
+                <Run Text="Знание координат на шахматной доске — очень важный навык для шахматиста;"/>
+                <Run Text="он поможет Вам читать книги, общаться с другом-шахматистом, анализировать партии..."/>
+                <LineBreak/>
+                <Run Text="Вы можете тренировать нахождение координат как за белых, так и за черных."/>
+                <LineBreak/>
+                <Run Text="Вы также можете скрыть или отобразить координаты рядом с доской, чтобы усложнить или упростить поиск."/>
+            </TextBlock>
+            
+            <Image Grid.Column="0" Grid.Row="1"
+                   Margin="10 10" HorizontalAlignment="Left"
+                   Source="/Pics/PicsForMainWindow/BlackAndWhite.png" />
+
+            <TextBlock Grid.Column="1" Grid.Row="1"
+                       TextWrapping="Wrap" Foreground="White"
+                       Margin="10" VerticalAlignment="Center">
+                <Run Text="Важным умением для шахматиста также является навык определения цвета ячейки на доске."/>
+                <LineBreak/>
+                <Run Text="В данном тренажере Вам дается координата ячейки и Вы должны определить,"/>
+                <Run Text="какой цвет она имеет: черный или белый."/>
+            </TextBlock>
+
+            <Image Grid.Column="0" Grid.Row="2"
+                   Margin="10 10" HorizontalAlignment="Left"
+                   Source="/Pics/PicsForMainWindow/GameVoiceActing.png"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="2"
+                       TextWrapping="Wrap" Foreground="White"
+                       Margin="10" VerticalAlignment="Center">
+                <Run Text="Этот тренажер поможет научиться визуализировать партию."/>
+                <LineBreak/>
+                <Run Text="Сначала Вы должны записать ходы партии с помощью шахматной нотации,"/>
+                <Run Text="затем начать озвучку партии"/>
+                <Run Text="и одновременно с этим необходимо проиграть партию на компьютере или шахматной доске, повторяя ходы."/>
+                <LineBreak/>
+                <Run Text="Таким образом Ваш мозг свяжет ход, записанный с помощью шахматной нотации,"/>
+                <Run Text="с ходом, сделанным на доске."/>
+            </TextBlock>
+
+            <Image Grid.Column="0" Grid.Row="3"
+                   Margin="10 10" HorizontalAlignment="Left"
+                   Source="/Pics/PicsForMainWindow/IsCanBeat.png"/>
+
+            <TextBlock Grid.Column="1" Grid.Row="3"
+                       TextWrapping="Wrap" Foreground="White"
+                       Margin="10" VerticalAlignment="Center">
+                <Run Text="Данный тренажер помогает научиться визуализировать шахматную доску и фигуры на ней."/>
+                <LineBreak/>
+                <Run Text="Вам дается ситуация на доске, при которой фигура,"/>
+                <Run Text="стоящая на определенной ячейке, должна побить другую фигуру,"/>
+                <Run Text="стоящую на другой ячейке."/>
+                <LineBreak/>
+                <Run Text="Вам необходимо представить в голове данную ситуацию,"/>
+                <Run Text="а потом ответить на вопрос: 'Сможет ли первая фигура побить вторую?'"/>
+            </TextBlock>
+
+            <Image Grid.Column="0" Grid.Row="4"
+                   Margin="10 10" HorizontalAlignment="Left"
+                   Source="/Pics/PicsForMainWindow/MaterialAdvantage.png" />
+
+            <TextBlock Grid.Column="1" Grid.Row="4"
+                       TextWrapping="Wrap" Foreground="White"
+                       Margin="10" VerticalAlignment="Center">
+                <Run Text="Часто перед тем, как сделать ход, нужно сначала определить своё преимущество."/>
+                <LineBreak/>
+                <Run Text="В данном тренажере Вам дается определенная позиция на доске за белых,"/>
+                <Run Text="необходимо определить Ваше преимущество, выраженное в пешках,"/>
+                <Run Text="перед противником."/>
+                <LineBreak/>
+                <Run Text="После этого Вы должны ввести количество пешек (их может быть 0)"/>
+                <Run Text="в текстовое поле и проверить свой ответ."/>
+            </TextBlock>
+        </Grid>
     </Grid>
 </UserControl>

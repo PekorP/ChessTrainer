@@ -59,10 +59,17 @@
                          Style="{StaticResource TextBoxWriteAnswerStyle}"/>
             </Grid>
 
-            <Button x:Name="ButtonCheckAnswer"
-                    Grid.Row="0" Grid.Column="1"
-                    Content="➙" Command="{Binding CheckIsRightAnswer}"
-                    Style="{StaticResource ButtonCheckAnswerStyle}"/>
+            <Grid Grid.Row="0" Grid.Column="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button x:Name="ButtonCheckAnswer"
+                        Grid.Column="1" Foreground="Blue"
+                        Content="➙" Command="{Binding CheckIsRightAnswer}"
+                        Style="{StaticResource ButtonCheckAnswerStyle}"/>
+            </Grid>
 
             <TextBlock x:Name="TextBlockCountAnswers"
                        Grid.Row="2"

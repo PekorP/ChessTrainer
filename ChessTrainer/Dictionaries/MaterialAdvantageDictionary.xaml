@@ -19,32 +19,25 @@
     </Style>
 
     <Style x:Key="ButtonCheckAnswerStyle" TargetType="Button">
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="FontSize" Value="30"/>
-        <Setter Property="IsDefault" Value="True"/>
-        <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="Height" Value="{Binding Path=ActualHeight, ElementName=TextBoxWriteAnswer}"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="IsDefault" Value="True"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="Button">
-                    <Grid Background="White">
-                        <TextBlock Padding="40 0"
-                                   Text="{TemplateBinding Content}"
-                                   TextAlignment="Center" VerticalAlignment="Center"/>
-                    </Grid>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="White">
+                        <ContentPresenter x:Name="cp" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="LightGray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Foreground" Value="DarkBlue"/>
-            </Trigger>
-            <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="DarkGray"/>
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <Style x:Key="TextBlockCountAnswersStyle" TargetType="TextBlock">
