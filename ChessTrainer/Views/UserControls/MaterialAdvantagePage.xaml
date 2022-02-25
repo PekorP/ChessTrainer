@@ -19,7 +19,7 @@
         <vm:MaterialAdvantageViewModel/>
     </UserControl.DataContext>
 
-    <Grid Background="#ff7440">
+    <Grid Background="{StaticResource GridBG}">
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
             <RowDefinition/>

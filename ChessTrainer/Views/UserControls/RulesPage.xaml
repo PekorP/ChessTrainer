@@ -13,7 +13,11 @@
         <vm:RulesViewModel/>
     </UserControl.DataContext>
 
-    <Grid Background="#ff7440">
+    <UserControl.Resources>
+        <SolidColorBrush  x:Key="GridBG" Color="#ff7440"/>
+    </UserControl.Resources>
+    
+    <Grid Background="{StaticResource GridBG}">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.3*"/>
             <RowDefinition Height="1*"/>

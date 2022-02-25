@@ -19,7 +19,7 @@
         </ResourceDictionary>
     </UserControl.Resources>
 
-    <Grid Background="#ff7440" MinHeight="620" MinWidth="900">
+    <Grid Background="{StaticResource GridBG}" MinHeight="620" MinWidth="900">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
