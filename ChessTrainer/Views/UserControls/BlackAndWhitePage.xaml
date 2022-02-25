@@ -60,7 +60,7 @@
                    Width="100" Height="70"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Style="{StaticResource ImageResultAnswerStyle}"/>
+                   Style="{StaticResource ImageBaseResultAnswerStyle}"/>
 
             <TextBlock x:Name="TextBlockCountAnswers"
                        Grid.Row="2"

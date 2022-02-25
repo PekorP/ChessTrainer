@@ -18,7 +18,7 @@
     <Window.DataContext>
         <vm:ChessTrainerViewModel/>
     </Window.DataContext>
-    
+
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -44,11 +44,10 @@
             <DataTemplate DataType="{x:Type vm:IsCanBeatViewModel}">
                 <view:IsCanBeatPage/>
             </DataTemplate>
-            
+
             <DataTemplate DataType="{x:Type vm:MaterialAdvantageViewModel}">
                 <view:MaterialAdvantagePage/>
             </DataTemplate>
-            
         </ResourceDictionary>
     </Window.Resources>
 

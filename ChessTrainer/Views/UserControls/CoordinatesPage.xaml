@@ -87,7 +87,7 @@
                                Style="{StaticResource TextBlockRandomCellStyle}"/>
                 </StackPanel>
                 <Image x:Name="ImageResultSelection"
-                       Grid.Row="1" Style="{StaticResource ImageResultSelectionStyle}">
+                       Grid.Row="1" Style="{StaticResource ImageResultAnswerStyle}">
                 </Image>
             </Grid>
 

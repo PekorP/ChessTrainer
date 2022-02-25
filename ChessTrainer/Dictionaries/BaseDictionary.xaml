@@ -1,4 +1,47 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style TargetType="TextBlock" x:Key="BaseTextBlockStyle">
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
     
+    <Style x:Key="ImageBaseResultAnswerStyle" TargetType="Image">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsRightAnswer}" Value="true">
+                <Setter Property="Source" Value="/Pics/General/RightAnswer.png"/>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding IsRightAnswer}" Value="false">
+                <Setter Property="Source" Value="/Pics/General/WrongAnswer.png"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ImageResultAnswerStyle" BasedOn="{StaticResource ImageBaseResultAnswerStyle}" TargetType="Image">
+        <Setter Property="Width" Value="70"/>
+        <Setter Property="Height" Value="70"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="BaseButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" Background="White">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="border" Value="LightGray"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="Gray"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

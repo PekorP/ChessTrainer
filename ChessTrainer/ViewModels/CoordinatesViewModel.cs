@@ -24,7 +24,7 @@ namespace ChessTrainer.ViewModels
                   {
                       Ranks = new ObservableCollection<int>(Ranks.Reverse<int>());
                       Files = new ObservableCollection<char>(Files.Reverse<char>());
-                      IsRightSelection = null;
+                      IsRightAnswer = null;
                       Board.Cells = new ObservableCollection<Cell>(Board.Cells.Reverse<Cell>());
                       CurrentColorBoard = CurrentColorBoard == CellColor.White ? CellColor.Black : CellColor.White;
                   }));
@@ -72,12 +72,12 @@ namespace ChessTrainer.ViewModels
                 TotalCountAnswers++;
                 OnPropertyChanged();
                 Cell newRandCell;
-                if (selectedCell.Equals(RandomCell)) { 
-                    IsRightSelection = true;
+                if (selectedCell.Equals(RandomCell)) {
+                    IsRightAnswer = true;
                     CountRightAnswers++; OnPropertyChanged();
                 }
                 else
-                  IsRightSelection = false;
+                  IsRightAnswer = false;
                 do
                 {
                     newRandCell = RandomCell;
@@ -87,11 +87,11 @@ namespace ChessTrainer.ViewModels
             }
         }
 
-        private bool? isRightSelection;
-        public bool? IsRightSelection
+        private bool? isRightAnswer;
+        public bool? IsRightAnswer
         {
-            get { return isRightSelection; }
-            set { isRightSelection = value; OnPropertyChanged(); }
+            get { return isRightAnswer; }
+            set { isRightAnswer = value; OnPropertyChanged(); }
         }
         private int countRightAnswers;
         public int CountRightAnswers
@@ -114,7 +114,7 @@ namespace ChessTrainer.ViewModels
             Files = new ObservableCollection<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
             CurrentColorBoard = CellColor.White; //Изначально мы "смотрим" на доску со стороны белых
             RandomCell = Board.Cells[new Random().Next(Board.Cells.Count())];
-            IsRightSelection = null;
+            IsRightAnswer = null;
             CountRightAnswers = 0;
             TotalCountAnswers = 0;
         }

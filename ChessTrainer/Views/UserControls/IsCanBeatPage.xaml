@@ -98,7 +98,7 @@
 
             <Image x:Name="ImageResultAnswer" Grid.Column="1"
                    Width="100" Height="100"
-                   Style="{StaticResource ImageResultAnswer}"/>
+                   Style="{StaticResource ImageBaseResultAnswerStyle}"/>
 
             <Button x:Name="ButtonNo" Grid.Column="2"
                     Content="Нет"

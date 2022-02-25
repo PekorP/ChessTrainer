@@ -66,7 +66,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Button x:Name="ButtonCheckAnswer"
-                        Grid.Column="1" Foreground="Blue"
+                        Grid.Column="1"
                         Content="➙" Command="{Binding CheckIsRightAnswer}"
                         Style="{StaticResource ButtonCheckAnswerStyle}"/>
             </Grid>
@@ -81,7 +81,7 @@
 
             <Image x:Name="ImageResultOfAnswer"
                    Grid.Row="1" Grid.Column="1"
-                   Style="{StaticResource ImageResultOfAnswerStyle}"/>
+                   Style="{StaticResource ImageResultAnswerStyle}"/>
         </Grid>
     </Grid>
 </UserControl>
