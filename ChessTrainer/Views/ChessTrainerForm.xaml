@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
         xmlns:view="clr-namespace:ChessTrainer.Views.Pages"
-        Title="MainWindow"
+        Title="ChessTrainer"
         MinHeight="700" MinWidth="1200"
         Height="700" Width="1200"
         WindowStartupLocation="CenterScreen" WindowStyle="None"
