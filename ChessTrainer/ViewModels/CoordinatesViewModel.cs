@@ -31,6 +31,33 @@ namespace ChessTrainer.ViewModels
                     }
         }
 
+        private RelayCommand checkIsRightAnswer;
+        public RelayCommand CheckIsRightAnswer
+        {
+            get
+            {
+                return checkIsRightAnswer ??
+                  (checkIsRightAnswer = new RelayCommand(obj =>
+                  {
+                      SelectedCell = obj as Cell;
+                      Cell newRandCell;
+                      if (SelectedCell.Equals(RandomCell))
+                      {
+                          IsRightAnswer = true;
+                          CountRightAnswers++; OnPropertyChanged();
+                      }
+                      else
+                          IsRightAnswer = false;
+                      do
+                      {
+                          newRandCell = RandomCell;
+                          RandomCell = Board.Cells[new Random().Next(64)];
+                      } while (newRandCell.Equals(randomCell));
+                      TotalCountAnswers++;
+                  }));
+            }
+        }
+
         #endregion
 
         #endregion
@@ -67,23 +94,10 @@ namespace ChessTrainer.ViewModels
         public Cell SelectedCell
         {
             get { return selectedCell; }
-            set {
+            set
+            {
                 selectedCell = value;
-                TotalCountAnswers++;
                 OnPropertyChanged();
-                Cell newRandCell;
-                if (selectedCell.Equals(RandomCell)) {
-                    IsRightAnswer = true;
-                    CountRightAnswers++; OnPropertyChanged();
-                }
-                else
-                  IsRightAnswer = false;
-                do
-                {
-                    newRandCell = RandomCell;
-                    RandomCell = Board.Cells[new Random().Next(64)];
-                } while (newRandCell.Equals(randomCell));
-
             }
         }
 

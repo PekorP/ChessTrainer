@@ -5,6 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ChessTrainer.Views.Pages"
       xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
+      xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       mc:Ignorable="d" 
       MinHeight="620" MinWidth="900">
     <UserControl.DataContext>
@@ -35,7 +36,13 @@
                      Grid.Row="1" Grid.Column="1"
                      ItemsSource="{Binding Board.Cells}"
                      SelectedItem="{Binding SelectedCell}"
-                     Style="{StaticResource ListBoxChessBoardStyle}"/>
+                     Style="{StaticResource ListBoxChessBoardStyle}">
+                <i:Interaction.Triggers>
+                    <i:EventTrigger EventName="MouseUp">
+                        <i:InvokeCommandAction Command="{Binding CheckIsRightAnswer}" CommandParameter="{Binding SelectedCell}"/>
+                    </i:EventTrigger>
+                </i:Interaction.Triggers>
+            </ListBox>
 
 
             <ListBox x:Name="ListBoxRanks"
