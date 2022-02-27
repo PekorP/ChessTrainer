@@ -10,13 +10,13 @@ using ChessTrainer.Commands;
 
 namespace ChessTrainer.ViewModels
 {
-    class IsCanBeatViewModel : BaseViewModel
+    class IsCanBeatViewModel : BaseTrainerViewModel
     {
 
         #region Команды
 
         private RelayCommand checkIsRightAnswer;
-        public RelayCommand CheckIsRightAnswer
+        public override RelayCommand CheckIsRightAnswer
         {
             get
             {
@@ -82,28 +82,6 @@ namespace ChessTrainer.ViewModels
         {
             get { return cellTo; }
             set { cellTo = value; OnPropertyChanged(); }
-        }
-
-        private int countRightAnswers;
-        public int CountRightAnswers
-        {
-            get { return countRightAnswers; }
-            set { countRightAnswers = value; OnPropertyChanged(); }
-        }
-
-        private int totalCountAnswers;
-        public int TotalCountAnswers
-        {
-            get { return totalCountAnswers; }
-            set { totalCountAnswers = value; OnPropertyChanged(); }
-        }
-
-        private bool? isRightAnswer;
-
-        public bool? IsRightAnswer
-        {
-            get { return isRightAnswer; }
-            set { isRightAnswer = value; OnPropertyChanged(); }
         }
 
         public IsCanBeatViewModel()

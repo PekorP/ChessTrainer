@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace ChessTrainer.ViewModels
 {
-    class CoordinatesViewModel : BaseViewModel
+    class CoordinatesViewModel : BaseTrainerViewModel
     {
 
         #region Команды
@@ -31,8 +31,12 @@ namespace ChessTrainer.ViewModels
                     }
         }
 
+        #endregion
+
+        #region Команда проверки ответа
+
         private RelayCommand checkIsRightAnswer;
-        public RelayCommand CheckIsRightAnswer
+        public override RelayCommand CheckIsRightAnswer
         {
             get
             {
@@ -57,9 +61,7 @@ namespace ChessTrainer.ViewModels
                   }));
             }
         }
-
         #endregion
-
         #endregion
 
         //отвечает за то,с какой стороны (со стороны белых или черных) мы "смотрим" на доску
@@ -99,26 +101,6 @@ namespace ChessTrainer.ViewModels
                 selectedCell = value;
                 OnPropertyChanged();
             }
-        }
-
-        private bool? isRightAnswer;
-        public bool? IsRightAnswer
-        {
-            get { return isRightAnswer; }
-            set { isRightAnswer = value; OnPropertyChanged(); }
-        }
-        private int countRightAnswers;
-        public int CountRightAnswers
-        {
-            get { return countRightAnswers; }
-            set { countRightAnswers = value; OnPropertyChanged(); }
-        }
-
-        private int totalCountAnswers;
-        public int TotalCountAnswers
-        {
-            get { return totalCountAnswers; }
-            set { totalCountAnswers = value; OnPropertyChanged(); }
         }
 
         public CoordinatesViewModel()

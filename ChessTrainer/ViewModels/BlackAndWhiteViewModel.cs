@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace ChessTrainer.ViewModels
 {
-    class BlackAndWhiteViewModel : BaseViewModel
+    class BlackAndWhiteViewModel : BaseTrainerViewModel
     {
 
         #region Команды
 
         private RelayCommand checkIsRightAnswer;
-        public RelayCommand CheckIsRightAnswer
+        public override RelayCommand CheckIsRightAnswer
         {
             get
             {
@@ -46,7 +46,6 @@ namespace ChessTrainer.ViewModels
 
         #endregion
 
-
         public Board Board { get; set; }
 
         private Cell randomCell;
@@ -55,29 +54,6 @@ namespace ChessTrainer.ViewModels
             get { return randomCell; }
             set { randomCell = value; OnPropertyChanged(); }
         }
-
-        private int countRightAnswers;
-        public int CountRightAnswers
-        {
-            get { return countRightAnswers; }
-            set { countRightAnswers = value; OnPropertyChanged(); }
-        }
-
-        private int totalCountAnswers;
-        public int TotalCountAnswers
-        {
-            get { return totalCountAnswers; }
-            set { totalCountAnswers = value; OnPropertyChanged(); }
-        }
-
-        private bool? isRightAnswer;
-
-        public bool? IsRightAnswer
-        {
-            get { return isRightAnswer; }
-            set { isRightAnswer = value; OnPropertyChanged(); }
-        }
-
 
         public BlackAndWhiteViewModel()
         {

@@ -9,13 +9,13 @@ using System.Windows;
 
 namespace ChessTrainer.ViewModels
 {
-    class MaterialAdvantageViewModel : BaseViewModel
+    class MaterialAdvantageViewModel : BaseTrainerViewModel
     {
 
         #region Команды
 
         private RelayCommand checkIsRightAnswer;
-        public RelayCommand CheckIsRightAnswer
+        public override RelayCommand CheckIsRightAnswer
         {
             get
             {
@@ -50,27 +50,6 @@ namespace ChessTrainer.ViewModels
         }
 
         #endregion
-
-        private bool? isRightAnswer;
-        public bool? IsRightAnswer
-        {
-            get { return isRightAnswer; }
-            set { isRightAnswer = value; OnPropertyChanged(); }
-        }
-
-        private int countRightAnswers;
-        public int CountRightAnswers
-        {
-            get { return countRightAnswers; }
-            set { countRightAnswers = value; OnPropertyChanged(); }
-        }
-
-        private int totalCountAnswers;
-        public int TotalCountAnswers
-        {
-            get { return totalCountAnswers; }
-            set { totalCountAnswers = value; OnPropertyChanged(); }
-        }
 
         private MaterialAdvantage currentMaterialAdvantage;
         public MaterialAdvantage CurrentMaterialAdvantage
