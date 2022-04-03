@@ -112,6 +112,33 @@ namespace ChessTrainer.ViewModels
             }
         }
 
+
+        private RelayCommand openGameFromFile;
+        public RelayCommand OpenGameFromFile
+        {
+            get
+            {
+                return openGameFromFile ??
+                 (openGameFromFile = new RelayCommand(obj =>
+                 {
+                     MessageBox.Show("Test1");
+                 }));
+            }
+        }
+
+
+        private RelayCommand saveGameToFile;
+        public RelayCommand SaveGameToFile
+        {
+            get
+            {
+                return saveGameToFile ??
+                  (saveGameToFile = new RelayCommand(obj =>
+                  {
+                      MessageBox.Show("Test2");
+                  }));
+            }
+        }
         #endregion
 
         SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer() { Rate = 1 };
