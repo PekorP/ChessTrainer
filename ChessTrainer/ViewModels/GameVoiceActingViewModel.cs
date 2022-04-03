@@ -1,8 +1,10 @@
 ﻿using ChessTrainer.Commands;
 using ChessTrainer.Models;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Speech.Synthesis;
 using System.Text;
@@ -111,6 +113,7 @@ namespace ChessTrainer.ViewModels
                   }));
             }
         }
+        #endregion
 
 
         private RelayCommand openGameFromFile;
@@ -119,10 +122,28 @@ namespace ChessTrainer.ViewModels
             get
             {
                 return openGameFromFile ??
-                 (openGameFromFile = new RelayCommand(obj =>
-                 {
-                     MessageBox.Show("Test1");
-                 }));
+                  (openGameFromFile = new RelayCommand(obj =>
+                  {
+                      OpenFileDialog openFileDialog = new OpenFileDialog();
+                      openFileDialog.DefaultExt = ".txt";
+                      openFileDialog.Filter = "Text documents (.txt)|*.txt";
+                      if (openFileDialog.ShowDialog() == true)
+                      {
+                          using (StreamReader reader = new StreamReader(openFileDialog.FileName))
+                          {
+                              while(!reader.EndOfStream)
+                              {
+                                  var splitMove = reader.ReadLine().Split(' ');
+                                  Moves.Add(new ChessMove { NumberOfMove = int.Parse(splitMove[0]), WhiteMove = splitMove[1], BlackMove = splitMove[2] });
+                              }
+                          }
+                      }
+                  }, obj =>
+                  {
+                      if (Moves.Count > 0) return false;
+                      return true;
+                  }
+                  ));
             }
         }
 
@@ -135,11 +156,29 @@ namespace ChessTrainer.ViewModels
                 return saveGameToFile ??
                   (saveGameToFile = new RelayCommand(obj =>
                   {
-                      MessageBox.Show("Test2");
-                  }));
+                    SaveFileDialog saveFileDialog = new SaveFileDialog();
+                    saveFileDialog.DefaultExt = ".txt";
+                    saveFileDialog.Filter = "Text documents (.txt)|*.txt";
+                    if (saveFileDialog.ShowDialog() == true)
+                        {
+                        using (StreamWriter writer = new StreamWriter(saveFileDialog.FileName)) 
+                        {
+                            foreach (var move in Moves)
+                            {
+                                writer.WriteLine($"{move.NumberOfMove} {move.WhiteMove} {move.BlackMove}");
+                            }
+                        }
+                          MessageBox.Show($"Партия успешно сохранена по пути {saveFileDialog.FileName}",
+                              "Успех!",MessageBoxButton.OK, MessageBoxImage.Information);
+                      }     
+                  }, obj =>
+                  {
+                      if (Moves.Count <= 0) return false;
+                      return true;
+                  }
+                  ));
             }
         }
-        #endregion
 
         SpeechSynthesizer speechSynthesizer = new SpeechSynthesizer() { Rate = 1 };
 
