@@ -91,6 +91,7 @@
     <Compile Include="Models\Pieces\Piece.cs" />
     <Compile Include="Models\Pieces\Queen.cs" />
     <Compile Include="Models\Pieces\Rook.cs" />
+    <Compile Include="ViewModels\AuthorizationViewModel.cs" />
     <Compile Include="ViewModels\BaseTrainerViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BlackAndWhiteViewModel.cs" />
@@ -100,6 +101,9 @@
     <Compile Include="ViewModels\IsCanBeatViewModel.cs" />
     <Compile Include="ViewModels\MaterialAdvantageViewModel.cs" />
     <Compile Include="ViewModels\RulesViewModel.cs" />
+    <Compile Include="Views\AuthorizationForm.xaml.cs">
+      <DependentUpon>AuthorizationForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\BlackAndWhitePage.xaml.cs">
       <DependentUpon>BlackAndWhitePage.xaml</DependentUpon>
     </Compile>
@@ -118,6 +122,10 @@
     <Compile Include="Views\UserControls\RulesPage.xaml.cs">
       <DependentUpon>RulesPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Dictionaries\AuthorizationDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dictionaries\BaseDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,6 +151,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dictionaries\MaterialAdvantageDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AuthorizationForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
