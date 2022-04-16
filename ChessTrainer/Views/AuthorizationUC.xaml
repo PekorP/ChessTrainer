@@ -37,6 +37,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <TextBlock Grid.Row="0" Grid.Column="0"
@@ -48,26 +49,28 @@
 
             <TextBox Grid.Row="0" Grid.Column="1"
                      VerticalAlignment="Center"
-                     Margin="30 0" FontSize="40"
+                     Margin="20 0" FontSize="40"
                      Background="Wheat"
-                     Text="{Binding Login}"/>
+                     Text="{Binding Login, UpdateSourceTrigger=PropertyChanged}"/>
 
             <TextBox Grid.Row="1" Grid.Column="1"
                      VerticalAlignment="Center"
-                     Margin="30 0" FontSize="40"
+                     Margin="20 0" FontSize="40"
                      Background="Wheat"
-                     Text="{Binding Password}"/>
+                     Text="{Binding Password, UpdateSourceTrigger=PropertyChanged}"/>
         </Grid>
 
         <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="2"
+            <Button Grid.Column="1"
                 Content="Войти"
                 VerticalAlignment="Center"
-                FontSize="50" Margin="30 0"
+                FontSize="50" Margin="20 0"
                 Command="{Binding EnterCommand}"
                 Style="{StaticResource BaseButtonStyle}"/>
         </Grid>

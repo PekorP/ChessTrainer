@@ -62,7 +62,7 @@ namespace ChessTrainer.ViewModels
         private void AuthorizationViewModelOnOnAuthorize(object sender, LoginEventArgs e)
         {
 
-            CurrentContent = e.IsAuthorized ? (BaseViewModel)new ChessTrainerViewModel() : authorizationViewModel;
+            CurrentContent = e.IsAuthorized ? (BaseViewModel)new ChessTrainerViewModel(e.User) : authorizationViewModel;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using ChessTrainer.Commands;
+using ChessTrainer.Models.EF;
 using System.Collections.Generic;
 using System.Windows;
 
@@ -6,9 +7,9 @@ namespace ChessTrainer.ViewModels
 {
     internal class ChessTrainerViewModel : BaseViewModel
     {
+        public User User { get; set; }
 
         #region Команды
-
 
         #region Команда смены страницы
 
@@ -49,9 +50,10 @@ namespace ChessTrainer.ViewModels
             }
         }
 
-        public ChessTrainerViewModel()
+        public ChessTrainerViewModel(User user)
         {
             CurrentContentVM = new RulesViewModel();
+            this.User = user;           
         }
     }
 }

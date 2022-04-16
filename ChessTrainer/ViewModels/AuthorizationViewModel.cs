@@ -32,7 +32,11 @@ namespace ChessTrainer.ViewModels
         public RelayCommand EnterCommand
         {
             get { return enterCommand ??
-                    (enterCommand = new RelayCommand(Authorize)); 
+                    (enterCommand = new RelayCommand(Authorize, obj=> 
+                    {
+                        return !(String.IsNullOrEmpty(Password) || String.IsNullOrEmpty(Login));
+                    }
+                    )); 
             }
         }
 
