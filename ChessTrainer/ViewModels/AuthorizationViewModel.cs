@@ -40,18 +40,28 @@ namespace ChessTrainer.ViewModels
         {
             using (ChessTrainerContext ctx = new ChessTrainerContext())
             {
-                if (ctx.Users.Where(u => u.Login == this.Login && u.Password == this.Password).Any())
-                    OnAuthorize?.Invoke(this, new LoginEventArgs(this.Login, true));
-                else if (ctx.Users.Where(u => u.Login == this.Login && u.Password != this.Password).Any())
+                User user = new User() { Login = this.Login, Password = this.Password };
+                if (ctx.Users.Where(u => u.Login == user.Login && u.Password == user.Password).Any())
+                    OnAuthorize?.Invoke(this, new LoginEventArgs(user, true));
+
+                else if (ctx.Users.Where(u => u.Login == user.Login && u.Password != user.Password).Any())
                 {
-                    MessageBox.Show("Пользователь с данным логином уже есть или неправильно введен пароль.");
-                    OnAuthorize?.Invoke(this, new LoginEventArgs(this.Login, false));
+                    MessageBox.Show("Пользователь с данным логином уже есть или неправильно введен пароль.", 
+                        "Ошибка", 
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Error);
+                    return;
                 }
+
                 else
                 {
-                    ctx.Users.Add(new User { Login = this.Login, Password = this.Password });
+                    MessageBox.Show("Пользователь добавлен в базу данных.",
+                        "Удача",
+                        MessageBoxButton.OK,
+                        MessageBoxImage.Information);
+                    ctx.Users.Add(user);
                     ctx.SaveChanges();
-                    OnAuthorize?.Invoke(this, new LoginEventArgs(this.Login, true));
+                    OnAuthorize?.Invoke(this, new LoginEventArgs(user, true));
                 }
             }
         }
@@ -61,12 +71,12 @@ namespace ChessTrainer.ViewModels
 
     public class LoginEventArgs : EventArgs
     {
-        public string Login { get; }
+        public User User { get; }
         public bool IsAuthorized { get; }
 
-        public LoginEventArgs(string login, bool isAuthorized)
+        public LoginEventArgs(User user, bool isAuthorized)
         {
-            Login = login;
+            User = user;
             IsAuthorized = isAuthorized;
         }
     }
