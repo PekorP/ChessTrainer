@@ -99,10 +99,14 @@
     <Compile Include="ViewModels\CoordinatesViewModel.cs" />
     <Compile Include="ViewModels\GameVoiceActingViewModel.cs" />
     <Compile Include="ViewModels\IsCanBeatViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MaterialAdvantageViewModel.cs" />
     <Compile Include="ViewModels\RulesViewModel.cs" />
-    <Compile Include="Views\AuthorizationForm.xaml.cs">
-      <DependentUpon>AuthorizationForm.xaml</DependentUpon>
+    <Compile Include="Views\AuthorizationUC.xaml.cs">
+      <DependentUpon>AuthorizationUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChessTrainerUC.xaml.cs">
+      <DependentUpon>ChessTrainerUC.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\BlackAndWhitePage.xaml.cs">
       <DependentUpon>BlackAndWhitePage.xaml</DependentUpon>
@@ -154,11 +158,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AuthorizationForm.xaml">
+    <Page Include="Views\AuthorizationUC.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ChessTrainerForm.xaml">
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -166,10 +170,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\ChessTrainerForm.xaml.cs">
-      <DependentUpon>ChessTrainerForm.xaml</DependentUpon>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ChessTrainerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\BlackAndWhitePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

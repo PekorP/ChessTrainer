@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ChessTrainer.Views
 {
     /// <summary>
-    /// Логика взаимодействия для AuthorizationForm.xaml
+    /// Логика взаимодействия для ChessTrainerUC.xaml
     /// </summary>
-    public partial class AuthorizationForm : Window
+    public partial class ChessTrainerUC : UserControl
     {
-        public AuthorizationForm()
+        public ChessTrainerUC()
         {
             InitializeComponent();
         }
