@@ -44,7 +44,7 @@
                        Style="{StaticResource TextBlockIsCanBeatStyle}">
                 <Run Text="Сможет ли " Foreground="Wheat"/>
                 <Run Text="{Binding PieceName}"/><Run Text="{Binding CellFrom.File}"/><Run Text="{Binding CellFrom.Rank}"/>
-                <Run Text=" побить на" Foreground="Wheat"/>
+                <Run Text=" пойти на" Foreground="Wheat"/>
                 <Run Text="{Binding CellTo.File}"/><Run Text="{Binding CellTo.Rank}"/>
                 <Run Text="?" Foreground="Wheat"/>
             </TextBlock>

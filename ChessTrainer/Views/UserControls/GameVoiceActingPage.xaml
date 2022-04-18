@@ -89,6 +89,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
+                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -100,26 +101,37 @@
                     Content="Добавить ход"
                     Command="{Binding AddChessMove}"
                     IsDefault="True"
-                    Style="{StaticResource RightButtonStyle}"/>
+                    Style="{StaticResource ButtonStyle}"/>
             
             <Button x:Name="ButtonDeleteLastMove"
                     Grid.Row="0" Grid.Column="1"
                     Content="Удалить последний ход"
                     Command="{Binding DeleteMove}"
-                    Style="{StaticResource LeftButtonStyle}"/>
+                    Style="{StaticResource ButtonStyle}"/>
             
             <Button x:Name="ButtonClearMoves"
                     Grid.Row="1" Grid.Column="0"
                     Content="Очистить все ходы"
                     Command="{Binding ClearMoves}"
-                    Style="{StaticResource RightButtonStyle}"/>
-            
+                    Style="{StaticResource ButtonStyle}"/>
+
             <Button x:Name="ButtonGameVoiceActing"
                     Grid.Row="1" Grid.Column="1"
                     Content="Озвучить партию"
                     Command="{Binding GameVoiceActing}"
-                    Style="{StaticResource LeftButtonStyle}"/>
+                    Style="{StaticResource ButtonStyle}"/>
 
+            <Button x:Name="ButtonOpenGameFromFile"
+                    Grid.Row="0" Grid.Column="2"
+                    Content="Открыть партию"
+                    Command="{Binding OpenGameFromFile}"
+                    Style="{StaticResource ButtonStyle}"/>
+            
+            <Button x:Name="ButtonSaveGameToFile"
+                    Grid.Row="1" Grid.Column="2"
+                    Content="Сохранить партию"
+                    Command="{Binding SaveGameToFile}"
+                    Style="{StaticResource ButtonStyle}"/>
         </Grid>
 
         <Expander Header="Правила записи ходов"

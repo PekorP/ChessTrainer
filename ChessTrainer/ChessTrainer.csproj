@@ -82,12 +82,16 @@
     <Compile Include="Models\ChessMove.cs" />
     <Compile Include="Models\EF\ChessTrainerContext.cs" />
     <Compile Include="Models\EF\MaterialAdvantage.cs" />
+    <Compile Include="Models\EF\Record.cs" />
+    <Compile Include="Models\EF\Trainer.cs" />
+    <Compile Include="Models\EF\User.cs" />
     <Compile Include="Models\Pieces\Bishop.cs" />
     <Compile Include="Models\Pieces\IPiece.cs" />
     <Compile Include="Models\Pieces\Knight.cs" />
     <Compile Include="Models\Pieces\Piece.cs" />
     <Compile Include="Models\Pieces\Queen.cs" />
     <Compile Include="Models\Pieces\Rook.cs" />
+    <Compile Include="ViewModels\AuthorizationViewModel.cs" />
     <Compile Include="ViewModels\BaseTrainerViewModel.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BlackAndWhiteViewModel.cs" />
@@ -95,8 +99,15 @@
     <Compile Include="ViewModels\CoordinatesViewModel.cs" />
     <Compile Include="ViewModels\GameVoiceActingViewModel.cs" />
     <Compile Include="ViewModels\IsCanBeatViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MaterialAdvantageViewModel.cs" />
     <Compile Include="ViewModels\RulesViewModel.cs" />
+    <Compile Include="Views\AuthorizationUC.xaml.cs">
+      <DependentUpon>AuthorizationUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ChessTrainerUC.xaml.cs">
+      <DependentUpon>ChessTrainerUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControls\BlackAndWhitePage.xaml.cs">
       <DependentUpon>BlackAndWhitePage.xaml</DependentUpon>
     </Compile>
@@ -115,6 +126,10 @@
     <Compile Include="Views\UserControls\RulesPage.xaml.cs">
       <DependentUpon>RulesPage.xaml</DependentUpon>
     </Compile>
+    <Page Include="Dictionaries\AuthorizationDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dictionaries\BaseDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -143,7 +158,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ChessTrainerForm.xaml">
+    <Page Include="Views\AuthorizationUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -151,10 +170,14 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Views\ChessTrainerForm.xaml.cs">
-      <DependentUpon>ChessTrainerForm.xaml</DependentUpon>
+    <Compile Include="Views\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\ChessTrainerUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControls\BlackAndWhitePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
