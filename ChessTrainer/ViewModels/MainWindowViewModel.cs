@@ -47,9 +47,9 @@ namespace ChessTrainer.ViewModels
 
         public MainWindowViewModel()
         {
-            authorizationViewModel = new AuthorizationViewModel();
-            authorizationViewModel.OnAuthorize += AuthorizationViewModelOnOnAuthorize;
-            CurrentContent = authorizationViewModel;
+            //authorizationViewModel = new AuthorizationViewModel();
+            //authorizationViewModel.OnAuthorize += AuthorizationViewModelOnOnAuthorize;
+            CurrentContent = new ChessTrainerViewModel(new Models.EF.User());
         }
 
         private BaseViewModel currentContent;

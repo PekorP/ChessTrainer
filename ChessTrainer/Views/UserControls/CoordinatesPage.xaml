@@ -32,10 +32,6 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
-            <TextBlock
-                   FontSize="35" Style="{StaticResource BaseTextBlockStyle}"
-                   Text="{Binding TickCounter}"/>
-            
             <ListBox x:Name="ListBoxChessBoard" 
                      Grid.Row="1" Grid.Column="1"
                      ItemsSource="{Binding Board.Cells}"
@@ -83,13 +79,15 @@
             <Grid x:Name="GridRandomCellCoordinate"
                   Grid.Row="1" Grid.Column="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="6*"/>
                     <RowDefinition Height="4*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="6*"/>
                 </Grid.RowDefinitions>
 
                 <StackPanel x:Name="StackPanelRandomCellCoordinate"
                             Orientation="Horizontal" HorizontalAlignment="Center"
-                            VerticalAlignment="Bottom">
+                            VerticalAlignment="Bottom"
+                            Grid.Row="0">
                     <TextBlock x:Name="FileOfRandomCell"
                                Text="{Binding RandomCell.File, UpdateSourceTrigger=PropertyChanged}"
                                Style="{StaticResource TextBlockRandomCellStyle}"/>
@@ -97,9 +95,17 @@
                                Text="{Binding RandomCell.Rank, UpdateSourceTrigger=PropertyChanged}"
                                Style="{StaticResource TextBlockRandomCellStyle}"/>
                 </StackPanel>
+                
                 <Image x:Name="ImageResultSelection"
                        Grid.Row="1" Style="{StaticResource ImageResultAnswerStyle}">
                 </Image>
+
+                <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
+                    <TextBlock HorizontalAlignment="Center" Text="{Binding TickCounter}"
+                    FontSize="35" Foreground="Yellow"/>
+                    <TextBlock HorizontalAlignment="Center" Text="Время"
+                    FontSize="35" Foreground="Wheat"/>
+                </StackPanel>
             </Grid>
 
             <TextBlock x:Name="TextBlockCountAnswers"

@@ -71,6 +71,7 @@
                 Content="Войти"
                 VerticalAlignment="Center"
                 FontSize="50" Margin="20 0"
+                IsDefault="True"
                 Command="{Binding EnterCommand}"
                 Style="{StaticResource BaseButtonStyle}"/>
         </Grid>

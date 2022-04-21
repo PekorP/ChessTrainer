@@ -43,7 +43,7 @@ namespace ChessTrainer.ViewModels
                 return checkIsRightAnswer ??
                   (checkIsRightAnswer = new RelayCommand(obj =>
                   {
-                      //_timer.Start();
+                      _timer.Start();
                       SelectedCell = obj as Cell;
                       Cell newRandCell;
                       if (SelectedCell.Equals(RandomCell))

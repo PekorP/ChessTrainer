@@ -9,7 +9,7 @@ using System.Windows.Threading;
 
 namespace ChessTrainer.ViewModels
 {
-    public abstract class BaseTrainerViewModel : BaseViewModel
+    public class BaseTrainerViewModel : BaseViewModel
     {
         
         private RelayCommand checkIsRightAnswer;
@@ -36,17 +36,14 @@ namespace ChessTrainer.ViewModels
             set { isRightAnswer = value; OnPropertyChanged(); }
         }
 
-
         protected DispatcherTimer _timer;
 
         private int tickCounter = 30;
-
         public int TickCounter
         {
             get { return tickCounter; }
             set { tickCounter = value; OnPropertyChanged(); }
         }
-
 
         public BaseTrainerViewModel()
         {
@@ -61,6 +58,7 @@ namespace ChessTrainer.ViewModels
             if (--TickCounter <= 0)
             {
                 var timer = (DispatcherTimer)sender;
+                TickCounter = 30;
                 timer.Stop();
             }
         }
