@@ -43,6 +43,7 @@ namespace ChessTrainer.ViewModels
                 return checkIsRightAnswer ??
                   (checkIsRightAnswer = new RelayCommand(obj =>
                   {
+                      //_timer.Start();
                       SelectedCell = obj as Cell;
                       Cell newRandCell;
                       if (SelectedCell.Equals(RandomCell))
@@ -70,7 +71,7 @@ namespace ChessTrainer.ViewModels
             get => currentColorBoard;
             set { currentColorBoard = value; OnPropertyChanged(); }
         }
-
+        
         private ObservableCollection<int> ranks;
         public ObservableCollection<int> Ranks {
             get { return ranks; }

@@ -4,11 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Threading;
 
 namespace ChessTrainer.ViewModels
 {
     public abstract class BaseTrainerViewModel : BaseViewModel
     {
+        
         private RelayCommand checkIsRightAnswer;
         public virtual RelayCommand CheckIsRightAnswer { get => checkIsRightAnswer; }
 
@@ -31,6 +34,35 @@ namespace ChessTrainer.ViewModels
         {
             get { return isRightAnswer; }
             set { isRightAnswer = value; OnPropertyChanged(); }
+        }
+
+
+        protected DispatcherTimer _timer;
+
+        private int tickCounter = 30;
+
+        public int TickCounter
+        {
+            get { return tickCounter; }
+            set { tickCounter = value; OnPropertyChanged(); }
+        }
+
+
+        public BaseTrainerViewModel()
+        {
+            _timer = new DispatcherTimer();
+            _timer.Interval = TimeSpan.FromSeconds(1d);
+            _timer.Tick += new EventHandler(Timer_Tick);
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+
+            if (--TickCounter <= 0)
+            {
+                var timer = (DispatcherTimer)sender;
+                timer.Stop();
+            }
         }
     }
 }

@@ -32,6 +32,10 @@
                 <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
 
+            <TextBlock
+                   FontSize="35" Style="{StaticResource BaseTextBlockStyle}"
+                   Text="{Binding TickCounter}"/>
+            
             <ListBox x:Name="ListBoxChessBoard" 
                      Grid.Row="1" Grid.Column="1"
                      ItemsSource="{Binding Board.Cells}"
