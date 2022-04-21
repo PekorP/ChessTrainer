@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Threading;
 
 namespace ChessTrainer.ViewModels
@@ -15,6 +16,9 @@ namespace ChessTrainer.ViewModels
         private RelayCommand checkIsRightAnswer;
         public virtual RelayCommand CheckIsRightAnswer { get => checkIsRightAnswer; }
 
+        private RelayCommand startTimer;
+        public virtual RelayCommand StartTimer { get => checkIsRightAnswer; }
+ 
         private int countRightAnswers;
         public int CountRightAnswers
         {
@@ -36,9 +40,17 @@ namespace ChessTrainer.ViewModels
             set { isRightAnswer = value; OnPropertyChanged(); }
         }
 
-        protected DispatcherTimer _timer;
+        private DispatcherTimer timer;
+        protected DispatcherTimer Timer { 
+            get => timer;
+            set
+            { 
+                timer = value;
+                OnPropertyChanged();
+            }
+        }
 
-        private int tickCounter = 30;
+        private int tickCounter = 5;
         public int TickCounter
         {
             get { return tickCounter; }
@@ -47,9 +59,9 @@ namespace ChessTrainer.ViewModels
 
         public BaseTrainerViewModel()
         {
-            _timer = new DispatcherTimer();
-            _timer.Interval = TimeSpan.FromSeconds(1d);
-            _timer.Tick += new EventHandler(Timer_Tick);
+            Timer = new DispatcherTimer();
+            Timer.Interval = TimeSpan.FromSeconds(1d);
+            Timer.Tick += new EventHandler(Timer_Tick);
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -57,9 +69,11 @@ namespace ChessTrainer.ViewModels
 
             if (--TickCounter <= 0)
             {
-                var timer = (DispatcherTimer)sender;
+                Timer.Stop();
                 TickCounter = 30;
-                timer.Stop();
+                TotalCountAnswers = 0;
+                CountRightAnswers = 0;
+                CommandManager.InvalidateRequerySuggested();
             }
         }
     }

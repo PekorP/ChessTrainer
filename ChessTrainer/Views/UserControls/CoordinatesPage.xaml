@@ -81,7 +81,8 @@
                 <Grid.RowDefinitions>
                     <RowDefinition Height="4*"/>
                     <RowDefinition Height="3*"/>
-                    <RowDefinition Height="6*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="3*"/>
                 </Grid.RowDefinitions>
 
                 <StackPanel x:Name="StackPanelRandomCellCoordinate"
@@ -101,11 +102,18 @@
                 </Image>
 
                 <StackPanel Grid.Row="2" VerticalAlignment="Bottom">
-                    <TextBlock HorizontalAlignment="Center" Text="{Binding TickCounter}"
-                    FontSize="35" Foreground="Yellow"/>
+                    <TextBlock HorizontalAlignment="Center"
+                               Text="{Binding TickCounter}"
+                                FontSize="35" Foreground="Yellow"/>
                     <TextBlock HorizontalAlignment="Center" Text="Время"
-                    FontSize="35" Foreground="Wheat"/>
+                                 FontSize="35" Foreground="Wheat"/>
                 </StackPanel>
+
+                <Button Grid.Row="4" Content="Старт"
+                        Command="{Binding StartTimer}"
+                        Style="{StaticResource BaseButtonStyle}" Height="50"
+                        Margin="10 0"
+                        VerticalAlignment="Bottom"/>
             </Grid>
 
             <TextBlock x:Name="TextBlockCountAnswers"

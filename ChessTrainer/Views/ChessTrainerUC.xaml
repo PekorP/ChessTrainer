@@ -6,7 +6,6 @@
              xmlns:local="clr-namespace:ChessTrainer.Views"
              mc:Ignorable="d" 
              MinHeight="620" MinWidth="1200"
-             Height="620" Width="1200"
              xmlns:vm="clr-namespace:ChessTrainer.ViewModels"
              xmlns:view="clr-namespace:ChessTrainer.Views.Pages">
 

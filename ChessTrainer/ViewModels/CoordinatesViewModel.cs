@@ -13,6 +13,26 @@ namespace ChessTrainer.ViewModels
 
         #region Команды
 
+        #region Старт таймера
+
+        public RelayCommand startTimer;
+        public override RelayCommand StartTimer
+        {
+            get
+            {
+                return startTimer ?? (startTimer = new RelayCommand(obj =>
+                {
+                    Timer.Start();
+                },
+                obj=>
+                {
+                    return !Timer.IsEnabled;
+                }));
+            }
+        }
+
+        #endregion
+
         #region Команда изменения цвета доски
 
         private RelayCommand changeColorCommand;
@@ -43,7 +63,6 @@ namespace ChessTrainer.ViewModels
                 return checkIsRightAnswer ??
                   (checkIsRightAnswer = new RelayCommand(obj =>
                   {
-                      _timer.Start();
                       SelectedCell = obj as Cell;
                       Cell newRandCell;
                       if (SelectedCell.Equals(RandomCell))
