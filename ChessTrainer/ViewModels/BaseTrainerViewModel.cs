@@ -50,31 +50,32 @@ namespace ChessTrainer.ViewModels
             }
         }
 
-        private int tickCounter = 5;
+        private int tickCounter;
         public int TickCounter
         {
             get { return tickCounter; }
             set { tickCounter = value; OnPropertyChanged(); }
         }
 
-        public BaseTrainerViewModel()
-        {
-            Timer = new DispatcherTimer();
-            Timer.Interval = TimeSpan.FromSeconds(1d);
-            Timer.Tick += new EventHandler(Timer_Tick);
-        }
-
-        private void Timer_Tick(object sender, EventArgs e)
+        protected virtual void Timer_Tick(object sender, EventArgs e)
         {
 
-            if (--TickCounter <= 0)
+            if (TickCounter <= 0)
             {
                 Timer.Stop();
+                IsRightAnswer = null;
                 TickCounter = 30;
                 TotalCountAnswers = 0;
                 CountRightAnswers = 0;
                 CommandManager.InvalidateRequerySuggested();
             }
+        }
+        public BaseTrainerViewModel()
+        {
+            CountRightAnswers = 0;
+            TotalCountAnswers = 0;
+            TickCounter = 5;
+            IsRightAnswer = null;
         }
     }
 }

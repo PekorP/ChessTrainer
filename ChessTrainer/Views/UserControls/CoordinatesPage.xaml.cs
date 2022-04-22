@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using ChessTrainer.Models.EF;
+using System.Windows.Controls;
 namespace ChessTrainer.Views.Pages
 {
     /// <summary>

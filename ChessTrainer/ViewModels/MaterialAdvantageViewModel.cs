@@ -68,7 +68,7 @@ namespace ChessTrainer.ViewModels
         List<MaterialAdvantage> chessBoards = new List<MaterialAdvantage>();
         int currentChessBoardIndex;
 
-        public MaterialAdvantageViewModel()
+        public MaterialAdvantageViewModel() : base()
         {
             using(ChessTrainerContext ctx = new ChessTrainerContext())
             {
@@ -77,8 +77,6 @@ namespace ChessTrainer.ViewModels
                     chessBoards.Add(item);
                 }
             }
-            CountRightAnswers = 0;
-            TotalCountAnswers = 0;
             currentChessBoardIndex = 0;
             CurrentMaterialAdvantage = chessBoards[currentChessBoardIndex];
             UserAnswer = "";

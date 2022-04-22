@@ -1,14 +1,16 @@
 ﻿using ChessTrainer.Commands;
 using ChessTrainer.Enums;
 using ChessTrainer.Models;
+using ChessTrainer.Models.EF;
 using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace ChessTrainer.ViewModels
 {
-    class CoordinatesViewModel : BaseTrainerViewModel
+    public class CoordinatesViewModel : BaseTrainerViewModel
     {
 
         #region Команды
@@ -122,17 +124,29 @@ namespace ChessTrainer.ViewModels
                 OnPropertyChanged();
             }
         }
-
-        public CoordinatesViewModel()
+        public User User { get; set; }
+        protected override void Timer_Tick(object sender, EventArgs e)
         {
+            if (--TickCounter <= 0)
+            {
+                RandomCell = Board.Cells[new Random().Next(Board.Cells.Count())];
+            }
+            MessageBox.Show(User.Login);
+            base.Timer_Tick(sender, e);         
+        }
+
+        public CoordinatesViewModel(User User) : base()
+        {            
             Board = new Board();
             Ranks = new ObservableCollection<int> { 8, 7, 6, 5, 4, 3, 2, 1 };
             Files = new ObservableCollection<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
             CurrentColorBoard = CellColor.White; //Изначально мы "смотрим" на доску со стороны белых
             RandomCell = Board.Cells[new Random().Next(Board.Cells.Count())];
-            IsRightAnswer = null;
-            CountRightAnswers = 0;
-            TotalCountAnswers = 0;
+            this.User = User;
+
+            Timer = new DispatcherTimer();
+            Timer.Interval = TimeSpan.FromSeconds(1d);
+            Timer.Tick += new EventHandler(Timer_Tick);
         }
     }
 }

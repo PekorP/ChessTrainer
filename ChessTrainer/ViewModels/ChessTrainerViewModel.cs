@@ -29,15 +29,7 @@ namespace ChessTrainer.ViewModels
         #endregion
         #endregion
 
-        Dictionary<string, object> ViewModels = new Dictionary<string, object>()
-        {
-            {"CoordinatesViewModel", new CoordinatesViewModel()},
-            {"BlackAndWhiteViewModel", new BlackAndWhiteViewModel()},
-            {"GameVoiceActingViewModel", new GameVoiceActingViewModel()},
-            {"IsCanBeatViewModel", new IsCanBeatViewModel()},
-            {"MaterialAdvantageViewModel", new MaterialAdvantageViewModel()},
-            {"RulesViewModel", new RulesViewModel()}
-        };
+        Dictionary<string, object> ViewModels;
 
         object currentContentVM;
         public object CurrentContentVM
@@ -52,8 +44,17 @@ namespace ChessTrainer.ViewModels
 
         public ChessTrainerViewModel(User user)
         {
+            User = user;
+            ViewModels = new Dictionary<string, object>()
+            {
+                {"CoordinatesViewModel", new CoordinatesViewModel(User) },
+                {"BlackAndWhiteViewModel", new BlackAndWhiteViewModel()},
+                {"GameVoiceActingViewModel", new GameVoiceActingViewModel()},
+                {"IsCanBeatViewModel", new IsCanBeatViewModel()},
+                {"MaterialAdvantageViewModel", new MaterialAdvantageViewModel()},
+                {"RulesViewModel", new RulesViewModel()}
+            };
             CurrentContentVM = new RulesViewModel();
-            this.User = user;           
         }
     }
 }

@@ -84,11 +84,9 @@ namespace ChessTrainer.ViewModels
             set { cellTo = value; OnPropertyChanged(); }
         }
 
-        public IsCanBeatViewModel()
+        public IsCanBeatViewModel() : base()
         {
             NewCells();
-            CountRightAnswers = 0;
-            TotalCountAnswers = 0;
         }
 
         void NewCells()

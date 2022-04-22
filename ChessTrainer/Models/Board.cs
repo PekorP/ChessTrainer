@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 
 namespace ChessTrainer.Models
 {
-    internal class Board : BaseViewModel
+    public class Board : BaseViewModel
     {
         const int COUNT_VERTICAL_AND_HORIZONTAL = 8;
 

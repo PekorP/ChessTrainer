@@ -8,9 +8,6 @@
       xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
       mc:Ignorable="d" 
       MinHeight="620" MinWidth="900">
-    <UserControl.DataContext>
-        <vm:CoordinatesViewModel/>
-    </UserControl.DataContext>
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>

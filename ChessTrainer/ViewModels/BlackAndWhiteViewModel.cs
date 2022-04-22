@@ -55,13 +55,10 @@ namespace ChessTrainer.ViewModels
             set { randomCell = value; OnPropertyChanged(); }
         }
 
-        public BlackAndWhiteViewModel()
+        public BlackAndWhiteViewModel() : base()
         {
             Board = new Board();
             RandomCell = Board.Cells[new Random().Next(Board.Cells.Count())];
-            CountRightAnswers = 0;
-            TotalCountAnswers = 0;
-            IsRightAnswer = null;
         }
     }
 }

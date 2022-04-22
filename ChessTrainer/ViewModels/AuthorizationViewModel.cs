@@ -46,7 +46,7 @@ namespace ChessTrainer.ViewModels
             {
                 User user = new User() { Login = this.Login, Password = this.Password };
                 if (ctx.Users.Where(u => u.Login == user.Login && u.Password == user.Password).Any())
-                    OnAuthorize?.Invoke(this, new LoginEventArgs(user, true));
+                    OnAuthorize?.Invoke(this, new LoginEventArgs(ctx.Users.Where(u => u.Login == user.Login && u.Password == user.Password).First(), true));
 
                 else if (ctx.Users.Where(u => u.Login == user.Login && u.Password != user.Password).Any())
                 {
