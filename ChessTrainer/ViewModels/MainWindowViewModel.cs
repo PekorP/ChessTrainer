@@ -1,4 +1,5 @@
 ﻿using ChessTrainer.Commands;
+using ChessTrainer.Models.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -45,6 +46,17 @@ namespace ChessTrainer.ViewModels
 
         public AuthorizationViewModel authorizationViewModel { get; }
 
+        private string user;
+        public string User
+        {
+            get => user;
+            set 
+            { 
+                user = value;
+                OnPropertyChanged();
+            }
+        } 
+
         public MainWindowViewModel()
         {
             authorizationViewModel = new AuthorizationViewModel();
@@ -61,8 +73,8 @@ namespace ChessTrainer.ViewModels
 
         private void AuthorizationViewModelOnOnAuthorize(object sender, LoginEventArgs e)
         {
-
             CurrentContent = e.IsAuthorized ? (BaseViewModel)new ChessTrainerViewModel(e.User) : authorizationViewModel;
+            User = e.IsAuthorized ? e.User.Login : null;
         }
     }
 }

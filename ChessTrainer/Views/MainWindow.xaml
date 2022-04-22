@@ -44,14 +44,18 @@
 
         <Grid Grid.Row="0" Background="SandyBrown">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
+            <TextBlock x:Name="UserLogin"
+                       Grid.Column="0" Style="{StaticResource TextBlockHeaderStyle}"
+                       Text="{Binding User}" Foreground="Yellow"/>
             <TextBlock x:Name="TextBlockHeader"
-                       Grid.Column="0" Grid.ColumnSpan="2"
+                       Grid.Column="0" Grid.ColumnSpan="3"
                        Text="Шахматный тренажер by Pekor"
                        Style="{StaticResource TextBlockHeaderStyle}"/>
-            <StackPanel Grid.Column="1"
+            <StackPanel Grid.Column="2"
                         Orientation="Horizontal"                        
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
