@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,14 @@ namespace ChessTrainer.Views.Pages
         public GameVoiceActingPage()
         {
             InitializeComponent();
+            ((INotifyCollectionChanged)ListBoxChessMoves.Items).CollectionChanged += Items_CollectionChanged;
+        }
+
+        private void Items_CollectionChanged(object sender, EventArgs e)
+        {
+            Border border = (Border)VisualTreeHelper.GetChild(ListBoxChessMoves, 0);
+            ScrollViewer scrollViewer = (ScrollViewer)VisualTreeHelper.GetChild(border, 0);
+            scrollViewer.ScrollToBottom();
         }
     }
 }
