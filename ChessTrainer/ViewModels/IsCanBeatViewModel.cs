@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ChessTrainer.Commands;
+using ChessTrainer.Models.EF;
+using System.Windows.Threading;
 
 namespace ChessTrainer.ViewModels
 {
@@ -48,7 +50,28 @@ namespace ChessTrainer.ViewModels
                       TotalCountAnswers++;
                       NewCells();
                       
+                  },
+                  obj =>
+                  {
+                      return Timer.IsEnabled;
                   }));
+            }
+        }
+
+        public RelayCommand startTimer;
+        public override RelayCommand StartTimer
+        {
+            get
+            {
+                return startTimer ?? (startTimer = new RelayCommand(obj =>
+                {
+                    Timer.Start();
+                    NewCells();
+                },
+                obj =>
+                {
+                    return !Timer.IsEnabled;
+                }));
             }
         }
 
@@ -84,9 +107,25 @@ namespace ChessTrainer.ViewModels
             set { cellTo = value; OnPropertyChanged(); }
         }
 
-        public IsCanBeatViewModel() : base()
+        public User User { get; set; }
+
+        public IsCanBeatViewModel(User User) : base()
         {
             NewCells();
+            this.User = User;
+
+            Timer = new DispatcherTimer();
+            Timer.Interval = TimeSpan.FromSeconds(1d);
+            Timer.Tick += new EventHandler(Timer_Tick);
+        }
+
+        protected override void Timer_Tick(object sender, EventArgs e)
+        {
+            if (--TickCounter <= 0)
+            {
+                SaveRecord("IsCanBeat", User);
+                base.Timer_Tick(sender, e);
+            }
         }
 
         void NewCells()

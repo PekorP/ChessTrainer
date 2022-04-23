@@ -1,5 +1,6 @@
 ﻿using ChessTrainer.Commands;
 using ChessTrainer.Models;
+using ChessTrainer.Models.EF;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;

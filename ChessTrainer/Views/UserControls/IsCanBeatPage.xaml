@@ -8,10 +8,6 @@
       mc:Ignorable="d" 
       MinHeight="620" MinWidth="900">
 
-    <UserControl.DataContext>
-        <vm:IsCanBeatViewModel/>
-    </UserControl.DataContext>
-
     <UserControl.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -23,7 +19,8 @@
     <Grid Background="{StaticResource GridBG}" >
         <Grid.RowDefinitions>
             <RowDefinition Height="2*"/>
-            <RowDefinition/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -82,7 +79,7 @@
 
         <Grid x:Name="GridIsCanBeatAnswer"
               Grid.Row="1" Grid.Column="1"
-              VerticalAlignment="Top">
+              VerticalAlignment="Center">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -106,6 +103,36 @@
                     Height="60" Cursor="Hand"
                     Command="{Binding CheckIsRightAnswer}" CommandParameter="No"
                     Style="{StaticResource  ButtonStyle}"/>
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.Column="1"
+              VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Button Grid.Column="1" Grid.Row="1" Content="Старт"
+                        Command="{Binding StartTimer}"
+                        Style="{StaticResource BaseButtonStyle}" Height="50"
+                        VerticalAlignment="Center" Margin="0 20"/>
+            <StackPanel Grid.Column="1" Grid.Row="0"
+                        Orientation="Horizontal" HorizontalAlignment="Center">
+                <TextBlock 
+                           HorizontalAlignment="Right" VerticalAlignment="Center"
+                           Text="Время" Margin="0 0 10 0"
+                           FontSize="35" Foreground="Wheat"/>
+
+                <TextBlock Grid.Column="2"
+                            HorizontalAlignment="Left" VerticalAlignment="Center"
+                            Text="{Binding TickCounter}"
+                            FontSize="35" Foreground="Yellow"/>
+            </StackPanel>
         </Grid>
     </Grid>
 </UserControl>
