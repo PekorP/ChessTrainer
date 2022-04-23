@@ -48,15 +48,13 @@ namespace ChessTrainer.ViewModels
         }
 
         public event EventHandler<VMEventArgs> OnChangeTrainer;
-        
-
         public ChessTrainerViewModel(User user)
         {
             User = user;
             ViewModels = new Dictionary<string, object>()
             {
                 {"CoordinatesViewModel", new CoordinatesViewModel(User) },
-                {"BlackAndWhiteViewModel", new BlackAndWhiteViewModel()},
+                {"BlackAndWhiteViewModel", new BlackAndWhiteViewModel(User)},
                 {"GameVoiceActingViewModel", new GameVoiceActingViewModel()},
                 {"IsCanBeatViewModel", new IsCanBeatViewModel()},
                 {"MaterialAdvantageViewModel", new MaterialAdvantageViewModel()},
