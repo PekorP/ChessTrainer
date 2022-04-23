@@ -25,6 +25,7 @@ namespace ChessTrainer.ViewModels
                 return startTimer ?? (startTimer = new RelayCommand(obj =>
                 {
                     Timer.Start();
+                    RandomCell = Board.Cells[new Random().Next(Board.Cells.Count())];
                 },
                 obj=>
                 {
@@ -80,7 +81,12 @@ namespace ChessTrainer.ViewModels
                           RandomCell = Board.Cells[new Random().Next(64)];
                       } while (newRandCell.Equals(randomCell));
                       TotalCountAnswers++;
-                  }));
+                  },
+                  obj=>
+                  {
+                      return Timer.IsEnabled;
+                  }
+                  ));
             }
         }
         #endregion
@@ -129,9 +135,10 @@ namespace ChessTrainer.ViewModels
         {
             if (--TickCounter <= 0)
             {
-                RandomCell = Board.Cells[new Random().Next(Board.Cells.Count())];
+                RandomCell = null;
+                SaveRecord("Coordinates", User);
+                base.Timer_Tick(sender, e);
             }
-            base.Timer_Tick(sender, e);         
         }
 
         public CoordinatesViewModel(User User) : base()
@@ -140,7 +147,6 @@ namespace ChessTrainer.ViewModels
             Ranks = new ObservableCollection<int> { 8, 7, 6, 5, 4, 3, 2, 1 };
             Files = new ObservableCollection<char> { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h' };
             CurrentColorBoard = CellColor.White; //Изначально мы "смотрим" на доску со стороны белых
-            RandomCell = Board.Cells[new Random().Next(Board.Cells.Count())];
             this.User = User;
 
             Timer = new DispatcherTimer();

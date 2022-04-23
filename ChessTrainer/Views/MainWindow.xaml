@@ -62,6 +62,7 @@
                        Grid.Column="0" Grid.ColumnSpan="3"
                        Text="Шахматный тренажер by Pekor"
                        Style="{StaticResource TextBlockHeaderStyle}"/>
+            
             <StackPanel Grid.Column="2"
                         Orientation="Horizontal"                        
                         HorizontalAlignment="Center"

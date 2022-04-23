@@ -1,4 +1,5 @@
 ﻿using ChessTrainer.Commands;
+using ChessTrainer.Models.EF;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -63,19 +64,41 @@ namespace ChessTrainer.ViewModels
             if (TickCounter <= 0)
             {
                 Timer.Stop();
-                IsRightAnswer = null;
-                TickCounter = 30;
-                TotalCountAnswers = 0;
-                CountRightAnswers = 0;
-                CommandManager.InvalidateRequerySuggested();
+                SetupTrainer();
             }
         }
         public BaseTrainerViewModel()
         {
-            CountRightAnswers = 0;
-            TotalCountAnswers = 0;
-            TickCounter = 5;
+            SetupTrainer();
+        }
+
+        protected void SetupTrainer()
+        {
             IsRightAnswer = null;
+            TickCounter = 30;
+            TotalCountAnswers = 0;
+            CountRightAnswers = 0;
+            CommandManager.InvalidateRequerySuggested();
+        }
+
+        protected void SaveRecord(string trainerName, User User)
+        {
+            using (ChessTrainerContext chessTrainerContext = new ChessTrainerContext())
+            {
+                var trainer = chessTrainerContext.Trainers.Where(t => t.TrainerName == trainerName).First();
+                var record = chessTrainerContext.Records.Where(r => r.IdTrainer == trainer.ID && r.IdUser == User.ID).FirstOrDefault();
+                if (record != null && record.Result < CountRightAnswers)
+                {
+                    record.Result = CountRightAnswers;
+                    chessTrainerContext.Entry(record).State = System.Data.Entity.EntityState.Modified;
+                }
+                else
+                {
+                    chessTrainerContext.Records.Add(new Record() { IdTrainer = trainer.ID, IdUser = User.ID, Result = CountRightAnswers });
+                }
+                chessTrainerContext.SaveChanges();
+
+            }
         }
     }
 }
