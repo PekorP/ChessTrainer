@@ -131,7 +131,6 @@ namespace ChessTrainer.ViewModels
             {
                 RandomCell = Board.Cells[new Random().Next(Board.Cells.Count())];
             }
-            MessageBox.Show(User.Login);
             base.Timer_Tick(sender, e);         
         }
 

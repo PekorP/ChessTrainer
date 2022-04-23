@@ -1,13 +1,14 @@
 ﻿using ChessTrainer.Commands;
 using ChessTrainer.Models.EF;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 
 namespace ChessTrainer.ViewModels
 {
-    internal class ChessTrainerViewModel : BaseViewModel
+    public class ChessTrainerViewModel : BaseViewModel
     {
-        public User User { get; set; }
 
         #region Команды
 
@@ -20,14 +21,18 @@ namespace ChessTrainer.ViewModels
             {
                 return changePage ??
                   (changePage = new RelayCommand(obj =>
-                  {         
-                      CurrentContentVM = ViewModels[obj.ToString().Split('.')[2]];
+                  {
+                      var viewModelName = obj.ToString().Split('.')[2];
+                      CurrentContentVM = ViewModels[viewModelName];
+                      OnChangeTrainer.Invoke(this, new VMEventArgs(viewModelName.Substring(0, viewModelName.Length - 9), User));
                   }));
             }
         }
 
         #endregion
         #endregion
+
+        public User User { get; set; }
 
         Dictionary<string, object> ViewModels;
 
@@ -42,6 +47,9 @@ namespace ChessTrainer.ViewModels
             }
         }
 
+        public event EventHandler<VMEventArgs> OnChangeTrainer;
+        
+
         public ChessTrainerViewModel(User user)
         {
             User = user;
@@ -55,6 +63,17 @@ namespace ChessTrainer.ViewModels
                 {"RulesViewModel", new RulesViewModel()}
             };
             CurrentContentVM = new RulesViewModel();
+        }
+    }
+
+    public class VMEventArgs : EventArgs
+    {
+        public string Trainer{ get; }
+        public User User { get; }
+        public VMEventArgs(string trainer, User user)
+        {
+            Trainer = trainer;
+            User = user;
         }
     }
 }

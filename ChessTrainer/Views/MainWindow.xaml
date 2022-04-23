@@ -48,9 +48,16 @@
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBlock x:Name="UserLogin"
-                       Grid.Column="0" Style="{StaticResource TextBlockHeaderStyle}"
-                       Text="{Binding User}" Foreground="Yellow"/>
+
+            <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center">
+                <TextBlock x:Name="UserLogin"
+                       Style="{StaticResource TextBlockHeaderStyle}"
+                       Text="{Binding UserLogin}" Foreground="Yellow"/>
+                <TextBlock Style="{StaticResource TextBlockUserDataStyle}">
+                    <Run Text="Рекорд - "/><Run Text="{Binding UserRecord}"/>
+                </TextBlock>
+            </StackPanel>
+            
             <TextBlock x:Name="TextBlockHeader"
                        Grid.Column="0" Grid.ColumnSpan="3"
                        Text="Шахматный тренажер by Pekor"

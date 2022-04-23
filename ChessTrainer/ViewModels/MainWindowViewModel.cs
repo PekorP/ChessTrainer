@@ -45,22 +45,35 @@ namespace ChessTrainer.ViewModels
         #endregion
 
         public AuthorizationViewModel authorizationViewModel { get; }
+        public ChessTrainerViewModel chessTrainerViewModel { get; set; }
 
-        private string user;
-        public string User
+        private string userLogin;
+        public string UserLogin
         {
-            get => user;
+            get => userLogin;
             set 
-            { 
-                user = value;
+            {
+                userLogin = value;
                 OnPropertyChanged();
             }
-        } 
+        }
+
+        private int? userRecord;
+        public int? UserRecord
+        {
+            get => userRecord;
+            set
+            {
+                userRecord = value;
+                OnPropertyChanged();
+            }
+        }
 
         public MainWindowViewModel()
         {
             authorizationViewModel = new AuthorizationViewModel();
             authorizationViewModel.OnAuthorize += AuthorizationViewModelOnOnAuthorize;
+
             CurrentContent = authorizationViewModel;
         }
 
@@ -73,8 +86,25 @@ namespace ChessTrainer.ViewModels
 
         private void AuthorizationViewModelOnOnAuthorize(object sender, LoginEventArgs e)
         {
-            CurrentContent = e.IsAuthorized ? (BaseViewModel)new ChessTrainerViewModel(e.User) : authorizationViewModel;
-            User = e.IsAuthorized ? e.User.Login : null;
+            chessTrainerViewModel = new ChessTrainerViewModel(e.User);
+            chessTrainerViewModel.OnChangeTrainer += ChessTrainerViewModelOnChangeTrainer;
+
+            CurrentContent = e.IsAuthorized ? (BaseViewModel)chessTrainerViewModel : authorizationViewModel;
+            UserLogin = e.IsAuthorized ? e.User.Login : null;
+        }
+
+        private void ChessTrainerViewModelOnChangeTrainer(object sender, VMEventArgs e)
+        {
+            using (ChessTrainerContext chessTrainerContext = new ChessTrainerContext())
+            {
+                var trainer = chessTrainerContext.Trainers.Where(t => t.TrainerName == e.Trainer).FirstOrDefault();
+                if ((trainer != null) && chessTrainerContext.Records.Where(r => r.IdTrainer == trainer.ID && r.IdUser == e.User.ID).Any())
+                {
+                    UserRecord = chessTrainerContext.Records.Where(r => r.IdTrainer == trainer.ID && r.IdUser == e.User.ID).First().Result;
+                }
+                else
+                    UserRecord = null;
+            }
         }
     }
 }
