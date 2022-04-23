@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace ChessTrainer.ViewModels
 {
@@ -43,9 +44,26 @@ namespace ChessTrainer.ViewModels
                   },
                   obj=>
                   {
-                      return UserAnswer != "";
+                      return UserAnswer != "" && Timer.IsEnabled;
                   }
                   ));
+            }
+        }
+
+        public RelayCommand startTimer;
+        public override RelayCommand StartTimer
+        {
+            get
+            {
+                return startTimer ?? (startTimer = new RelayCommand(obj =>
+                {
+                    Timer.Start();
+                    CurrentMaterialAdvantage = chessBoards[++currentChessBoardIndex];
+                },
+                obj =>
+                {
+                    return !Timer.IsEnabled;
+                }));
             }
         }
 
@@ -68,7 +86,9 @@ namespace ChessTrainer.ViewModels
         List<MaterialAdvantage> chessBoards = new List<MaterialAdvantage>();
         int currentChessBoardIndex;
 
-        public MaterialAdvantageViewModel() : base()
+        public User User { get; set; }
+
+        public MaterialAdvantageViewModel(User User) : base()
         {
             using(ChessTrainerContext ctx = new ChessTrainerContext())
             {
@@ -80,6 +100,20 @@ namespace ChessTrainer.ViewModels
             currentChessBoardIndex = 0;
             CurrentMaterialAdvantage = chessBoards[currentChessBoardIndex];
             UserAnswer = "";
+
+            this.User = User;
+            Timer = new DispatcherTimer();
+            Timer.Interval = TimeSpan.FromSeconds(1d);
+            Timer.Tick += new EventHandler(Timer_Tick);
+        }
+
+        protected override void Timer_Tick(object sender, EventArgs e)
+        {
+            if (--TickCounter <= 0)
+            {
+                SaveRecord("MaterialAdvantage", User);
+                base.Timer_Tick(sender, e);
+            }
         }
     }
 }

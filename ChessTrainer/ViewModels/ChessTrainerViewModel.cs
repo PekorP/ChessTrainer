@@ -57,7 +57,7 @@ namespace ChessTrainer.ViewModels
                 {"BlackAndWhiteViewModel", new BlackAndWhiteViewModel(User)},
                 {"GameVoiceActingViewModel", new GameVoiceActingViewModel()},
                 {"IsCanBeatViewModel", new IsCanBeatViewModel(User)},
-                {"MaterialAdvantageViewModel", new MaterialAdvantageViewModel()},
+                {"MaterialAdvantageViewModel", new MaterialAdvantageViewModel(User)},
                 {"RulesViewModel", new RulesViewModel()}
             };
             CurrentContentVM = new RulesViewModel();

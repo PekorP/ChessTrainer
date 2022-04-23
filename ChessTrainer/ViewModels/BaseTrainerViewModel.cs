@@ -87,10 +87,13 @@ namespace ChessTrainer.ViewModels
             {
                 var trainer = chessTrainerContext.Trainers.Where(t => t.TrainerName == trainerName).First();
                 var record = chessTrainerContext.Records.Where(r => r.IdTrainer == trainer.ID && r.IdUser == User.ID).FirstOrDefault();
-                if (record != null && record.Result < CountRightAnswers)
+                if (record != null)
                 {
-                    record.Result = CountRightAnswers;
-                    chessTrainerContext.Entry(record).State = System.Data.Entity.EntityState.Modified;
+                    if (record.Result < CountRightAnswers)
+                    {
+                        record.Result = CountRightAnswers;
+                        chessTrainerContext.Entry(record).State = System.Data.Entity.EntityState.Modified;
+                    }
                 }
                 else
                 {
