@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ChessTrainer.Models
 {
-    class ChessMove : BaseViewModel
+    public class ChessMove : BaseViewModel
     {
         private int numberOfMove;
         public int NumberOfMove
@@ -60,10 +60,16 @@ namespace ChessTrainer.Models
             if (move == "0-0") return "Короткая рокировка";
             if (move == "0-0-0") return "Длинная рокировка";
 
-            Regex regex = new Regex(@"(?i)^[prnbqk][a-h][1-8]-[a-h][1-8][prnbqk]?$");
-            if (regex.Matches(move).Count == 0)
-                throw new Exception();
-
+            try
+            {
+                Regex regex = new Regex(@"(?i)^[prnbqk][a-h][1-8]-[a-h][1-8][prnbqk]?$");
+                if (regex.Matches(move).Count == 0)
+                    throw new Exception();
+            }
+            catch(Exception e)
+            {
+                return null;
+            }
             var startCell = move[1].ToString() + move[2];
             var endCell = move[4].ToString() + move[5];
             var parsedMove = $"{figures[Char.ToUpper(move[0])]} {startCell} на {endCell}";

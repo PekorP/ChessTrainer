@@ -19,8 +19,6 @@ namespace ChessTrainer.ViewModels
 
         #region Команды
 
-        
-
         private RelayCommand addChessMove;
         public RelayCommand AddChessMove
         {
@@ -31,8 +29,12 @@ namespace ChessTrainer.ViewModels
                   {
                       try
                       {
-                          ChessParsedMoves.Add(ChessMove.MoveParser(AddedChessMove.WhiteMove));
-                          ChessParsedMoves.Add(ChessMove.MoveParser(AddedChessMove.BlackMove));
+                          var parsedWhiteMove = ChessMove.MoveParser(AddedChessMove.WhiteMove);
+                          var parsedBlackMove = ChessMove.MoveParser(AddedChessMove.BlackMove);
+                          if (parsedWhiteMove == null || parsedBlackMove == null)
+                              throw new Exception();
+                          ChessParsedMoves.Add(parsedWhiteMove);
+                          ChessParsedMoves.Add(parsedBlackMove);
                       }
                       catch (Exception ex)
                       {
