@@ -45,7 +45,6 @@
             <LineBreak/>
             <Run Text="Чтобы вернуться на эту страницу нажми на кнопку"/>
             <Run Text="Home" Foreground="Wheat"/>
-            <Run Text="справа сверху."/>
         </TextBlock>
 
         <Grid x:Name="GridRules"
