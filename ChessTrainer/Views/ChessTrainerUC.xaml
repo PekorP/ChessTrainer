@@ -73,7 +73,7 @@
                     </Button.Resources>
                 </Button>
 
-                <Button Style="{StaticResource SideMenuButtonStyle}" Content="Сможет ли побить?"
+                <Button Style="{StaticResource SideMenuButtonStyle}" Content="Сможет ли пойти?"
                             Command="{Binding ChangePage}" CommandParameter="{x:Type vm:IsCanBeatViewModel}">
                     <Button.Resources>
                         <Image x:Key="IconForSideMenuButton" Source="/Pics/PicsForMainWindow/IsCanBeat.png"/>

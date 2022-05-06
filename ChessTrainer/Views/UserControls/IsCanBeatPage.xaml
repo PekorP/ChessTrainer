@@ -57,7 +57,7 @@
                     <Run Text="{Binding CellFrom.File}"/><Run Text="{Binding CellFrom.Rank}"/>
                 </TextBlock>
 
-                <TextBlock Text="X" Foreground="White" FontSize="50"
+                <TextBlock Text="—" Foreground="White" FontSize="50"
                            VerticalAlignment="Center"/>
 
                 <TextBlock x:Name="TextBlockBeatTo"

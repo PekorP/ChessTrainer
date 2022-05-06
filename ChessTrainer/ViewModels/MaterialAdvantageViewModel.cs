@@ -58,7 +58,13 @@ namespace ChessTrainer.ViewModels
                 return startTimer ?? (startTimer = new RelayCommand(obj =>
                 {
                     Timer.Start();
-                    CurrentMaterialAdvantage = chessBoards[++currentChessBoardIndex];
+                    if (currentChessBoardIndex != chessBoards.Count - 1)
+                        CurrentMaterialAdvantage = chessBoards[++currentChessBoardIndex];
+                    else
+                    {
+                        currentChessBoardIndex = 0;
+                        CurrentMaterialAdvantage = chessBoards[currentChessBoardIndex];
+                    }
                 },
                 obj =>
                 {
