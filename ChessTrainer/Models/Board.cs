@@ -9,6 +9,7 @@ namespace ChessTrainer.Models
     public class Board : BaseViewModel
     {
         const int COUNT_VERTICAL_AND_HORIZONTAL = 8;
+        char[] files = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' };
 
         private ObservableCollection<Cell> cells;
         public ObservableCollection<Cell> Cells //Массив клеток, из которых состоит шахматная доска
@@ -25,7 +26,6 @@ namespace ChessTrainer.Models
 
         void SetupBoard() //Заполнение массива значениями, чтобы получилась шахматная доска с квадратами
         {
-            char[] files = new char[] { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H' }; 
             CellColor currentColor = CellColor.White; //так как начинаем с левого верхнего края(А8), то клетка имеет белый цвет
 
             for (int i = 0; i < COUNT_VERTICAL_AND_HORIZONTAL; i++)
