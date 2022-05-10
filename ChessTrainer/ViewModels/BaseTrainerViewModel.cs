@@ -18,7 +18,7 @@ namespace ChessTrainer.ViewModels
         public virtual RelayCommand CheckIsRightAnswer { get => checkIsRightAnswer; }
 
         private RelayCommand startTimer;
-        public virtual RelayCommand StartTimer { get => checkIsRightAnswer; }
+        public virtual RelayCommand StartTimer { get => startTimer; }
  
         private int countRightAnswers;
         public int CountRightAnswers
