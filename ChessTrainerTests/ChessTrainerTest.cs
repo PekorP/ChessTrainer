@@ -11,28 +11,28 @@ namespace ChessTrainerTests
         [TestMethod]
         public void TestCorrectChessNotationMove()
         {
-            var result = ChessTrainer.Models.ChessMove.MoveParser("Qe2-e4");
+            var result = ChessTrainer.Models.ChessMove.MoveParse("Qe2-e4");
             Assert.AreEqual(result, "Ферзь e2 на e4");
         }
 
         [TestMethod]
         public void TestCorrectChessNotationCastling()
         {
-            var result = ChessTrainer.Models.ChessMove.MoveParser("0-0");
+            var result = ChessTrainer.Models.ChessMove.MoveParse("0-0");
             Assert.AreEqual(result, "Короткая рокировка");
         }
 
         [TestMethod]
         public void TestWrongChessNotationCastling()
         {
-            var result = ChessTrainer.Models.ChessMove.MoveParser("0-0-0-0");
+            var result = ChessTrainer.Models.ChessMove.MoveParse("0-0-0-0");
             Assert.AreEqual(result, null);
         }
 
         [TestMethod]
         public void TestWrongChessNotationMove()
         {
-            var result = ChessTrainer.Models.ChessMove.MoveParser("abra-cadabra");
+            var result = ChessTrainer.Models.ChessMove.MoveParse("abra-cadabra");
             Assert.AreEqual(result, null);
         }
     }

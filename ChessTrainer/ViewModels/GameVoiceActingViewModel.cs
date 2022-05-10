@@ -29,8 +29,8 @@ namespace ChessTrainer.ViewModels
                   {
                       try
                       {
-                          var parsedWhiteMove = ChessMove.MoveParser(AddedChessMove.WhiteMove);
-                          var parsedBlackMove = ChessMove.MoveParser(AddedChessMove.BlackMove);
+                          var parsedWhiteMove = ChessMove.MoveParse(AddedChessMove.WhiteMove);
+                          var parsedBlackMove = ChessMove.MoveParse(AddedChessMove.BlackMove);
                           if (parsedWhiteMove == null || parsedBlackMove == null)
                               throw new Exception();
                           ChessParsedMoves.Add(parsedWhiteMove);

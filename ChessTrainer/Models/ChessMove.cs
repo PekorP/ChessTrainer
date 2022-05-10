@@ -55,7 +55,7 @@ namespace ChessTrainer.Models
         }
 
         //Для примера: { 1, "Pe2-e4", "Ng8-f6" } => "Пешка e2 на e4", "Конь g8 на f6"
-        public static string MoveParser(string move)
+        public static string MoveParse(string move)
         {
             if (move == "0-0") return "Короткая рокировка";
             if (move == "0-0-0") return "Длинная рокировка";
