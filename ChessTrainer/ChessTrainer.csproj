@@ -98,7 +98,7 @@
     <Compile Include="ViewModels\ChessTrainerViewModel.cs" />
     <Compile Include="ViewModels\CoordinatesViewModel.cs" />
     <Compile Include="ViewModels\GameVoiceActingViewModel.cs" />
-    <Compile Include="ViewModels\IsCanBeatViewModel.cs" />
+    <Compile Include="ViewModels\IsCanMoveViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MaterialAdvantageViewModel.cs" />
     <Compile Include="ViewModels\RulesViewModel.cs" />
