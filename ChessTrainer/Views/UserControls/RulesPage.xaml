@@ -109,7 +109,7 @@
 
             <Image Grid.Column="0" Grid.Row="3"
                    Margin="10 10" HorizontalAlignment="Left"
-                   Source="/Pics/PicsForMainWindow/IsCanBeat.png"/>
+                   Source="/Pics/PicsForMainWindow/IsCanMove.png"/>
 
             <TextBlock Grid.Column="1" Grid.Row="3"
                        TextWrapping="Wrap" Foreground="White"

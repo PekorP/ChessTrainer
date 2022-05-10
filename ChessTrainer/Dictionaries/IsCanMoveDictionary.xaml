@@ -5,7 +5,7 @@
         <ResourceDictionary Source="BaseDictionary.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="TextBlockIsCanBeatStyle" BasedOn="{StaticResource BaseTextBlockStyle}" TargetType="TextBlock">
+    <Style x:Key="TextBlockIsCanMoveStyle" BasedOn="{StaticResource BaseTextBlockStyle}" TargetType="TextBlock">
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="FontSize" Value="35"/>
@@ -14,21 +14,21 @@
     <Style x:Key="ImageFigureStyle" TargetType="Image">
         <Style.Triggers>
             <DataTrigger Binding="{Binding PieceName}" Value="R">
-                <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Rook.png"/>
+                <Setter Property="Source" Value="/Pics/PicsForIsCanMove/Pieces/Rook.png"/>
             </DataTrigger>
             <DataTrigger Binding="{Binding PieceName}" Value="N">
-                <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Knight.png"/>
+                <Setter Property="Source" Value="/Pics/PicsForIsCanMove/Pieces/Knight.png"/>
             </DataTrigger>
             <DataTrigger Binding="{Binding PieceName}" Value="Q">
-                <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Queen.png"/>
+                <Setter Property="Source" Value="/Pics/PicsForIsCanMove/Pieces/Queen.png"/>
             </DataTrigger>
             <DataTrigger Binding="{Binding PieceName}" Value="B">
-                <Setter Property="Source" Value="/Pics/PicsForIsCanBeat/Pieces/Bishop.png"/>
+                <Setter Property="Source" Value="/Pics/PicsForIsCanMove/Pieces/Bishop.png"/>
             </DataTrigger>
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="TextBlockBeatStyle" TargetType="TextBlock">
+    <Style x:Key="TextBlockMoveStyle" TargetType="TextBlock">
         <Setter Property="FontSize" Value="80"/>
         <Setter Property="Foreground" Value="Wheat"/>
         <Setter Property="VerticalAlignment" Value="Center"/>

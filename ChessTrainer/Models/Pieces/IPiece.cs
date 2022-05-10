@@ -8,6 +8,6 @@ namespace ChessTrainer.Models.Pieces
 {
     public interface IPiece
     {
-        bool CanBeat(Cell CellFrom, Cell CellTo);
+        bool CanMove(Cell CellFrom, Cell CellTo);
     }
 }

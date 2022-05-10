@@ -10,7 +10,7 @@ namespace ChessTrainer.Models.Pieces
     {
         public override Enums.Pieces PieceType { get; set; } = Enums.Pieces.Rook;
 
-        public override bool CanBeat(Cell CellFrom, Cell CellTo)
+        public override bool CanMove(Cell CellFrom, Cell CellTo)
         {
             return ((CellFrom.Rank == CellTo.Rank) || (CellFrom.File == CellTo.File));
         }

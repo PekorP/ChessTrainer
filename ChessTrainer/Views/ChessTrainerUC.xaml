@@ -31,8 +31,8 @@
                 <view:GameVoiceActingPage/>
             </DataTemplate>
 
-            <DataTemplate DataType="{x:Type vm:IsCanBeatViewModel}">
-                <view:IsCanBeatPage/>
+            <DataTemplate DataType="{x:Type vm:IsCanMoveViewModel}">
+                <view:IsCanMovePage/>
             </DataTemplate>
 
             <DataTemplate DataType="{x:Type vm:MaterialAdvantageViewModel}">
@@ -74,9 +74,9 @@
                 </Button>
 
                 <Button Style="{StaticResource SideMenuButtonStyle}" Content="Сможет ли пойти?"
-                            Command="{Binding ChangePage}" CommandParameter="{x:Type vm:IsCanBeatViewModel}">
+                            Command="{Binding ChangePage}" CommandParameter="{x:Type vm:IsCanMoveViewModel}">
                     <Button.Resources>
-                        <Image x:Key="IconForSideMenuButton" Source="/Pics/PicsForMainWindow/IsCanBeat.png"/>
+                        <Image x:Key="IconForSideMenuButton" Source="/Pics/PicsForMainWindow/IsCanMove.png"/>
                     </Button.Resources>
                 </Button>
 

@@ -9,6 +9,6 @@ namespace ChessTrainer.Models.Pieces
     public abstract class Piece : IPiece
     {
         public abstract ChessTrainer.Enums.Pieces PieceType { get; set; }
-        public abstract bool CanBeat(Cell CellFrom, Cell CellTo);
+        public abstract bool CanMove(Cell CellFrom, Cell CellTo);
     }
 }

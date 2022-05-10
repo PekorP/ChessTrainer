@@ -12,7 +12,7 @@ using System.Windows.Threading;
 
 namespace ChessTrainer.ViewModels
 {
-    class IsCanBeatViewModel : BaseTrainerViewModel
+    class IsCanMoveViewModel : BaseTrainerViewModel
     {
 
         #region Команды
@@ -28,7 +28,7 @@ namespace ChessTrainer.ViewModels
                       switch (obj)
                       {
                           case "Yes":
-                              if (CellFrom.Piece.CanBeat(CellFrom, CellTo) == true)
+                              if (CellFrom.Piece.CanMove(CellFrom, CellTo) == true)
                               {
                                   CountRightAnswers++;
                                   IsRightAnswer = true;
@@ -38,7 +38,7 @@ namespace ChessTrainer.ViewModels
                               break;
 
                           case "No":
-                              if (CellFrom.Piece.CanBeat(CellFrom, CellTo) == false)
+                              if (CellFrom.Piece.CanMove(CellFrom, CellTo) == false)
                               {
                                   CountRightAnswers++;
                                   IsRightAnswer = true;
@@ -109,7 +109,7 @@ namespace ChessTrainer.ViewModels
 
         public User User { get; set; }
 
-        public IsCanBeatViewModel(User User) : base()
+        public IsCanMoveViewModel(User User) : base()
         {
             NewCells();
             this.User = User;
@@ -123,7 +123,7 @@ namespace ChessTrainer.ViewModels
         {
             if (--TickCounter <= 0)
             {
-                SaveRecord("IsCanBeat", User);
+                SaveRecord("IsCanMove", User);
                 base.Timer_Tick(sender, e);
             }
         }

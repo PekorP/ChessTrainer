@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace ChessTrainer.Views.Pages
 {
     /// <summary>
-    /// Логика взаимодействия для IsCanBeatPage.xaml
+    /// Логика взаимодействия для IsCanMovePage.xaml
     /// </summary>
-    public partial class IsCanBeatPage : UserControl
+    public partial class IsCanMovePage : UserControl
     {
-        public IsCanBeatPage()
+        public IsCanMovePage()
         {
             InitializeComponent();
         }

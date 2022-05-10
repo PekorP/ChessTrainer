@@ -11,7 +11,7 @@ namespace ChessTrainer.Models.Pieces
     {
         public override Enums.Pieces PieceType { get; set; } = Enums.Pieces.Bishop;
 
-        public override bool CanBeat(Cell CellFrom, Cell CellTo)
+        public override bool CanMove(Cell CellFrom, Cell CellTo)
         {
             for (int i = 1; i <= 8; i++) //Для движения влево вниз
             {

@@ -56,7 +56,7 @@ namespace ChessTrainer.ViewModels
                 {"CoordinatesViewModel", new CoordinatesViewModel(User) },
                 {"BlackAndWhiteViewModel", new BlackAndWhiteViewModel(User)},
                 {"GameVoiceActingViewModel", new GameVoiceActingViewModel()},
-                {"IsCanBeatViewModel", new IsCanBeatViewModel(User)},
+                {"IsCanMoveViewModel", new IsCanMoveViewModel(User)},
                 {"MaterialAdvantageViewModel", new MaterialAdvantageViewModel(User)},
                 {"RulesViewModel", new RulesViewModel()}
             };

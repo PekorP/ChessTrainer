@@ -117,8 +117,8 @@
     <Compile Include="Views\UserControls\GameVoiceActingPage.xaml.cs">
       <DependentUpon>GameVoiceActingPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserControls\IsCanBeatPage.xaml.cs">
-      <DependentUpon>IsCanBeatPage.xaml</DependentUpon>
+    <Compile Include="Views\UserControls\IsCanMovePage.xaml.cs">
+      <DependentUpon>IsCanMovePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserControls\MaterialAdvantagePage.xaml.cs">
       <DependentUpon>MaterialAdvantagePage.xaml</DependentUpon>
@@ -150,7 +150,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Dictionaries\IsCanBeatDictionary.xaml">
+    <Page Include="Dictionaries\IsCanMoveDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -190,7 +190,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\UserControls\IsCanBeatPage.xaml">
+    <Page Include="Views\UserControls\IsCanMovePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -246,7 +246,7 @@
     <Resource Include="Pics\PicsForMainWindow\GameVoiceActing.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pics\PicsForMainWindow\IsCanBeat.png" />
+    <Resource Include="Pics\PicsForMainWindow\IsCanMove.png" />
     <Resource Include="Pics\PicsForMainWindow\MaterialAdvantage.png" />
   </ItemGroup>
   <ItemGroup>
@@ -268,10 +268,10 @@
     <Resource Include="Pics\General\WrongAnswer.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Pics\PicsForIsCanBeat\Pieces\Bishop.png" />
-    <Resource Include="Pics\PicsForIsCanBeat\Pieces\Knight.png" />
-    <Resource Include="Pics\PicsForIsCanBeat\Pieces\Queen.png" />
-    <Resource Include="Pics\PicsForIsCanBeat\Pieces\Rook.png" />
+    <Resource Include="Pics\PicsForIsCanMove\Pieces\Bishop.png" />
+    <Resource Include="Pics\PicsForIsCanMove\Pieces\Knight.png" />
+    <Resource Include="Pics\PicsForIsCanMove\Pieces\Queen.png" />
+    <Resource Include="Pics\PicsForIsCanMove\Pieces\Rook.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
