@@ -30,12 +30,12 @@ namespace ChessTrainer.ViewModels
 
         #region Команда сворачивания приложения
 
-        private RelayCommand minimizeAppllicatiom;
-        public RelayCommand MinimizeAppllicatiom
+        private RelayCommand minimizeAppllication;
+        public RelayCommand MinimizeAppllication
         {
             get
             {
-                return minimizeAppllicatiom ?? (minimizeAppllicatiom = new RelayCommand(obj =>
+                return minimizeAppllication ?? (minimizeAppllication = new RelayCommand(obj =>
                 {
                     Application.Current.MainWindow.WindowState = WindowState.Minimized;
                 }));

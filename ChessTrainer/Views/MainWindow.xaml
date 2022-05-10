@@ -70,7 +70,7 @@
                         Margin="10">
 
                 <Button Style="{StaticResource HeaderButtonStyle}"
-                        Command="{Binding MinimizeAppllicatiom}" Content="一"/>
+                        Command="{Binding MinimizeAppllication}" Content="一"/>
                 <Button Style="{StaticResource HeaderButtonStyle}"
                         Command="{Binding CloseApplication}" Content="X"/>
             </StackPanel>
