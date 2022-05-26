@@ -36,7 +36,7 @@
                      Style="{StaticResource ListBoxChessBoardStyle}">
                 <i:Interaction.Triggers>
                     <i:EventTrigger EventName="MouseUp">
-                        <i:InvokeCommandAction Command="{Binding CheckIsRightAnswer}" CommandParameter="{Binding SelectedCell}"/>
+                        <i:InvokeCommandAction Command="{Binding CheckIsRightAnswer}"/>
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </ListBox>
