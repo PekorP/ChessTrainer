@@ -24,15 +24,7 @@ namespace ChessTrainer.ViewModels
                   (checkIsRightAnswer = new RelayCommand(obj =>
                   {
                       Cell newCell = new Cell() { File = RandomCell.File, Rank = RandomCell.Rank };
-
-                      switch (obj) {
-                          case "Black":
-                              newCell.Color = Enums.CellColor.Black;
-                              break;
-                          case "White":
-                              newCell.Color = Enums.CellColor.White;
-                              break;
-                      }
+                      newCell.Color = obj.ToString() == "Black" ? Enums.CellColor.Black : Enums.CellColor.White;
                       if (RandomCell.Equals(newCell))
                       {
                           CountRightAnswers++;
