@@ -14,23 +14,19 @@
     </UserControl.DataContext>
 
     <UserControl.Resources>
-        <SolidColorBrush  x:Key="GridBG" Color="#ff7440"/>
+        <SolidColorBrush  x:Key="GridBG" Color="#ba5536"/>
     </UserControl.Resources>
     
     <Grid Background="{StaticResource GridBG}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="3.2*"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="TextBlockHeader"
-                   Grid.Row="0" Text="Описание тренажеров"
-                   FontSize="40" Foreground="Yellow"
-                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
 
         <TextBlock x:Name="TextBlockDescription"
-                   Grid.Row="1"
+                   Grid.Row="0"
                    FontSize="15" Foreground="White"
                    TextWrapping="Wrap"
                    Margin="20 0" Padding="10"
@@ -44,11 +40,11 @@
             <Run Text="Прочитайие описание, выберите подходящий Вам тренажер, становитесь лучше!"/>
             <LineBreak/>
             <Run Text="Чтобы вернуться на эту страницу нажмите на кнопку"/>
-            <Run Text="Home" Foreground="Wheat"/>
+            <Run Text="Домой" Foreground="Wheat"/>
         </TextBlock>
 
         <Grid x:Name="GridRules"
-              Grid.Row="2" Background="#FF5F5F5F"
+              Grid.Row="1" Background="#FF5F5F5F"
               Margin="20 0 20 5">
             <Grid.RowDefinitions>
                 <RowDefinition/>

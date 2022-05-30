@@ -47,11 +47,11 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
 
-        <Grid Background="#FF6347" Grid.Column="0">
+        <Grid Background="#693d3d" Grid.Column="0">
             <StackPanel VerticalAlignment="Center" >
                 <Button Style="{StaticResource HeaderButtonStyle}"
                         Command="{Binding ChangePage}" CommandParameter="{x:Type vm:RulesViewModel}"
-                        Content="Home" HorizontalAlignment="Center"/>
+                        Content="Домой" HorizontalAlignment="Center" Margin="0 0 0 10"/>
                 <Button Style="{StaticResource SideMenuButtonStyle}" Content="Координаты"
                             Command="{Binding ChangePage}" CommandParameter="{x:Type vm:CoordinatesViewModel}">
                     <Button.Resources>

@@ -42,18 +42,18 @@
             <RowDefinition Height="31*"/>
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="0" Background="SandyBrown">
+        <Grid Grid.Row="0" Background="#46211a">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
                 <ColumnDefinition Width="5*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center">
+            <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center" Margin="50 0">
                 <TextBlock x:Name="UserLogin"
                        Style="{StaticResource TextBlockHeaderStyle}"
-                       Text="{Binding UserLogin}" Foreground="Yellow"/>
-                <TextBlock Style="{StaticResource TextBlockUserDataStyle}">
+                       Text="{Binding UserLogin}" Foreground="Yellow" HorizontalAlignment="Left"/>
+                <TextBlock Style="{StaticResource TextBlockUserDataStyle}" HorizontalAlignment="Left">
                     <Run Text="Рекорд - "/><Run Text="{Binding UserRecord}"/>
                 </TextBlock>
             </StackPanel>
