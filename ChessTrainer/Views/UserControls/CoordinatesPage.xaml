@@ -108,7 +108,7 @@
 
                 <Button Grid.Row="4" Content="Старт"
                         Command="{Binding StartTimer}"
-                        Style="{StaticResource BaseButtonStyle}" Height="50"
+                        Style="{StaticResource ButtonStartTimer}" Height="50"
                         Margin="10 0"
                         VerticalAlignment="Bottom"/>
             </Grid>

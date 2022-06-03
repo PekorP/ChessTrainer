@@ -119,8 +119,8 @@
 
             <Button Grid.Column="1" Grid.Row="1" Content="Старт"
                         Command="{Binding StartTimer}"
-                        Style="{StaticResource BaseButtonStyle}" Height="50"
-                        VerticalAlignment="Center" Margin="0 20"/>
+                        Style="{StaticResource ButtonStartTimer}" Height="80"
+                        VerticalAlignment="Center" Margin="0 10"/>
             <StackPanel Grid.Column="1" Grid.Row="0"
                         Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock 
