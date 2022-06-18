@@ -24,7 +24,10 @@ namespace ChessTrainer.ViewModels
                   {
                       var viewModelName = obj.ToString().Split('.')[2];
                       CurrentContentVM = ViewModels[viewModelName];
-                      OnChangeTrainer.Invoke(this, new VMEventArgs(viewModelName.Substring(0, viewModelName.Length - 9), User));
+                      OnChangeTrainer.Invoke
+                      (this,
+                      new VMEventArgs(viewModelName.Substring(0, viewModelName.Length - 9),
+                      User));
                   }));
             }
         }
