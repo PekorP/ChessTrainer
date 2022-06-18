@@ -87,6 +87,7 @@ namespace ChessTrainer.ViewModels
                   (deleteMove = new RelayCommand(obj =>
                   {
                       Moves.Remove(Moves[Moves.Count - 1]);
+                      ChessParsedMoves.Remove(ChessParsedMoves[ChessParsedMoves.Count - 1]);
                       AddedChessMove.NumberOfMove--;
                   },
                   obj =>
@@ -107,6 +108,7 @@ namespace ChessTrainer.ViewModels
                   (clearMoves = new RelayCommand(obj =>
                   {
                       Moves.Clear();
+                      ChessParsedMoves.Clear();
                       AddedChessMove.NumberOfMove = 1;
                   },
                   obj =>
