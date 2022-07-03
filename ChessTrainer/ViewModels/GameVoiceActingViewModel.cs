@@ -67,7 +67,7 @@ namespace ChessTrainer.ViewModels
                   {
                       IsGameVoiceActing = true;
                       foreach(var move in ChessParsedMoves)
-                          speechSynthesizer.Speak(move);
+                          speechSynthesizer.SpeakAsync(move);
                       IsGameVoiceActing = false;
                   },
                   obj =>
